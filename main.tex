@@ -1,0 +1,125 @@
+\documentclass[10pt]{article}
+
+\usepackage{fullpage}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage[section]{placeins}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{breakcites}
+\usepackage{lineno}
+\usepackage{hyphenat}
+
+
+
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks = true,
+      linkcolor = PineGreen,
+      urlcolor = blue,
+      citecolor = blue,
+      anchorcolor = blue]{hyperref}
+      
+\usepackage{etoolbox}
+\usepackage[round]{natbib}
+\bibliographystyle{unsrtnat}
+
+
+\renewenvironment{abstract}
+ {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
+ {\bigskip}
+
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*2}{*0.5}
+\titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
+
+
+\usepackage{authblk}
+
+
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{tabulary}
+\usepackage{booktabs,array,multirow}
+\usepackage{amsfonts,amsmath,amssymb}
+\providecommand\citet{\cite}
+\providecommand\citep{\cite}
+\providecommand\citealt{\cite}
+
+\renewcommand\cite{\citep}
+
+% You can conditionalize code for latexml or normal latex using this.
+\newif\iflatexml\latexmlfalse
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}%
+
+\AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{xspace}
+\usepackage{caption}
+
+%lists
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+
+%emoji
+\usepackage{pifont}
+
+\newcommand{\algo}[1]{\hyperlink{#1}{\underline{#1}}}
+\newcommand{\thealgo}[1]{\hypertarget{#1}{\textbf{\underline{#1}}}}
+\begin{document}
+
+\title{Generative Adversarial Networks Applied to Observational Health Data}
+
+\author[1,2]{Jeremy Georges-Filteau}%
+\author[2]{Elisa Cirillo}%
+\affil[1]{Radboud University Nijmegen}%
+\affil[2]{The Hyve}%
+
+
+\vspace{-1em}
+
+ \date{\today}
+
+\begingroup
+\let\center\flushleft
+\let\endcenter\endflushleft
+\maketitle
+\endgroup
+
+\selectlanguage{english}
+\begin{abstract}
+Having been collected for its primary purpose in patient care,
+Observational Health Data (OHD) can further benefit patient well-being
+by sustaining the development of health informatics.~ However, the
+potential for secondary usage of OHD continues to be hampered by the
+fiercely private nature of patient-related data. ~
+
+Generative Adversarial Networks (GAN) have Generative Adversarial
+Networks (GAN) have recently emerged as a groundbreaking approach to
+efficiently learn generative models that produce realistic Synthetic
+Data (SD). However, the application of GAN to OHD seems to have been
+lagging in comparison to other fields.
+
+We conducted a review of GAN algorithms for OHD in the published
+literature, and report our findings here.%
+\end{abstract}%
+
+\input{introduction}
+\input{methods}
+\input{results}
+\input{privacy}
+\input{discussion}
+\input{future}
+
+
+
+\bibliography{biblio.bib}
+
+\end{document}

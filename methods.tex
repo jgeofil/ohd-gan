@@ -1,0 +1,47 @@
+\section{Methods}
+
+\begin{table}[h]
+  \center
+    \begin{tabular}{@{}clccl@{}} \toprule
+	    \multicolumn{2}{c}{Health data} & & \multicolumn{2}{c}{Generative adversarial models} \\ \cmidrule{1-2} \cmidrule{4-5}
+	    \multicolumn{2}{c}{Terms} & {} & \multicolumn{2}{c}{Terms} \\ \cmidrule{2-2} \cmidrule{5-5}
+	    \multirow{4}{*}{OR} & clinical & \multirow[t]{4}{*}{\quad AND\quad} & \multirow{4}{*}{OR} & generative adversarial\\
+	    {} & health & {} & {} & GAN \\ 
+	    {} & EHR & {} & {} & adversarial training \\
+	    {} & electronic health record & {} & {} & synthetic  \\
+	    {} & patient & {} & {} & {} \\
+	    \bottomrule
+    \end{tabular}
+    \caption{{Search query terms}}\label{tab:search}
+\end{table}
+
+Publications concerning OHD-GAN were identified through searches by Google Scholar and Web of Science, with the the query formed from the terms and operators found in Table ???. We included studies reporting the development, application, performance evaluation and privacy evaluation of GAN algorithms to produce OHD. Broadly, we define the scope of OHD to be considered as low-dimensional data recorded for patient care. A more detailed summary of the included and excluded data types can be found in Figure 2. Excluded data types are already the subject of a review or would merit a review of their own \cite{Yi_2019}\cite{Nakata2019}\cite{Anwar_2018}. In each of the publications, we analyzed the aspects listed in Table \ref{tab:search}.\par
+
+\begin{table}
+\centering
+  \caption{Aspects analysed in each of the publications included in the review\label{tab:aspects}}
+  \begin{tabular}{ll}\toprule
+  A) Types of healthcare data & D) Evaluation metrics\\
+  B) GAN algorithm, learning procedures, losses & E) Privacy considerations\\
+  C) Intented use of the SD & F) Interpreatability of the model\\\bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+\center
+  \caption{Types of OHD data included or excluded from the review.}\label{tab:include}
+  
+  \begin{tabular}{@{}lll@{}}\toprule
+  Type & Examples \\ \midrule
+  
+  \multirow{4}{*}{Included} & Observations & Demographic information, medical classification, family history \\
+  &Timestamped observations & Diagnosis, treatment and procedure codes, prescription and dosage, laboratory test results, physiologic measurements and intake events \\
+  &Encounters & Visit dates, care provider, care site \\
+  &Derived & Aggregated counts, calculated indicators \\ \midrule
+
+  \multirow{4}{*}{Included} &Omics & Genome, transcriptome, proteome, immunome, metabolome, microbiome \\
+  &Imaging & X-rays, computed tomography (CT), magnetic resonance imaging (MRI) \\
+  &Signal & Electrocardiogram (ECG), electroencephalogram (EEG) \\
+  &Unstructured & Narrative reports, textual \\ \bottomrule
+  \end{tabular}%
+\end{table}

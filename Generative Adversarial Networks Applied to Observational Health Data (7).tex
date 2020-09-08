@@ -1,0 +1,909 @@
+\documentclass[10pt]{article}
+
+\usepackage{fullpage}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage[section]{placeins}
+\usepackage{xcolor}
+\usepackage{breakcites}
+\usepackage{lineno}
+\usepackage{hyphenat}
+
+
+
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{%
+  \errmessage{\noexpand\@combinedblfloats could not be patched}%
+}%
+\makeatother
+
+
+\usepackage{natbib}
+
+
+
+
+\renewenvironment{abstract}
+  {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
+  {\bigskip}
+
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*2}{*0.5}
+\titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
+
+
+\usepackage{authblk}
+
+
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{tabulary}
+\usepackage{booktabs,array,multirow}
+\usepackage{amsfonts,amsmath,amssymb}
+\providecommand\citet{\cite}
+\providecommand\citep{\cite}
+\providecommand\citealt{\cite}
+% You can conditionalize code for latexml or normal latex using this.
+\newif\iflatexml\latexmlfalse
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}%
+
+\AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+
+
+
+
+
+
+
+
+
+\usepackage{xspace}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+%lists
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+
+%emoji
+\usepackage{pifont}
+
+\usepackage{todonotes}
+
+\begin{document}
+
+\title{Generative Adversarial Networks Applied to Observational Health Data}
+
+
+
+\author[1,2]{Jeremy Georges-Filteau}%
+\author[2]{Elisa Cirillo}%
+\affil[1]{Radboud University Nijmegen}%
+\affil[2]{The Hyve}%
+
+
+\vspace{-1em}
+
+
+
+  \date{\today}
+
+
+\begingroup
+\let\center\flushleft
+\let\endcenter\endflushleft
+\maketitle
+\endgroup
+
+
+
+
+
+\selectlanguage{english}
+\begin{abstract}
+Having been collected for its primary purpose in patient care,
+Observational Health Data (OHD) can further benefit patient well-being
+by sustaining the development of health informatics.~ However, the
+potential for secondary usage of OHD continues to be hampered by the
+fiercely private nature of patient-related data. ~
+
+Generative Adversarial Networks (GAN) have Generative Adversarial
+Networks (GAN) have recently emerged as a groundbreaking approach to
+efficiently learn generative models that produce realistic Synthetic
+Data (SD). However, the application of GAN to OHD seems to have been
+lagging in comparison to other fields.
+
+We conducted a review of GAN algorithms for OHD in the published
+literature, and report our findings here.%
+\end{abstract}%
+
+
+
+\sloppy
+
+
+
+
+
+
+
+
+
+
+\section{Methods}
+
+{\label{136183}}\selectlanguage{english}
+\begin{table}
+    \centering
+        \caption{{{Search query terms}}}\label{tab:search}
+        \begin{tabular}{@{}clccl@{}} \toprule
+        \multicolumn{2}{c}{Health data} & {} & \multicolumn{2}{c}{Generative adversarial models} \\ \cmidrule{1-2} \cmidrule{4-5}
+        \multicolumn{2}{c}{Terms} & {} & \multicolumn{2}{c}{Terms} \\ \cmidrule{2-2} \cmidrule{5-5}
+        \multirow{4}{1em}{OR} & clinical & \multirow{4}{1em}{AND} & \multirow{4}{1em}{OR} & generative adversarial\\
+        {} & health & {} & {} & GAN  \\  
+        {} & EHR & {} & {} & adversarial training  \\
+        {} & electronic health record & {} & {} & synthetic   \\
+        {} & patient & {} & {} & {} \\
+        \bottomrule
+        \end{tabular}
+\end{table}
+
+Publications concerning~\textbf{OHD-GAN} were identified through
+searches by Google Scholar~and Web of Science, with the the query formed
+from the terms and operators found in
+Table~{\ref{tab:search}}. We included studies reporting
+the development, application, performance evaluation and privacy
+evaluation of GAN algorithms to produce OHD. Broadly, we define the
+scope of OHD to be considered as low-dimensional data recorded for
+patient care. A more detailed summary of the included and excluded data
+types can be found in Figure~{\ref{tab:include}}.~
+Excluded data types~are already the subject of a review or would merit a
+review of their own \hyperref[csl:1]{(Yi, Walia, and Babyn 2019}; \hyperref[csl:2]{Nakata 2019}; \hyperref[csl:3]{Anwar et al. 2018)}.~In each of the publications, we
+analyzed the aspects listed in
+Table~{\ref{tab:aspects}}.\selectlanguage{english}
+\begin{table}
+\centering
+    \caption{{Aspects analysed in each of the publications included in the review\label{tab:aspects}}}
+    \begin{tabular}{ll}\toprule
+    A) Types of healthcare data & D) Evaluation metrics\\
+    B) GAN algorithm, learning procedures, losses & E) Privacy considerations\\
+    C) Intented use of the SD & F) Interpreatability of the model\\\bottomrule
+    \end{tabular}
+\end{table}\selectlanguage{english}
+\begin{table}[]
+\centering
+
+\caption{{Included excluded}}
+\label{tab:include}
+\begin{tabular}{@{}p{0.10\linewidth}p{0.10\linewidth}@{}}
+\toprule
+
+Type & Examples \\ \midrule
+
+\multicolumn{1}{r}{Included} \\ \midrule
+
+Observations & Demographic information, medical classification, family history \\
+
+Timestamped observations & Diagnosis, treatment and procedure codes, prescription and dosage, laboratory test results, physiologic measurements and intake events \\
+
+Encounters & Visit dates, care provider, care site \\
+
+Derived & Aggregated counts, calculated indicators \\ \midrule
+
+\multicolumn{1}{r}{Excluded} \\ \midrule
+
+Omics & Genome, transcriptome, proteome, immunome, metabolome, microbiome  \\
+
+Imaging & X-rays, computed tomography (CT), magnetic resonance imaging (MRI) \\
+Signal & Electrocardiogram (ECG), electroencephalogram (EEG) \\
+Unstructured & Narrative reports, textual \\ \bottomrule
+\end{tabular}%
+
+\end{table}
+
+\section{Results: algorithms, models and
+training}
+
+{\label{974504}}
+
+\subsection{Summary}
+
+{\label{704368}}
+
+We have found a total of 36 publications describing the development or
+adaption of GAN algorithms for OHD, presented in
+Table~{\ref{tab:citeinc}}. The type of data addressed
+in each of these publications can be generalized into one of two
+categories: time-dependent observations, such as time-series, or static
+representation in the form of feature tables. Publications giving
+consideration to privacy either perform privacy evaluations of their
+algorithms and synthetic data, or exclusively concentrate on comparing
+methods on the subject of privacy.\selectlanguage{english}
+\begin{table}
+    \centering
+        \caption{{Publications included}}\label{tab:citeinc}
+    
+        \begin{tabular}{@{}p{0.24\linewidth}p{0.24\linewidth}p{0.04\linewidth}p{0.24\linewidth}p{0.24\linewidth}@{}} \toprule
+        
+        \multicolumn{2}{l}{\textbf{Time-series / Orderings}} & {} & \multicolumn{2}{l}{\textbf{Static / Aggregates}} \\ 
+        \cmidrule{1-2} \cmidrule{4-5}
+        
+        {} & Privacy & {} & {} & Privacy \\ \cmidrule{2}\cmidrule{5}
+        
+        \hyperref[csl:4]{(Xiao et al. 2017)}\hyperref[csl:5]{(Esteban, Hyland, and R{\"a}tsch 2017)}\hyperref[csl:6]{(Yahi et al. 2017)}\hyperref[csl:7]{(Xiao et al. 2018)}\hyperref[csl:8]{(McDermott et al. 2018)}\hyperref[csl:9]{(Wang, Zhang, and He 2019)}\hyperref[csl:10]{(Fisher, Smith, and Walsh 2019)}\hyperref[csl:11]{(Cui et al. 2019)}\hyperref[csl:12]{(Walsh et al. 2020)}\hyperref[csl:13]{(Xu et al. 2019)}\hyperref[csl:14]{(Yu et al. 2019)} & \hyperref[csl:15]{(Che et al. 2017)}\hyperref[csl:16]{(Beaulieu-Jones et al. 2019)}\hyperref[csl:17]{(Severo et al. 2019)}\hyperref[csl:18]{(Goncalves et al. 2020)}\hyperref[csl:19]{(Yale et al. 2020)} &
+        {}
+        & \hyperref[csl:20]{(Yoon, Jordon, and Schaar 2018)}\hyperref[csl:21]{(Yoon, Jordon, and van der Schaar 2018)}\hyperref[csl:22]{(Camino, Hammerschmidt, and {Radu State} 2018)}\hyperref[csl:23]{(Jackson and Lussetti 2019)}\hyperref[csl:24]{(Yang et al. 2019)}\hyperref[csl:25]{(Li et al. 2020)}\hyperref[csl:15]{(Che et al. 2017)}\hyperref[csl:26]{(Chu, Dong, and Huang 2019)}\hyperref[csl:27]{(Chen et al. 2019)}\hyperref[csl:28]{(Baowaly, Liu, and Chen 2019)}\hyperref[csl:29]{(Baowaly et al. 2019)}\hyperref[csl:30]{(Ozyigit, Arvanitis, and Despotou 2020)} & \hyperref[csl:31]{(Choi et al. 2017)}\hyperref[csl:32]{(Zhang et al. 2020)}\hyperref[csl:33]{(Bae et al. 2020)}\hyperref[csl:34]{(Yoon, Drumright, and van 2020)}\hyperref[csl:19]{(Yale et al. 2020)}\hyperref[csl:35]{(Yale et al. 2019)}\hyperref[csl:36]{(Yale et al. 2019)}\hyperref[csl:37]{(Torfi and Beyki 2019)}\hyperref[csl:38]{(Chin-Cheong, Sutter, and Vogt 2019)}\\ 
+        \cmidrule{1-2} \cmidrule{4-5}
+        
+        \multicolumn{1}{l}{Subtotal: 11} & \multicolumn{1}{l}{Subtotal: 5} & {} & \multicolumn{1}{l}{Subtotal: 12} & \multicolumn{1}{l}{Subtotal: 9}\\ \midrule
+        
+        \multicolumn{5}{l}{\textbf{Total publications: 40}}\\
+        \bottomrule
+        \end{tabular}
+\end{table}
+
+Most efforts are focused on adapting the current methods to the
+characteristics and complexities of OHD, of which multimodality or
+non-gasusan continuous features, heterogeneity, a combination of
+discrete and continuous features, longitudinal irregularity, correlation
+complexity, missingness or sparsity, class imbalance and noise are often
+cited.
+
+While these may pose a challenge for the development of suitable GAN
+methods, others properties make the prospect of success highly valuable.
+In fact, the most cited motivation to develop OHD-GAN is to cope with
+the often limited number of samples in medical datasets and to overcome
+the highly restricted access to OHD.~
+
+\subsection{Motivations for developing
+OHD-GAN}
+
+{\label{989356}}
+
+The authors cite a wide range of potential applications for generative
+models of OHD. While some of these goals are optimistic and have yet to
+be realized, they paint an encouraging picture for the value OHD-GAN.
+We've listed a few recurring motivations here.
+
+\subsubsection{Data augmentation}
+
+{\label{389127}}
+
+Data augmentation is mentioned in nearly all publications. Most
+commonly, synthetic data can improve generalization in predictive
+algorithms by providing additional information about the real data
+distribution~\hyperref[csl:9]{(Wang, Zhang, and He 2019}; \hyperref[csl:15]{Che et al. 2017}; \hyperref[csl:20]{Yoon, Jordon, and Schaar 2018}; \hyperref[csl:21]{Yoon, Jordon, and van der Schaar 2018)}. Similarly, GAN's application to domain
+translation and semi-supervised training approaches could support
+predictive tasks in healthcare that lack data with accurate labels,
+paired samples, or present class imbalance~\hyperref[csl:15]{(Che et al. 2017}; \hyperref[csl:8]{McDermott et al. 2018)}.
+
+\subsubsection{Enhancing privacy and increasing
+accessibility}
+
+{\label{779569}}
+
+SD is seen as the key to unlocking the value of OHD, which is currently
+locked in due to privacy concerns. Preserving privacy can broadly be
+described as reducing the risk of reidentification attacks to an
+acceptable level.
+
+Many studies noted that highly restricted access to OHD is hindering
+machine learning, and more generally scientific
+progress~\hyperref[csl:16]{(Beaulieu-Jones et al. 2019}; \hyperref[csl:29]{Baowaly et al. 2019}; \hyperref[csl:15]{Che et al. 2017}; \hyperref[csl:5]{Esteban, Hyland, and R{\"a}tsch 2017}; \hyperref[csl:10]{Fisher, Smith, and Walsh 2019)}. Due to its artificial nature, SD is
+proposed as a means to forgo data use agreements, while potentially
+providing greater privacy guarantees and reducing the loss of
+utility~\hyperref[csl:16]{(Beaulieu-Jones et al. 2019}; \hyperref[csl:29]{Baowaly et al. 2019}; \hyperref[csl:5]{Esteban, Hyland, and R{\"a}tsch 2017}; \hyperref[csl:10]{Fisher, Smith, and Walsh 2019}; \hyperref[csl:12]{Walsh et al. 2020)}.~ Overall, enabling access to greater
+variety, quality and quantity of OHD~ could have positive effects in a
+wide range of fields, such as software development, education, and
+training of medical professionals.~
+
+\subsubsection{Enabling precision
+medicine}
+
+{\label{406097}}
+
+The ability to conduct simulations of disease progression for individual
+patients could have transformative impacts on healthcare.~Generative
+models conditioned on a patient's baseline state could help inform
+clinical decision making by quantifying disease progression
+~\hyperref[csl:12]{(Walsh et al. 2020}; \hyperref[csl:10]{Fisher, Smith, and Walsh 2019)}.~Additionally, stochastic simulations of individual
+patient profiles could help quantify risk at an unprecedented level of
+granularity~\hyperref[csl:10]{(Fisher, Smith, and Walsh 2019)}.~ ~
+
+Predicting patient-specific responses to drugs is still a new field of
+research, a problem known as Individualized Treatment Effects (ITE).~The
+task of estimating ITEs is persistently hampered by the lack or paired
+samples, or conterfactuals~\hyperref[csl:21]{(Yoon, Jordon, and van der Schaar 2018}; \hyperref[csl:26]{Chu, Dong, and Huang 2019)}. In regards to these
+issues, GANs have shown the ability for domain translation, mapping a
+sample from its to original class to the paired equivalent. This
+includes bidirectional transformations, in addition to the possibility
+of learning from very few paired samples, or even achieving better
+performance in the absence of paired samples~\hyperref[csl:39]{(Wolterink et al. 2017)}.~
+
+\subsubsection{From patient and disease models to digital
+twins}
+
+{\label{415935}}
+
+Realistic synthetic data implies a model that approximates the process
+that generated the real information~\hyperref[csl:5]{(Esteban, Hyland, and R{\"a}tsch 2017)}. Achieving models
+of significant complexity would open up new simulation possibilities for
+developing predictive systems and methods. In clinical research, such
+models could help quantify cause and effect, simulate different study
+designs, provide control samples or more generally give us a better
+understanding of disease progression in relation to initial
+conditions~\hyperref[csl:10]{(Fisher, Smith, and Walsh 2019}; \hyperref[csl:6]{Yahi et al. 2017}; \hyperref[csl:12]{Walsh et al. 2020)}.~
+
+Pushing the aspect of simulation further, the concept of ``digital
+twins'' represents in a way the ultimate realization of personalized
+medicine. A common practice in industrial sectors is high-fidelity
+virtual representations, or long-term simulations, of physical assets
+that grant a comprehensive~ understanding of the workings, behavior and
+life-cycle. Their state is continuously updated from theoretical data,
+real data, streaming IoT indicators and conditional synthetic data.~
+
+In a position paper, Angulo et al. draw the parallels of this technique
+with the current needs in healthcare and the~ emergeance of the
+necessary technologies for the proposal they bring
+forward~\hyperref[csl:40]{(Angulo Bah{\'o}n, Ortega Ram{\'\i}rez, and Gonzalez Abril 2019}; \hyperref[csl:41]{Angulo et al. 2020)}.~ Notably, the rapid adoption of~ wearables
+that are continuously monitoring people's physiological state. Through
+continuous lifelong learning, patient models inform the decisions of
+medical professionals, but also enable testing research hypotheses. In
+their~ proposal, GANs are an essential component of the ecosystem to
+ensure patient privacy and~ to provide bootsrap data. Fisher et al.
+employ the term to describe their method \hyperref[csl:12]{(Walsh et al. 2020)}.
+
+\subsection{Data Types and Feature
+Engineering}
+
+{\label{980823}}
+
+Few publications made use of OHD in its initial form. In most cases,
+feature engineering was used to adapt the data to the scientific
+question, or to make it intelligible for particular algorithms. The data
+is transformed into one of four modalities: time series,
+point-processes, ordered sequences or aggregates described in Fig.
+{\ref{tab:typeseng}}.\selectlanguage{english}
+\begin{table}
+    \caption{{Types of observational health data and features engineering}}\label{tab:typeseng}
+    
+    \begin{tabular}{p{0.10\textwidth},p{0.25\textwidth},p{0.25\textwidth},p{0.40\textwidth}} \toprule
+    
+    Type & Source and format & Challenges & Features engineering\\ \midrule
+    
+    Time-series & Automatic measurements at fixed time intervals by medical equipment or medical professionals. & Often sporadic, with many missing observations across time end dimensions. & Data imputation, imputation coupled with training, binning in into fixed-size intervals or combination of binning and imputation\\
+    Point-processes & Time intervals between medical events, such as hospital visits. & & Timestamped events transformed into the time delta between each consecutive occurrences.\\
+    Ordered sequences & Variable-length, ordered vectors of medical codes & Large number of codes and variable length. & Sequences are projected into a trained embedding that preserves semantic meaning
+    according to methods borrowed from NLP.\\
+    Tabular & Continuous, ordinal and categorical features in tabular form. & Mixture of discrete features with high class imbalance and multimodal continuous features. & Medical history is aggregated into a fixed-size vector of binary or aggregated counts of occurences and combined with demographic features.\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+The modelling approaches, neural network algorithms and learning
+strategies employed to develop OHD-GAN cannot be succinctly generalized.
+In addition to being dependent on the data representation, these are
+chosen according to the generation task and the intended use of the
+synthetic data. Nonetheless, we present here a few of the main
+techniques. A list of the datasets used in the publications is presented
+in Section~{\ref{710859}}.
+
+\subsection{Data oriented GAN
+development}
+
+\subsubsection{Autoencoders and categorical features in
+tabular~data}
+
+{\label{761000}}
+
+To deal with the incompatibility of ordinal and categorical features
+with backpropagation, in the algorithm~\textbf{medGAN\emph{~}}Choi et
+al. pre-train an~\textbf{Autoencoder (AE)} to project the samples to,
+and from, a continuous latent space representation~\hyperref[csl:31]{(Choi et al. 2017)}.
+The trained decoder portion of the~AE then maps the latent-space
+representation of the generator back to discrete features. In a later
+effort, Jackson et al. used~\textbf{medGAN} on an extended dataset
+containing demographic and health system usage information with similar
+results to the original~\hyperref[csl:23]{(Jackson and Lussetti 2019)}. ~
+
+Numerous efforts were made to improve on the performance of medGAN.
+Among the first, Camino et al.~ built~\textbf{MC-medGAN~} in which they
+modified the AE by adding a~\textbf{\emph{Gumbel-Softmax}}~activation
+layer after splitting the output with a dense layer for each categorical
+variable and finally concatenating their output~\hyperref[csl:22]{(Camino, Hammerschmidt, and {Radu State} 2018)}. The
+authors also adapted a GAN based on recent training~
+techniques:~~\textbf{Wassertein GAN
+(WGAN)}~\hyperref[csl:42]{(Arjovsky, Chintala, and Bottou 2017)}~an~\textbf{WGAN with Gradient
+Penalty}~\textbf{(WGAN-GP)}~\hyperref[csl:43]{(Gulrajani et al. 2017)} . In brief,
+the~\textbf{\emph{Wasserstein distance}} is a measure of distance
+between two probability distributions used as the loss function that has
+the property of always providing a smooth gradient, generally avoiding
+mode collapse.~ \textbf{MC-WGAN-GP~~}is built in the same manner as
+MC-medGAN but with~\textbf{Softmax} layers.~The authors determined that
+the proposed alternatives gave better results in general, but that the
+choice of a model will depend on data characteristics, particularly
+sparsity. Wasserstein's distance was widely adopted by subsequent
+authors for its beneficial rapport with mode collapse and health data.~
+
+Baoway et al. adapted~medGAN\textbf{~}based on~WGAN-GP, and introduced a
+second adaptation from~\textbf{Boundary-seeking GAN
+(BGAN)~}\hyperref[csl:44]{(Hjelm et al. 2017)} which pushes the generator to produce samples
+that lie on the decision boundary of the discriminator, expanding the
+search space. Respectively termed~\textbf{MedWGAN} and~\textbf{MedBGAN},
+the algorithms have led to improved data quality, particularly
+with~MedBGAN\textbf{~}\hyperref[csl:29]{(Baowaly et al. 2019}; \hyperref[csl:28]{Baowaly, Liu, and Chen 2019)}.~The~\textbf{HealthGAN}
+algorithm was also based on a combination of~medGAN and~WGAN-GP, but
+includes a data transformation method adapted from the Synthetic Data
+Vault~\hyperref[csl:45]{(Patki, Wedge, and Veeramachaneni 2016)} to map categorical features to and from the
+unit numerical range~\hyperref[csl:19]{(Yale et al. 2020)}. ~
+
+\subsubsection{}
+
+{\label{767367}}\par\null
+
+\subsubsection{Forgoing the autoencoder}\label{noauto}
+
+With~\textbf{EMR Wasserstein GAN (EMR-WGAN)}, Zhang et al. dispose of
+the~AE~component in~medGAN\textbf{~}and introduce a conditional training
+method, with along conditioned~\textbf{\emph{batch normalization}}
+and~\emph{\textbf{layer normalization}} techniques to stabilise training
+~\hyperref[csl:32]{(Zhang et al. 2020)}. The algorithm was further adapted by Yan et al. as
+~\textbf{Heterogeneous GAN (HGAN)} to better account for the conditional
+distributions between multiple data types and enforce record-wise
+consistency. A recognized problem with~medGAN~was that it produced
+common-sense inconsistencies, such as gender mismatches in medical
+codes~~\hyperref[csl:46]{(Yan et al. 2020}; \hyperref[csl:47]{Choi et al. 2017)}. In~HGAN, constraints are enforced by adding
+specific penalities to the loss function, such as ranges for numerical
+categorical pairs and mutual exclusivity for pairs of binary
+features~\hyperref[csl:46]{(Yan et al. 2020)}.~
+
+To develop \textbf{Conditional~ Tabular GAN} \textbf{(CTGAN)}, Xu et al.
+presume that tabular data poses a challenge to GANs owing to
+the~non-Gaussian multimodal distribution~of continuous columns
+and~imbalanced discrete columns. Their algorithm, composed of fully
+connected layers, was developed with adaptations to deal with both
+continuous and categorical features. For continuous features, it
+employs~\emph{\textbf{mode-specific normalization}}~to capture the
+multiplicity of modes. For discrete features
+conditional~\emph{\textbf{training-by sampling}~}is devised~to resample
+discrete attributes evenly during training, while recovering the real
+distribution when generating data~\hyperref[csl:13]{(Xu et al. 2019)}.~
+
+Other approaches include:~\textbf{corGAN}, where the~AE is questionably
+replaced by a 1-dimensional~\textbf{Convolutional AE~(CAE)} to capture
+neighboring feature correlations of the input
+vectors~\hyperref[csl:37]{(Torfi and Beyki 2019)}, and two basic feedforward networks based on
+Wassertein distance to evaluate the capacity of GANs to model
+heterogeneous data of dense and sparse medical
+features~\hyperref[csl:38]{(Chin-Cheong, Sutter, and Vogt 2019)} and~ to reproduce statistical properties
+\hyperref[csl:30]{(Ozyigit, Arvanitis, and Despotou 2020)}.~ ~
+
+\subsubsection{Reproducing physiological
+time-series}
+
+{\label{422879}}
+
+Esteban et al. used devise the \textbf{Recurrent GAN (RGAN)}
+and~\textbf{Recurrent Conditional GAN (RCGAN)}~based on LSTM to generate
+a regular time-series of physiological measurements from bedside
+monitors~\hyperref[csl:5]{(Esteban, Hyland, and R{\"a}tsch 2017)}. Curiously, the authors dismiss Wassertein's
+distance, stating that they did not find application in their
+experiments. In addition, each dimension of their time-series is
+generated independently from the others, where one would assume they are
+correlated.~ A considerable loss of accuracy is observed on their
+utility based metric.
+
+\subsection{Task oriented GAN
+development}
+
+{\label{185551}}
+
+\subsubsection{Semi-supervised learning~ and conditional
+models}
+
+{\label{425928}}
+
+To develop~\textbf{ehrGAN,} an algorithm for sequences of medical codes
+that has the ability to produce neighbouring records of an input
+patient, Che et al. combine an~\textbf{Encoder-Decoder~Convolutional
+Neural Network (CNN)}~\hyperref[csl:48]{(Ranzato et al. 2007)} with~\textbf{Variational
+Contrastive Divergence (VCD)}~\hyperref[csl:15]{(Che et al. 2017)}. The~\textbf{ehrGAN}
+generator is trained to decode a random vector mixed with the latent
+space representation of a particular patient. In a semi-supervised
+learning approach, the trained~\textbf{ehrGAN} model is then
+incorporated into the loss function of a predictor where it can help
+generalization by producing neighbors for each input sample.~
+
+Semi-supervised learning approaches are commonly employed to augment the
+minority class in imbalanced datasets. The self-training and co-training
+methods use classifiers first trained on the portion of labelled data to
+predict the labels of unlabelled instances. The newly labelled samples
+with the highest confidence are added to the labelled set to retrain the
+classifiers. The process is repeated iteratively. Yang et al. improve on
+this type of approach by incorporating a GAN in the
+procedure~\hyperref[csl:24]{(Yang et al. 2019)}. The GAN is first trained on the labelled
+set and used to rebalance it. The standard iterative process involving
+the classifier ensemble is then executed until expansion ceases. As a
+final step, the GAN is trained on the expanded labelled set to generate
+an equal amount of augmentation data. The authors obtained improved
+performance in a number of classification tasks and multiple tablular
+datasets with their method.
+
+\subsubsection{Correcting bias with domain
+translation}
+
+To address the heteogeneity of healthcare data from different sources,
+Yoon et al. combines the concepts of cycle-consistent domain translation
+from~\textbf{Cycle-GAN~}\hyperref[csl:49]{(Zhu et al. 2017)}~and~multi-domain translation
+from~\textbf{Star-GAN}~\hyperref[csl:50]{(Choi et al. 2017)}~ to build~\textbf{RadialGAN}
+to translate heterogeneous patient information from different hospitals,
+correcting features and distribution mismatches~\hyperref[csl:20]{(Yoon, Jordon, and Schaar 2018)}. An
+encoder-decoder pair per~data endpoint is trained to map records to and
+from a shared latent representation.~
+
+\subsubsection{Individualized treatment
+effects}
+
+{\label{162585}}
+
+The task of estimating~\textbf{Individualized Treatment Effects (ITE)},
+the response of a patient to a certain treatment given a set of
+charaterizing features\textbf{~}is an ongoing problem.~This is due
+mainly to the fact that counterfactual outcomes are never observed or
+that treatment selection is highly biased~\hyperref[csl:21]{(Yoon, Jordon, and van der Schaar 2018}; \hyperref[csl:8]{McDermott et al. 2018}; \hyperref[csl:12]{Walsh et al. 2020)}.~
+
+In this regard, Yoon et al. employ a pair of GANs, named
+~\textbf{Generative Adversarial Nets for inference of Individualized
+Treatment Effects (GANITE)}, one for counterfactual imputation and
+another for ITE estimation \hyperref[csl:21]{(Yoon, Jordon, and van der Schaar 2018)}. The former captures the
+uncertainty in unobserved outcomes by generating a variety of
+conterfactuals. The output is fed to the latter, which estimates
+treatment effects and provides confidence intervals.~
+
+With~\textbf{Cycle Wasserstein Regression GAN (CWR-GAN)}, a joint
+regression-adversarial model, McDermott et al. demonstrated a
+semi-supervised approach also inspired by Cycle-GAN to leverage large
+amounts of unpaired pre/post-treatment time-series in ICU data for the
+estimation of ITE on physiological time-series~\hyperref[csl:8]{(McDermott et al. 2018)}. The
+algorithm has the ability to learn from unpaired samples, with very few
+paired samples, to reversibly translate the pre and post-treatment
+physiological series.~
+
+Chu et al. approach the problem of data scarcity for ITEs by designing~
+\textbf{ADTEP}, an algorithm that can maximize~use of the large volume
+of EHR data formed by triples of non-task specific patient features,
+treatment interventions and treatment outcomes~\hyperref[csl:26]{(Chu, Dong, and Huang 2019)}.
+The~ADTEP algorithm they developed learns representation and
+discriminatory features of the patient, and treatment data by training
+an~AE for each pair of features. In addition to AE reconstruction loss,
+a second model is tasked with identifying fake treatment feature
+reconstructions. Finally, a fourth loss metric is calculated by feeding
+the concatenated latent representations of both~AE to a logisitic
+regression model aimed at predicting the treatment
+outcome~\hyperref[csl:26]{(Chu, Dong, and Huang 2019)}.~
+
+In the form of an ITE task, Wang et al. demonstrated an interesting
+algorithm to generate a time series of patient states and medication
+dosages using LSTM. In contrast to RGAN and RCGAN,
+in~\textbf{Sequentially Coupled Generative Adversarial Network
+(SC-GAN)}, patients state at the current timestep informs the concurrent
+medication dosage, which in turn affects the patient state in the
+upcoming timestep~\hyperref[csl:9]{(Wang, Zhang, and He 2019)}. SC-GAN overcame a number of
+baselines on both statistical and utility metrics. ~
+
+\subsection{Data Imputation with GANs}
+
+{\label{637664}}
+
+GANs are naturally suited for data imputation, and could provide a new
+approach to deal with the problems of health data relating to
+sparsity.~Statistical models developed for the multiple imputation
+problem increase quadraticly in complexity with the number of features,
+while the expressiveness of deep neural networks can model all features
+with missing values simultaneously efficiently.
+
+In that regard, Yoon et al. adapted the standard GAN to perform
+imputations on continuous features missing at random in tabular
+datasets~\hyperref[csl:51]{(Yoon, Jordon, and van der Schaar 2018)}. In their algorithm~\textbf{GAIN}, the
+discriminator is tasked with classifying individual variables as real or
+fake (imputed), as opposed to the whole ensemble. Additional input, or
+hint, containing the probability of each component being real or imputed
+is fed to the discriminator to resolve the multiplicity of optimal
+distributions that the generator could reproduce. The model performs
+considerably better than five state-of-the-art benchmarks. The GAIN
+algorithm was later adapted to also handle categorical features using
+fuzzy binary encoding, the same technique employed in
+\textbf{HealthGAN}~\hyperref[csl:35]{(Yale et al. 2019)}
+
+\subsection{Data~ augmentation}
+
+{\label{475996}}
+
+The distribution estimated by a generator model can compensate for lack
+of diversity in a real sample, essentially filling in the blanks in a
+manner comparable to data imputation. In such cases, data sampled from
+this distribution has the potential to help improve generalization in
+training predictive models. We find evidence of this by way
+of~generating unobserved counterfactual outcomes~\hyperref[csl:21]{(Yoon, Jordon, and van der Schaar 2018)}, or
+generating neighboring samples to help generalization in
+predictors~\hyperref[csl:15]{(Che et al. 2017)}.
+
+The RBM developed by Fisher et al. enabled them to~simulate
+individualized patient trajectories based on their base state
+characteristics. Due to the stochastic nature of the algorithm,
+generating a large number of trajectories for a single patient can
+provide new insights of the influence of starting conditions on disease
+progression or quantify risk~\hyperref[csl:10]{(Fisher, Smith, and Walsh 2019)} .
+
+\section{Results: Model validation and data
+evaluation}
+
+{\label{182099}}
+
+To asses the solution to a generative modelling problem, it is necessary
+to validate the model obtained, and subsequently to verify its output.
+GANs aim to approximate a data distribution~\(P\), using a
+parameterized model distribution~\(Q\)~\hyperref[csl:52]{(Borji 2018)}.
+Thus, in evaluating the model, the goal is to validate that the learning
+process has led to a sufficiently close approximation. Approaches to
+evaluation can be categorized as either quantitative or qualitative.~
+
+\subsection{Qualitative evaluation}
+
+{\label{671767}}
+
+The qualitative evaluation approaches found in the literature are
+mainly~\emph{\textbf{preference
+judgement,~}}\textbf{\emph{discrimination tasks, clinician
+evaluation}}~\hyperref[csl:52]{(Borji 2018)}. Participants, such as medical
+professionals, discriminate between real and synthetic
+instances~\hyperref[csl:31]{(Choi et al. 2017)}, or asked to rank the quality of real and
+synthetic samples on a numerical scale and their significance is
+determined with a Mann-Whitney~\emph{U}~test~\hyperref[csl:16]{(Beaulieu-Jones et al. 2019)}.
+Similarly, visual inspection of statistics or projections of the data
+can help get a better understanding of model
+behaviour~\hyperref[csl:16]{(Beaulieu-Jones et al. 2019}; \hyperref[csl:15]{Che et al. 2017)}, but are often weak indicators of model
+performance without more objective~ metrics~\hyperref[csl:23]{(Jackson and Lussetti 2019)}.~
+
+\subsection{Quantitative evaluation}
+
+{\label{695380}}
+
+\subsubsection{Comparing distributions}
+
+{\label{897626}}
+
+Numerous statistical metrics have been proposed or explored to compare
+the distributions of real and synthetic data~\hyperref[csl:52]{(Borji 2018)}. We
+present here those employed in the publication included in the review in
+Tab.~{\ref{tab:evaldist}}.\selectlanguage{english}
+\begin{table}
+    \caption{{Metrics employed to validate trained models based on the comparison of distributions.\label{tab:evaldist}}} 
+        
+    \begin{tabular}{@{} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} @{}}\toprule
+        
+        Metric & Description & Example & References\\\midrule
+        
+        Kullback-Leibler (KL) divergence & Compares the distributions isolated features by measuring the similarity of their marginal probability mass functions (PMF). & - &
+        \hyperref[csl:18]{(Goncalves et al. 2020)}\\
+        
+        Maximum Mean Discrepancy (MMD) & 
+        Checks the dissimilarity between the real and synthetic probability distributions using samples drawn independently from each other. & - &
+        \hyperref[csl:5]{(Esteban, Hyland, and R{\"a}tsch 2017)}\\
+        
+        2-sample test (2-ST) & Answers whether two samples, the real and synthetic, originate from the same distribution through the use of a statistical test. & 
+        Kolmogorov-Smirnov (KS) & 
+        \hyperref[csl:10]{(Fisher, Smith, and Walsh 2019}; \hyperref[csl:29]{Baowaly et al. 2019)}\\
+        
+        Distribution of Reconstruction Error & 
+        Determine if the samples in the synthetic set are more similar to those in the training set than those in the testing set. & Nearest-neighbor &
+        \hyperref[csl:5]{(Esteban, Hyland, and R{\"a}tsch 2017)}\\
+        
+        Latent projection distribution & 
+        Compares the distribution of real and synthetic samples projected back into the latent space & Mean of the variance & \hyperref[csl:32]{(Zhang et al. 2020)}\\
+        
+        Domain specific measures & Comparison of the distributions according to a domain specific measure & Quantile-Quantile (Q-Q) plot (point-processes) & \hyperref[csl:4]{(Xiao et al. 2017)}\\
+        
+        Classifier accuracy & Accuracy of a classifier trained to discriminate real from synthetic units. & - & \hyperref[csl:10]{(Fisher, Smith, and Walsh 2019}; \hyperref[csl:12]{Walsh et al. 2020)}\\\bottomrule
+        
+    \end{tabular}
+\end{table}
+
+
+\subsubsection{\texorpdfstring{{Statitistical
+fidelity}}{Statitistical fidelity}}
+
+{\label{118181}}
+
+A substitute to directly assessing the ability of the model to replicate
+the distribution of real data is to compare the information content or
+the real data against that of synthetic data. In other words, a
+statistical utility metric measures the value of the work that can be
+done with synthetic data. Primarily, authors attempt by various measures
+to determine if the statistical properties of the synthetic data
+distribution correspond to the the real distribution. These metrics are
+presented in Table~{\ref{tab:stat-metrics}}. In
+general, statistical metrics do not offer convincing support for the
+quality of the synthetic data, they are often ambiguous or can be found
+to be misleading upon further investigation. Given the complexity of
+health data, low-dimensional transformations are unlikely to paint a
+full picture. Authors often state that no single metric taken on its own
+was sufficient, and that a combination of them allowed deeper
+understanding of the data.
+
+\subsubsection{Synthetic data utility~}
+
+{\label{471516}}
+
+While utility-based metrics often provide a more convincing indicator of
+data realism, they mostly lack the interpretability that some
+statistical metrics allow. Methods aimed at evaluating the work that can
+be done with synthetic data are presented in
+Table~{\ref{tab:aug-metrics}}. We divided these into
+two categories, those in which the task is of a more conceptual nature
+(Data utility metrics), and those based on tasks with real-world
+application (Application utility metrics). Note that this distinction is
+not based on a rigororous definition, but serves to facilitate
+understanding.\selectlanguage{english}
+\begin{table}
+    \caption{{Metrics of data realism employing methods and measures based on evaluating the statistical properties of the synthetic data distribution, mostly in comparison with the distribution of real data\label{tab:statmetrics}}} 
+    
+    \begin{tabular}{@{} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} @{}}\toprule
+        Metric & Description & References\\ \midrule
+        Dimensions-wise distribution (DWD) & A generative model is trained on the real data to generate a dataset of the same size. The Bernoillli success probability is compared between both datasets for each feature. & \hyperref[csl:16]{(Beaulieu-Jones et al. 2019}; \hyperref[csl:47]{Choi et al. 2017}; \hyperref[csl:38]{Chin-Cheong, Sutter, and Vogt 2019}; \hyperref[csl:46]{Yan et al. 2020}; \hyperref[csl:29]{Baowaly et al. 2019}; \hyperref[csl:28]{Baowaly, Liu, and Chen 2019}; \hyperref[csl:30]{Ozyigit, Arvanitis, and Despotou 2020)}\\
+        Interdimensional correlation & Dimenion-wise Pearson coefficient correlation matrices for both real and synthetic data are compared. & \hyperref[csl:16]{(Beaulieu-Jones et al. 2019}; \hyperref[csl:18]{Goncalves et al. 2020)}\hyperref[csl:37]{(Torfi and Beyki 2019}; \hyperref[csl:53]{Frid-Adar et al. 2018}; \hyperref[csl:24]{Yang et al. 2019}; \hyperref[csl:30]{Ozyigit, Arvanitis, and Despotou 2020)}\\
+        First-order proximity metric & {} & \hyperref[csl:32]{(Zhang et al. 2020)}\\
+        Log-cluster metric & {} & \hyperref[csl:18]{(Goncalves et al. 2020)}\\
+        Support coverage metric & {} & \hyperref[csl:18]{(Goncalves et al. 2020)}\\
+        Time-lagged correlations and covariates & {} & \hyperref[csl:10]{(Fisher, Smith, and Walsh 2019}; \hyperref[csl:12]{Walsh et al. 2020)}\\
+        Latent Space Representation (LSR) & {} & \hyperref[csl:46]{(Yan et al. 2020)}\\
+        Distribution of Jaccard similarity & {} & \hyperref[csl:30]{(Ozyigit, Arvanitis, and Despotou 2020)}\\
+        \bottomrule
+    \end{tabular}
+\end{table}\selectlanguage{english}
+\begin{table}
+        
+        
+        \caption{{Metrics of data realism employing methods and measures based on evaluating the utility of the synthetic data on practical tasks.}}\label{tab:aug-metrics}
+        
+        \begin{tabular}{@{} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} @{}} \toprule
+        Metric & Description & References\\ \midrule
+        
+        \multicolumn{3}{Y}{\textbf{Data utility metrics}}\\ \midrule
+        
+        Dimension-wise prediction (DWP) & Each variable is in turn chosen as the prediction target label and the remaining as features. Two predictors are trained to predict the label, one from the synthetic data and another from a portion of the real data. Their performance is compared on the left out real data.  & \hyperref[csl:47]{(Choi et al. 2017}; \hyperref[csl:22]{Camino, Hammerschmidt, and {Radu State} 2018}; \hyperref[csl:18]{Goncalves et al. 2020}; \hyperref[csl:46]{Yan et al. 2020)}\\[20pt]
+        
+        Association Rule Mining (ARM) & & \hyperref[csl:29]{(Baowaly et al. 2019}; \hyperref[csl:33]{Bae et al. 2020}; \hyperref[csl:46]{Yan et al. 2020)}\\[20pt]
+        
+        Discriminative Siamese architecture & & \hyperref[csl:37]{(Torfi and Beyki 2019)}\\[20pt]
+        
+        Train on synthetic, test on real (TRTS) & Accuracy on real data of some form of predictor trained on synthetic data \hyperref[csl:16]{(Beaulieu-Jones et al. 2019)}. Correlation between important features (RF) and model coefficients (LR and SVM) \hyperref[csl:16]{(Beaulieu-Jones et al. 2019)}. & \hyperref[csl:5]{(Esteban, Hyland, and R{\"a}tsch 2017}; \hyperref[csl:13]{Xu et al. 2019}; \hyperref[csl:20]{Yoon, Jordon, and Schaar 2018}; \hyperref[csl:38]{Chin-Cheong, Sutter, and Vogt 2019)}\\
+        
+        Accuracy on synthetic data of some form of predictor trained on real data & & \hyperref[csl:33]{(Bae et al. 2020)}\\
+        
+        Forward prediction accuracy of conditional generative model &
+        Models trained to make forward predictions from past observations or from real data transformed with a known function can simply be evaluated for accuracy. & \hyperref[csl:7]{(Xiao et al. 2018}; \hyperref[csl:8]{McDermott et al. 2018}; \hyperref[csl:51]{Yoon, Jordon, and van der Schaar 2018}; \hyperref[csl:54]{Yang et al. 2019)}\\
+        
+
+        \multicolumn{3}{Y}{\textbf{Applied utility metrics}}\\ \midrule
+
+        
+        Data augmentation & A predictor is trained on a combination dataset of real and synthetic data and performance is compared with the same predictor trained on real data alone. & \hyperref[csl:21]{(Yoon, Jordon, and van der Schaar 2018)}\\
+        
+        Predictor augmentation & The trained generative model is incorporated into a predictor's activation function by generating an ensemble of proximate data points for each instance, thereby improving generalization. & \hyperref[csl:15]{(Che et al. 2017)}\\
+        
+        \bottomrule
+        
+        \end{tabular}
+\end{table}
+
+
+
+\subsection{Alternative evaluation}
+In their publications, Yale et al. propose refreshing approaches to evaluating the utility of synthetic data. For example, they organized a hack-a-thon type challenge. During the event, students were tasked with creating classifiers, while provided only with synthetic data \hyperref[csl:19]{(Yale et al. 2020)}. They were then scored on the accuracy of their model in real data. Similarly, in a different evaluation experiment, they attempted (successfully) to recreate published medical papers based on the MIMIC dataset using only data generated from their model HealthGAN. The implications of these results for exploratory data analysis, reproducibility experiments in cases where data cannot be distributed and more generally education in health-related scientific training are glaring. In a subsequent paper, the authors evaluate the performance of their model against traditional privacy preservation methods by using the trained discriminator component of HealthGAN to d
+
+\section{Privacy Preservation}
+To evaluate the risk of reidentification of synthetic data in the publications included, empirical analyses of privacy preservation are conducted according to the definitions of Membership Inference (MIA), Attribute Disclosure (AD)  \hyperref[csl:47]{(Choi et al. 2017}; \hyperref[csl:18]{Goncalves et al. 2020}; \hyperref[csl:46]{Yan et al. 2020)} and Reproduction rate \hyperref[csl:32]{(Zhang et al. 2020)}. Cosine similarities between pairs of samples are also employed \hyperref[csl:37]{(Torfi and Beyki 2019)}. All studies report low success rates for these types of attacks, while there is little effect from the sample size. Broadly, an MIA attack aims to determine if a particular record was used to train a machine learning model \hyperref[csl:27]{(Chen et al. 2019)}. There is no canonical process by which an attack is conducted, nor specification of the data assets initially in possession of the attacker. For a comprehensive taxonomy of MIA against GANs, refer to the suitably titled publication by Chen et al. in which medGAN was subjected to a number of trials.\par
+In black-box and white-box type attacks, including the LOGAN \hyperref[csl:55]{(Hayes et al. 2017)} method, medGAN performed considerably better than WGAN-GP \hyperref[csl:43]{(Gulrajani et al. 2017)}, the algorithm which served as basis for improvements tomedGAN in publications discussed in Section 3.1. Overall, the authors note that releasing the full model poses a high risk of privacy breaches and that smaller training sets (under 10k) also lead to a higher risk.\par  
+AD is defined as the risk of an attacker correctly infering unknown attributes of a patient's record, given a number of known attributes. Goncalves et al. evaluated MC-medGAN against multiple non-adversarial generative models in a variety of privacy compromising attacks, including AD, obtaining inconsistent results for MC-medGAN \hyperref[csl:18]{(Goncalves et al. 2020)}. While this is not mentioned by the authors, multiple results reported in the publication point to the fact that the GAN was not properly trained or suffered mode-collapse.\par
+Numerous attempts have been made to confer traditional privacy guarantees that deteriorate data, such as differentially-private stochastic gradient descent. By limiting the gradient amplitude at each step and adding random noise, AC-GAN could produce useful data witth $\selectlanguage{greek}ε\selectlanguage{english}=3.5$ and $\selectlanguage{greek}δ\selectlanguage{english}<10-5$ according to the definition of differential privacy \hyperref[csl:16]{(Beaulieu-Jones et al. 2019}; \hyperref[csl:5]{Esteban, Hyland, and R{\"a}tsch 2017}; \hyperref[csl:56]{Chin-Cheong, Sutter, and Vogt 2020)} or with a probabilistic scheme that ensures indistinguishability. Interestingly, Bae et al. also employ a trained discriminatory model in the loss function of the generator to ensure utility is preserved \hyperref[csl:33]{(Bae et al. 2020)}. Means to confer privacy guarantees on synthetic data generated by GANs are being actively researched in a variety of fields, many of which are a priori readily applicable to health data. At this stage, however, contradictory results have between obtained where the statistical fidelity of the synthetic seemed to be preserved, but utility-based measures based on a classification were degraded by incorporating DP.\par
+\subsection{The status of fully synthetic in regards to current privacy regulations}
+It seems intuitively possible that the artificial nature of synthetic data essentially prevents associations with real patients, however the question is never directly addressed in the publications. An extensive Stanford Technological Review legal analysis of synthetic data concluded that laws and regulations should not treat synthetic data indiscriminately from traditional privacy preservation methods \hyperref[csl:57]{(Bellovin, Dutta, and Reitinger 2019)}. They state that current privacy statutes either outweigh or downplay the potential for synthetic data to leak secrets by implicitly including it as the equivalent of anynonymization. 
+\subsection{GAN-centric approach to privacy}
+Some have put forward the notion that preventing overfitting and preserving privacy may not be conflicting goals \hyperref[csl:58]{(Wu et al. 2019}; \hyperref[csl:59]{Mukherjee et al. 2019)}. In privGAN, Mukherjee et al., an adversary is introduced, forcing the generator to produce samples that minimize the risk of MIA attack, in addition to cheating the discriminator. The combination of both goals has the explicit effect of preventing overfitting, and their algorithm produces samples of similar quality to non-private GANs.\par
+The discordance between the theoretical concepts of DP, which are  based ultimately on infinite samples, and the often insufficient data on which the probability of disclosure is calculated remains deficient. Therefore, Yoon et al. have postulated an intriguing alternative view of privacy \hyperref[csl:34]{(Yoon, Drumright, and van 2020)}. They propose to emphasize measuring identifiability of finite patient data, rather than the probabilistic disclosure loss of DP based on unrealistic premises. Simplistically, they define identifiability as the minimum closest distance between any pair of synthetic and real samples. In their implementation, the generator receives both the usual random seed and a real sample as input. This has the effect of mitigating mode collapse, but also of reproducing the real samples. On the other hand, the discriminator is equipped with an additional loss metric based on a measure of similarity between the original sample and the generated one, thus ensuring the tuneable threshold of identifiability is met. Their results on a number of previously discussed evaluation metrics are encouraging.\par
+In a similar approach, Yale et al. broke away from the theoretical guarantees of traditional methods with a measure native to GANs. Their proposal is a metric quantifying the loss of privacy, a concept more aligned with the objective of GANs to minimize the loss of data utilit \hyperref[csl:35]{(Yale et al. 2019}; \hyperref[csl:36]{Yale et al. 2019)}. They point out, quite appropriately, the advantage of concrete measureable values of loss in utility and privacy when making the decision of releasing sensitive data. Briefly, the Nearest Neighbor Adversarial Accuracy measures the loss in privacy based on the difference between two nearest neighbor metrics. The  first component is the proportion of synthetic samples that are closer to any real sample than any pair of real samples. The second component is the reverse operation. In a subsequent paper, HealthGAN evaluated against traditional privacy preservation methods with a variant of the IA based on the nearest neighbor metric. HealthGAN performs considerably better than all other methods, while still maintaining utility on a prediction task .
+
+
+\section{Discussion}
+\subsection{Applications for GANs for health data and innovation}
+
+Overall, on the aspect of data realism or fidelity, the published GAN algorithms for OHD provided equivalent or superior performance against the statistical modeling-based methods that many authors benchmarked against. Importantly, their demonstrated capabilities are highly relevant to the medical field: domain translation for unlabeled data, conditional sampling of minority classes, components of predictive models that promote generalization, learning from partially labeled or unlabeled data, data imputation, and forward simulation of patient profiles.
+
+\subsection{Challenges posed by OHD}
+On the other hand, the challenges posed by health data are obvious, and a number of recurrent factors influenced the outcome of efforts to develop GANs for OHD. We recognize the same challenges that were met by predictive machine learning, and continue to complexify the development and application of new algorithms. Whether aimed at generative or predictive algorithms, the complex integration of  heterogeneous information from different sources is further entangled with multimodality and missingness, among others.\par
+In the case of generative models, multimodality is one aspect that  caused the most trouble in achieving a stable training procedure. At the outset, preventing mode collapse was an issue that attracted the most research efforts, along with data containing combinations of categorical and continuous features . It follows an extensive succession of efforts aimed at improving medGAN by incorporating the latest machine learning technique, known to improve performance across a broad range of applications. While a number of valuable improvements were demonstrated, taken as a whole the efforts were haphazard and often yielded unsurprising results. Clearly the opportunity for original techniques to considerably advance the field is still open, and more concerted efforts to systematically approach the problems could accelerate innovation.\par
+While the problem of mode collapse has been alleviated, evidence has yet to be provided with regards to ensuring that the finer details of the distribution are estimated with sufficient granularity to produce realistic patient profiles. In this direction conditional training methods have led to improvements. For example, when labels corresponding to sub-populations or classes are used to condition the generative process. Zhang et al. showed that conditioned training with categorical labels, in this case age ranges, improves utility for small datasets, but not with larger samples \hyperref[csl:32]{(Zhang et al. 2020)} As described in Section \ref{noauto}, HGAN further introduces constraint-based loss. Based on the distribution of individual features and utility-based metrics, the authors argue that the bias intrinsic to their methods has not led to undesirable bias or side-effects in other aspects of the learned distribution. The evaluation metrics put forward are insufficient to make such claims and caution should be advised in regards to techniques that constrain or direct the training procedure on specific sub-populations. Furthermore, this approach cannot practically account for every mode in all dimensions.
+
+
+
+
+
+\subsection{Evaluation metrics and benchmarking}
+In regards to the practices of evaluation, the choice of optimal metrics and indicators is still being explored. Overall, no evaluation metric proposed addresses the concept of realism in synthetic data. The blatant observation is that the efforts are far from consistent or systematic. This has led to a number of issues. As a striking example, competing methods are often compared with different metrics or with contradictory results in different datasets \hyperref[csl:29]{(Baowaly et al. 2019}; \hyperref[csl:28]{Baowaly, Liu, and Chen 2019}; \hyperref[csl:22]{Camino, Hammerschmidt, and {Radu State} 2018}; \hyperref[csl:31]{Choi et al. 2017}; \hyperref[csl:32]{Zhang et al. 2020)}. In their evaluation of medGAN, Yale et al. argue that the positive resemblance of plotted feature distribution of synthetic data against real data is due to the fact that the model's architecture tends to favor reproducing the means and probabilities of each diagnosis column. For example, synthetic data contains samples with an unusually high number of codes. Their hypothesis is that these samples are used by the algorithm to discharge the rare medical codes with weak correlation to balance the distributions. However, they stated in their experiments that comparing PCA plots of real and synthetic data for various generation methods was insightful to get an impression of their behavior \hyperref[csl:19]{(Yale et al. 2020)}.\par
+Qualitative evaluation, in its current form, provides little evidence. For medical experts, these representations are meaningless. As such, the results of qualitative evaluation often state that synthetic data is indistinguishable from the real data \hyperref[csl:47]{(Choi et al. 2017}; \hyperref[csl:9]{Wang, Zhang, and He 2019)}. It is doubtful that they could in fact be. Esteban et al. found that participants avoided the median score and were not confident enough to choose either extreme (Esteban 2017).\par
+Reproducing aggregate statistical properties is rather unconvincing evidence that a model has learned to reproduce the complexity of patient health trajectories. Choi et al. found that although the synthetic sample seemed statistically sound, it contained gross errors such as gender code mismatches and suggested the use of domain-specific heuristics \hyperref[csl:47]{(Choi et al. 2017)}. HGAN was an encouraging step in this direction, but it may be difficult to scale. In some cases the statistical metrics may be contradictory, such as when the ranking of medical frequencies are wrong, but the data augmentation leads to improved performance \hyperref[csl:15]{(Che et al. 2017)}
+Utility-based metrics provide a more solid evaluation of data quality. However, these metrics only confirm the value of the data according to a narrow context. They are indicative of realism so far as a patient's state is indicative of a medical outcome. Moreover, they do not provide any insight about the validity of the relations found in a patient record and its overall consistency. 
+
+\subsection{Analysis of OHD-GAN}
+\subsubsection{Data representation and algorithm architecture}
+We observed that majority of methods included in the review made use of  altered representations of patient records. Namely, through feature engineering the data is transformed from its original form. This is in part due to the inconvenient properties of health data, such as missingess. However, it is somewhat apparent that the main motive is to accommodate existing algorithms. Along with demographic variables, OHD data mostly takes the form of triples composed by a timestamp, a medical concept and the recorded value. Their count is different for each patient, irregular intervals between each triple and the number of possible values in a dimensions can be huge. Moreover, there are generally multiple episodes of care, each with a different cause. The form and content is not typically considered practical for machine learning. \par
+At varying degrees, depending on the transformations, information is being lost or bias is being  introduced. For example, when data are reduced by aggregation to one-hot encodings of binary or count variables, the complex relationships found in medical data are, for the most part, lost. Similarly, information is lost when forcing continuous time-series into a regular representation, by truncating, padding, binning or imputation. Moreover, it is highly unlikely that the data is missing at random, introducing the potential for bias when a large part of the real data is rejected on this basis.  In brief, loss of information content is being preferred by molding the data to the algorithms, as opposed to the more tricky alternative of developing algorithms according the data.\par
+Deep architectures are based on the intuition that multiple layers of nonlinear functions are needed to learn complicated high-level abstractions \hyperref[csl:60]{(Bengio 2009)}. CNN capture patterns of an image in a hierarchical fashion, such that in sequence, each layer forms a representation the data at a higher level of abstraction. This type of data-oriented architecture has led to impressive performance for CNN and image data. The same principle can be applied to health data. An algorithm developed in a hierarchical structure, was demonstrated to form representations of EHR that capture the sequential order of visits and co-occurrence of codes in a visit have led to improved predictor performance, and also allowed for meaningful interpretation of the model \hyperref[csl:61]{(Choi et al. 2016)}. Similarly, models of time-series based on a continuous time representation, such as found in EHR data, have shown improved accuracy over discrete time-representations \hyperref[csl:62]{(Rubanova, Chen, and Duvenaud 2019}; \hyperref[csl:63]{De Brouwer et al. 2019)}. Nonetheless, creative adaptations of the data for existing architectures have provided surprising results. For example, OHD input into a CNN were transformed to image(bitmaps) in which the pixels encoded the information \hyperref[csl:64]{(Fukae et al. 2020)}.
+
+\section{Recommendations}\label{sec:recommend}
+\subsection{Basic models}\label{sec:basic}
+
+Overall, evaluation methods were superficial or unidimensional. Finding convincing and robust evaluation metrics for synthetic health data is an open issue. Even more so when the learning task is poorly defined or the scope of the problem is too large. The difficulty of explaining or validating the realism of data representing a patient, often longitudinal and which factors differentially contribute to disease characterization makes the assessment of synthetic data ambiguous, thus demanding stronger evidence to claims.\par
+Modelling efforts for OHD-GAN should be limited in scope to a single data type or modality. This is favourable for a number of evaluation related aspects. Firstly, it makes qualitative evaluation by visual inspection from experts possible and meaningful. Secondly, for same reasons, the behaviour of the model can be assessed straightforwardly. The generative process can be influenced intentionally to observe the effect on the properties of the output. Finally, it allows for quantitative evaluation with domain specific metrics. The scope should clearly identify the purpose of the data generation, its utility and the target patients\hyperref[csl:65]{(Capobianco 2020}; \hyperref[csl:66]{Kappen et al. 2016}; \hyperref[csl:67]{Kappen and Peelen 2016)}
+
+\subsection{Data-driven architecture}\label{sec:archi}
+The algorithm architecture of OHD-GAN should be engineered to match the process that generated the data, not the other way around. Data should be used and generated in the form it is first collected. In addition to preventing information loss, this ensures models will reflect the real generative process. Such models are more likely to provide insights into the system they are taught to imitate and further our understanding about them. Furthermore, the learned statistical distribution is inevitably more meaningful and interpretable, facilitating applications in the healthcare domain and supporting the inference of insights from the learned model parameters.
+\subsection{Interpretability}
+Even though a few authors explored the behavior of their models according to various methods, the subject was left largely unmentioned. It is imperative that future experimentation and publication give equal importance to evaluating the interpretation of their models and means to do so, as for performance. In the healthcare domain, black box machine learning models find little adoption, and synthetic data is most often met with attacks to its validity.
+
+\section{Directions for future research}
+\subsection{Building a patient model}
+The ultimate goal for generative models of OHD must be to develop an algorithm capable of learning an all encompassing patient model. It would then be possible to generate full EHR records on demand, integrating genetic, lifestyle, environmental, biochemical, imaging, clinical information into high-resolution patient profiles \hyperref[csl:65]{(Capobianco 2020)}. This is in fact the intention of the patient simulator Synthea. However, Synhea will eventually face a problem with scalability and the capacity of semi-independent state-transition models to coordinate in capturing long-range correlations.\par
+
+Once basic models of health data, as described in Section \ref{sec:basic}, have been developed and validated, these can be progressively combined in a modular fashion to obtain increasingly complex patient simulators. Furthermore, having designed the architecture of these basic models on the underlying data in a way that is comprehensible, as described in \ref{sec:archi}, will facilitate the composition of more complex models. Inputs, outputs and parts of these models can be conditionally attached to others such that the generative process occurs in a way that reflects the real generative process.
+
+\subsection{Evaluating complex patient models}
+Once more complex models are developed, the problem is again finding meaningful evaluation metrics of data realism. Capobiano et al. insist on the necessity for data performance metrics encompassing diagnostic accuracy, early intervention, targeted treatment and drug efficacy \hyperref[csl:65]{(Capobianco 2020)}. In their publication exploring the validation of the data produced by Synthea, Chen et al. provide an interesting idea to achieve this \hyperref[csl:68]{(Chen et al. 2019)}. Noting that the quality of care is the prime objective of a functional healthcare system, they suggest using \hyperlink{CQM}{Clinical quality measures (CQM)} to evaluate the synthetic data. These measures "are evidence-based metrics to quantify the processes and outcomes of healthcare", such as "the level of effectiveness, safety and timeliness of the services that a healthcare provider or organization offers."(Chen 2019). High-level indicators such as \hypertarget{CQM}{CQMs} domain specific measures of quality, specifically designed for higher level or multimodal representations of healthcare data. The constraints introduced in HGAN should be leverage to evaluate the realism of the synthetic data, rather than bias the generator training. Composing a comprehensive set of such constraints could possibly serve as a standardized benchmark.
+At the individual level, Walsh et al. employ domain specific indicators of disease progression and worsening and compare agreement of the simulated patient trajectories with the factual timelines \hyperref[csl:12]{(Walsh et al. 2020)}.\par
+In addition to \hypertarget{CQM}{CQMs}, we propose the use of the Care maps used by the Synthea model to simulate patient trajectories as evaluation metrics \hyperref[csl:69]{(Walonoski et al. 2017)}. Care maps are transition graphs developed from clinician input and Clinical Practice Guidelines, of which the transition probabilities are gathered from health incidence statistics. While these allow the Synthea algorithm to simulate patient profile with realistic structure, they also prevent it from reproducing real-world variability. Conversely, while GAN have the ability to reproduce the quirks of real data, they also lack the constraints preventing nonsensical outputs. As such, Care maps provide an ideal metric to check if the synthetic data conforms to medical processes.\par 
+In fact, has been used before in a competition where participants were given synthetic data from finite state transition machines with know probabilities and tasked to build and learn models that would reproduce those of the original, unseen models. The participants according to the Perplexity metric. Commonly used in NLP, quantifies how well a probability distribution or probability model predicts a sample \hyperref[csl:70]{(Verwer, Eyraud, and de~la Higuera 2013)}. We postulate that the Synthea models built with real-world probabilities would provide a unique and robust way to evaluate synthetic data according to the metric proposed above, among other means to utilize the state-transition in Syntea and their modularity.
+
+\subsubsection{Opportunities and application to current events}
+Synthetic and external controls in clinical trials are becoming increasingly popular \hyperref[csl:71]{(Thorlund et al. 2020)}. Synthetic controls refer to cohorts that have been composed from real observational cohorts or EHR using statistical methodologies. While the individuals included in the cohorts are usually left unchanged, microsimulations of disease progression at the patient level are used to explore long-term outcomes and help in the estimation of treatment effects (Thorlund 2020, Etzioni 2002). Synthetic data generated by GANs could be transformative for the problem of finding control cohorts.\par
+With the COVID-19 pandemic scientists have become increasingly aware of and vocal about the need for data sharing between political borders \hyperref[csl:72]{(Cosgriff, Ebner, and Celi 2020}; \hyperref[csl:73]{Becker et al. 2020}; \hyperref[csl:74]{McLennan, Celi, and Buyx 2020)}. An obvious application is generating additional amounts of data in the early stages of the pandemic, potentially creating opportunities earlier. Synthetic is data not only an opportunity to facilitate the exchange of data, but also adjust the biases of samples obtained from different localities. Factors such as local hospital practices, different patient populations and equipment introduce feature and distribution mismatches \hyperref[csl:75]{(Ghassemi et al. 2020)}. These disparities can be mitigated by translation of GAN algorithms, such as CycleGAN proposed by Yoon et al.
+
+\section{Algorithms and datasets}
+The algorithms presented in this review can undoubtetdly find usefulness for other health data or similar problems. Most importantly they can be reevaluated on other datasets or improved by adapting them with latest ML techniques. We present in Table \ref{tab:sourcecode} a list of links to the source code published by the authors. In addition, we present in Table \ref{tab:datasets} the datasets which were employed by the authors in their experiments, for those who were referenced and available.\selectlanguage{english}
+\begin{table}
+    \caption{{Source code and data released and made open-source by the authors\label{tab:sourcecode}}}
+    
+    \begin{tabular}{@{}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}@{}}
+        Algorithm & Format & Location & Source code & Data\\ \toprule
+        
+        AC-GAN \hyperref[csl:16]{(Beaulieu-Jones et al. 2019)} & Jupyter notebook & GitHub & \href{https://github.com/greenelab/SPRINT_gan}{greenelab/SPRINT\_gan} & \checkmark \\
+        Ward2ICU \hyperref[csl:17]{(Severo et al. 2019)} & Python & GitHub & \href{https://github.com/3778/Ward2ICU}{3778/Ward2ICU} & \checkmark\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\selectlanguage{english}
+\FloatBarrier
+\section*{References}\sloppy
+\bibliography{biblio}
+\end{document}
