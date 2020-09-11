@@ -128,7 +128,7 @@
 }
 
 
-@article{Xiao_2018,
+@article{Xiao_2018_chall,
   doi = {10.1093/jamia/ocy068},
   url = {https://doi.org/10.1093%2Fjamia%2Focy068},
   year = {2018},
@@ -163,14 +163,6 @@
 }
 
 
-@article{choi2017generating,
-  title = {{Generating multi-label discrete patient records using generative adversarial networks}},
-  author = {Choi, Edward and Biswal, Siddharth and Malin, Bradley and Duke, Jon and Stewart, Walter F and Sun, Jimeng},
-  journal = {arXiv preprint arXiv:1703.06490},
-  year = {2017},
-}
-
-
 @article{yahi2017generative,
   title = {{Generative adversarial networks for electronic health records: a framework for exploring and evaluating methods for predicting drug-induced laboratory test trajectories}},
   author = {Yahi, Alexandre and Vanguri, Rami and Elhadad, Noemie and Tatonetti, Nicholas P},
@@ -178,21 +170,31 @@
   year = {2017},
 }
 
-
-@article{Baowaly2019,
-  title = {{Synthesizing electronic health records using improved generative adversarial networks.}},
-  date = {2019 Mar 1},
-  source = {J Am Med Inform Assoc},
-  authors = {Baowaly, MK and Lin, CC and Liu, CL and Chen, KT},
-  author = {Baowaly, MK and Lin, CC and Liu, CL and Chen, KT},
-  year = {2019},
-  month = {Mar},
-  journal = {J Am Med Inform Assoc},
-  volume = {26},
-  number = {},
-  pages = {228-241},
-  pubmed_id = {30535151},
+@misc{jang2016categorical,
+    title={Categorical Reparameterization with Gumbel-Softmax},
+    author={Eric Jang and Shixiang Gu and Ben Poole},
+    year={2016},
+    eprint={1611.01144},
+    archivePrefix={arXiv},
+    primaryClass={stat.ML}
 }
+
+@article{baowaly_2019_jamia,
+    author = {Baowaly, Mrinal Kanti and Lin, Chia-Ching and Liu, Chao-Lin and Chen, Kuan-Ta},
+    title = "{Synthesizing electronic health records using improved generative adversarial networks}",
+    journal = {Journal of the American Medical Informatics Association},
+    volume = {26},
+    number = {3},
+    pages = {228-241},
+    year = {2018},
+    month = {12},
+    abstract = "{The aim of this study was to generate synthetic electronic health records (EHRs). The generated EHR data will be more realistic than those generated using the existing medical Generative Adversarial Network (medGAN) method.We modified medGAN to obtain two synthetic data generation modelsâ€”designated as medical Wasserstein GAN with gradient penalty (medWGAN) and medical boundary-seeking GAN (medBGAN)â€”and compared the results obtained using the three models. We used 2 databases: MIMIC-III and National Health Insurance Research Database (NHIRD), Taiwan. First, we trained the models and generated synthetic EHRs by using these three 3 models. We then analyzed and compared the modelsâ€™ performance by using a few statistical methods (Kolmogorovâ€“Smirnov test, dimension-wise probability for binary data, and dimension-wise average count for count data) and 2 machine learning tasks (association rule mining and prediction).We conducted a comprehensive analysis and found our models were adequately efficient for generating synthetic EHR data. The proposed models outperformed medGAN in all cases, and among the 3 models, boundary-seeking GAN (medBGAN) performed the best.To generate realistic synthetic EHR data, the proposed models will be effective in the medical industry and related research from the viewpoint of providing better services. Moreover, they will eliminate barriers including limited access to EHR data and thus accelerate research on medical informatics.The proposed models can adequately learn the data distribution of real EHRs and efficiently generate realistic synthetic EHRs. The results show the superiority of our models over the existing model.}",
+    issn = {1527-974X},
+    doi = {10.1093/jamia/ocy142},
+    url = {https://doi.org/10.1093/jamia/ocy142},
+    eprint = {https://academic.oup.com/jamia/article-pdf/26/3/228/27642536/ocy142.pdf},
+}
+
 
 
 @INPROCEEDINGS{Xiao2017-lh,
@@ -373,21 +375,15 @@
   year = {2018},
 }
 
-
-
-@article{severo2019ward2icu,
-  title = {{AnomiGAN: Generative Adversarial Networks for Anonymizing Private Medical Data.}},
-  date = {2020},
-  source = {Pac Symp Biocomput},
-  authors = {Bae, H and Jung, D and Choi, HS and Yoon, S},
-  author = {Bae, H and Jung, D and Choi, HS and Yoon, S},
-  year = {2020},
-  month = {},
-  journal = {Pac Symp Biocomput},
-  volume = {25},
-  number = {},
-  pages = {563-574},
-  pubmed_id = {31797628},
+@article {BaeAnomiGAN2020,
+	Title = {AnomiGAN: Generative Adversarial Networks for Anonymizing Private Medical Data},
+	Author = {Bae, Ho and Jung, Dahuin and Choi, Hyun-Soo and Yoon, Sungroh},
+	Volume = {25},
+	Year = {2020},
+	Journal = {Pacific Symposium on Biocomputing. Pacific Symposium on Biocomputing},
+	ISSN = {2335-6928},
+	Pages = {563-574},
+	URL = {http://europepmc.org/abstract/MED/31797628}
 }
 
 
@@ -1257,16 +1253,14 @@
 }
 
 
-@inproceedings{Baowaly_2019,
-  doi = {10.1109/aike.2019.00057},
-  url = {https://doi.org/10.1109%2Faike.2019.00057},
-  year = {2019},
-  month = {jun},
-  publisher = {{IEEE}},
-  author = {Mrinal Kanti Baowaly and Chao-Lin Liu and Kuan-Ta Chen},
-  title = {{Realistic Data Synthesis Using Enhanced Generative Adversarial Networks}},
-  booktitle = {2019 {IEEE} Second International Conference on Artificial Intelligence and Knowledge Engineering ({AIKE})},
-}
+@INPROCEEDINGS{baowaly_2019_IEEE,
+  author={M. K. {Baowaly} and C. {Liu} and K. {Chen}},
+  booktitle={2019 IEEE Second International Conference on Artificial Intelligence and Knowledge Engineering (AIKE)}, 
+  title={Realistic Data Synthesis Using Enhanced Generative Adversarial Networks}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={289-292},}
 
 
 @article{ozyigit2020generation,
@@ -1487,4 +1481,11 @@
   author = {Sicco Verwer and Remi Eyraud and Colin de~la Higuera},
   title = {{{PAutomaC}: a probabilistic automata and hidden Markov models learning competition}},
   journal = {Machine Learning},
+}
+
+@article{severo2019ward2icu,
+  title={Ward2ICU: A Vital Signs Dataset of Inpatients from the General Ward},
+  author={Severo, Daniel and Amaro, Fl{\'a}vio and Hruschka Jr, Estevam R and Costa, Andr{\'e} Soares de Moura},
+  journal={arXiv preprint arXiv:1910.00752},
+  year={2019}
 }

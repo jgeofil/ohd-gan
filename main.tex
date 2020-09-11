@@ -63,16 +63,18 @@
 \usepackage[greek,english]{babel}
 \usepackage{xspace}
 \usepackage{caption}
-
+\usepackage{tabularx}
 %lists
 \usepackage[ampersand]{easylist}
 \usepackage{enumitem}
 
 %emoji
 \usepackage{pifont}
+\usepackage{etex}
 
 \newcommand{\algo}[1]{\hyperlink{#1}{\underline{#1}}}
 \newcommand{\thealgo}[1]{\hypertarget{#1}{\textbf{\underline{#1}}}}
+\newcommand\todo{\textcolor{red}{TODO\hspace{0.5em}}}
 \begin{document}
 
 \title{Generative Adversarial Networks Applied to Observational Health Data}
@@ -94,6 +96,8 @@
 \endgroup
 
 \selectlanguage{english}
+
+
 \begin{abstract}
 Having been collected for its primary purpose in patient care,
 Observational Health Data (OHD) can further benefit patient well-being
@@ -109,6 +113,9 @@ lagging in comparison to other fields.
 
 We conducted a review of GAN algorithms for OHD in the published
 literature, and report our findings here.%
+
+
+
 \end{abstract}%
 
 \input{introduction}
@@ -117,7 +124,8 @@ literature, and report our findings here.%
 \input{privacy}
 \input{discussion}
 \input{future}
-
+\input{algodata}
+\input{data}
 
 
 \bibliography{biblio.bib}
