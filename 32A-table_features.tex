@@ -1,0 +1,30 @@
+
+
+
+\begin{table}
+\footnotesize
+  \caption{Types of observational health data and features engineering}\label{tab:features}
+  
+  \begin{tabularx}{\textwidth}{@{}XXXX@{}} \toprule
+  Type & Features and format & Challenges & Features engineering\\ \midrule
+  
+  \textbf{Time-series}\newline Continuous\newline Regular\newline Sporadic\newline 
+  & Timestamped observations \newline Numerical, Categorical 
+  & Observations often  Missing at Random (MAR) across time end dimensions
+  & Imputation coupled with training \newline Regular \newline Data imputation \newline Binning in into fixed-size intervals \newline Combination of binning and imputation \\
+  \textbf{Point-processes} 
+  & Time intervals
+  & 
+  & Timestamped events transformed into the time delta between each consecutive occurrences\\
+  \textbf{Ordered sequences} 
+  & Ordered-vectors\newline Medical codes\newline 
+  & Variable length\newline High-dimensional\todo\newline Long-tail distribution of codes 
+  & Sequences are projected into a trained embedding that preserves semantic meaning according to methods borrowed from NLP\\
+  \textbf{Tabular}\newline Denormalized\newline Relational
+  & Continuous, categorical and ordinal variables in tabular form & Cross-correlations in a mixture of discrete features with high class imbalance and multimodal continuous features
+  & Medical history is aggregated into a fixed-size vector of binary or aggregated counts of occurrences and combined with demographic features.\\
+ 
+  
+  \bottomrule
+  \end{tabularx}
+\end{table}

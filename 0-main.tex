@@ -10,7 +10,7 @@
 \usepackage{lineno}
 \usepackage{hyphenat}
 
-
+\usepackage{glossaries}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -34,7 +34,6 @@
 \titlespacing{\section}{0pt}{*3}{*1}
 \titlespacing{\subsection}{0pt}{*2}{*0.5}
 \titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
-
 
 \usepackage{authblk}
 
@@ -64,17 +63,19 @@
 \usepackage{xspace}
 \usepackage{caption}
 \usepackage{tabularx}
-%lists
 \usepackage[ampersand]{easylist}
 \usepackage{enumitem}
-
-%emoji
 \usepackage{pifont}
 \usepackage{etex}
+\usepackage{makecell}
 
 \newcommand{\algo}[1]{\hyperlink{#1}{\underline{#1}}}
 \newcommand{\thealgo}[1]{\hypertarget{#1}{\textbf{\underline{#1}}}}
-\newcommand\todo{\textcolor{red}{TODO\hspace{0.5em}}}
+\newcommand{\todo}{\textcolor{red}{MISSING}}
+
+\input{0-glossary}
+
+
 \begin{document}
 
 \title{Generative Adversarial Networks Applied to Observational Health Data}
@@ -118,16 +119,21 @@ literature, and report our findings here.%
 
 \end{abstract}%
 
-\input{introduction}
-\input{methods}
-\input{results}
-\input{privacy}
-\input{discussion}
-\input{future}
-\input{algodata}
-\input{data}
+\input{1-introduction}
+\input{2-methods}
+\input{3-results}
+\input{4-discussion}
+\input{5-sourcecode}
+\input{6-conclusion}
+\input{7-glossary}
 
 
-\bibliography{biblio.bib}
+\bibliography{biblio}
+
+\clearpage
+
+\printglossary[type=\acronymtype]
+
+\printglossary
 
 \end{document}
