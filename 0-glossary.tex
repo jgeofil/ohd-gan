@@ -1,27 +1,159 @@
 \makeglossaries
 
-\newglossaryentry{latex}
+\newglossaryentry{gumbel-gan}
 {
-        name=latex,
-        description={Is a mark up language specially suited for 
-scientific documents}
+        name=Gumbel-Softmax GAN,
+        description={\todo}
 }
 
-\newglossaryentry{maths}
+\newglossaryentry{arae}
 {
-        name=mathematics,
-        description={Mathematics is what mathematicians do}
+        name=ARAE,
+        description={Adversarially regularized autoencoders.}
 }
 
-\newglossaryentry{formula}
+\newglossaryentry{mode-collapse}
 {
-        name=formula,
-        description={A mathematical expression}
+        name=mode collapse,
+        description={The training procedure fails to converge, or converges to an undesirable local minima resulting in a lack of variety in the generated samples.}
 }
 
+\newglossaryentry{feed-forward}
+{
+        name=feed-forward network,
+        description={Basic Neural Network in its simplest form.}
+}
+
+\newglossaryentry{mb-avg}
+{
+        name=Mini-batch averaging,
+        description={Adaptation of mini-batch averaging to cope with mode collapse, see \cite{choi2017generating}}
+}
+
+\newglossaryentry{dom-tran}{
+    name=domain translation,
+    description={Transforming data points from one domain or category to another.}
+}
+
+\newglossaryentry{semi-sup}{name=semi-supervised, description={\todo
+}}
+
+\newglossaryentry{re-iden}{name=reidentification attack, description={\todo
+}}
+
+\newglossaryentry{dbio}{name=digital bio-markers, description={\todo
+}}
+
+\newglossaryentry{exploding}{name=exploding gradient,
+    description={The gradients accumulate large amounts of error, destabilising or disabling the training procedure.}
+}
+
+\newglossaryentry{vanishing}{name=vanishing gradient, description={The gradients become null and the network can no longer be updated.
+}}
+
+\newglossaryentry{a-disclosure}{name=Attribute disclosure, description={}}
+
+\newglossaryentry{mem-inference}{name=Membership inference, description={}}
+
+\newglossaryentry{repro-rate}{name=Reproduction rate, description={}}
+
+\newglossaryentry{utility-metric}{name=utility-based metric, description={In a broad sense, any metric that measure the amount of work that can be done with the data}}
+
+%\newglossaryentry{}{name=, description={
+%}}
+%\newglossaryentry{}{name=, description={
+%}}
+%\newglossaryentry{}{name=, description={
+%}}
+%\newglossaryentry{}{name=, description={
+%}}
+%\newglossaryentry{}{name=, description={
+%}}
+%\newglossaryentry{}{name=, description={
+%}}
+\newglossaryentry{co-training}{name=co-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively.}}
+
+\newglossaryentry{self-training}{name=self-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively.
+}}
+
+%% Algorithms
 \newacronym{gan]}{GAN}{Generative Adversarial Network}
 \newacronym{ohd}{OHD}{Observational Health Data}
 \newacronym{ehr}{EHR}{Electronic Health Record}
 \newacronym{nn}{NN}{Neural Network}
 \newacronym{gan}{GAN}{Generative Adversarial Network}
 \newacronym{sd}{SD}{Synthetic Data}
+\newacronym{ohd-gan}{OHD-GAN}{\glspl{gan} for Observation Health Data}
+\newacronym{ffn}{FFN}{\gls{feed-forward}}
+\newacronym{ae}{AE}{Autoencoder}
+\newacronym{rnn}{RNN}{Reccurent \gls{nn}}
+\newacronym{lstm}{LSTM}{Long Short-term Memory}
+\newacronym{cgan}{CGAN}{Conditional \gls{gan}}
+\newacronym{crmb}{CRMB}{Conditional Restricted Boltzamann Machine}
+\newacronym{ctgan}{CTGAN}{Conditional Tabular \Gls{gan}}
+\newacronym{heterogan}{HGAN}{Heterogeneous GAN}
+\newacronym{beta-vae}{\beta-VAE}{\beta variational auto-encoder}
+\newacronym{wgan}{WGAN}{Wassertein \gls{gan}}
+\newacronym{emr-wgan}{EMR-WGAN}{EMR Wassertein GAN}
+\newacronym{corgan}{corGAN}{corGAN}
+\newacronym{1d-cae}{1D-CAE}{1-dimensional Convolutional \gls{ae}}
+\newacronym{ehrgan}{ehrGAN}{Electronic Health Record GAN}
+%\newacronym{}{}{}
+%\newacronym{}{}{}
+%\newacronym{}{}{}
+%\newacronym{}{}{}
+%\newacronym{}{}{}
+%\newacronym{}{}{}
+%\newacronym{}{}{}
+%\newacronym{}{}{}
+%% Techniques
+\newacronym{mba}{MbA}{\gls{mb-avg}}
+\newacronym{bn}{BN}{batch-normalization}
+\newacronym{sc}{SC}{shortcut connections}
+\newacronym{swl}{SWL}{Step-wise loss}
+\newacronym{cbt}{CBT}{Cluster-based training}
+\newacronym{vcd}{VCD}{Variational contrastive divergence}
+\newacronym{ln}{LN}{Layer normalisation}
+
+%% Privacy
+\newacronym{dp-sgd}{DP-SGD}{Differential private stochastic gradient descent}
+\newacronym{ad}{AD}{Attribute Disclosure}
+\newacronym{pd}{PD}{Presence Disclosure}
+\newacronym{rr}{RR}{Reproduction rate}
+
+%% Evaluation qualitative
+\newacronym{ved}{VED}{Visual Expert Discrimination}
+
+%% Evaluation statistics
+\newacronym{dwpro}{DWS}{Dimension-wise Statistics}
+\newacronym{dwpre}{DWP}{Dimension-wise Prediction}
+
+%% Evaluation quantitative
+\newacronym{fd}{FD}{Feature distributions}
+\newacronym{qq}{QQ}{Quantile-quantile plot}
+\newacronym{lsr}{LSR}{Latent space representation}
+
+%% Metrics
+\newacronym{fop}{F-OP}{First-order proximity}
+\newacronym{cc}{CC}{Correlation coefficient}
+\newacronym{mmd}{MMD}{Maximum Mean Discrepency}
+\newacronym{rbf}{RBF}{Radial Basis Function}
+\newacronym{mse}{MSE}{Mean Squared Error}
+\newacronym{auroc}{AUROC}{Area under ROC curve}
+\newacronym{auprc}{AUPRC}{Area under the precision-recall curve}
+
+%% Evaluation augmentation
+\newacronym{tstr}{TSTR}{Train on synthetic, test on real}
+\newacronym{trts}{TRTTS}{Train on real, test on synthetic}
+\newacronym{pta}{PTA}{Prediction task accuracy}
+\newacronym{ssa}{SSA}{Semi-supervised augmentation}
+
+
+
+
+
+
+
+
+
+

@@ -249,7 +249,7 @@
 }
 
 
-@INPROCEEDINGS{Yoon2018-dm,
+@INPROCEEDINGS{Yoon2018-radial,
   title = {{{RadialGAN}: Leveraging multiple datasets to improve target-specific predictive models using Generative Adversarial Networks}},
   booktitle = {International Conference on Machine Learning},
   author = {Yoon, Jinsung and Jordon, James and Schaar, Mihaela},
@@ -260,7 +260,7 @@
 }
 
 
-@UNPUBLISHED{Yoon2018-mo,
+@UNPUBLISHED{Yoon2018-ite,
   title = {{{{GANITE}}: Estimation of Individualized Treatment Effects using Generative Adversarial Nets}},
   author = {Yoon, Jinsung and Jordon, James and van der Schaar, Mihaela},
   month = {feb},
@@ -268,18 +268,41 @@
 }
 
 
-@ARTICLE{Zhang2020-wp,
-  title = {{Ensuring electronic medical record simulation through better training, modeling, and evaluation}},
-  author = {Zhang, Ziqi and Yan, Chao and Mesa, Diego A and Sun, Jimeng and Malin, Bradley A},
-  abstract = {OBJECTIVE: Electronic medical records (EMRs) can support medical research and discovery, but privacy risks limit the sharing of such data on a wide scale. Various approaches have been developed to mitigate risk, including record simulation via generative adversarial networks (GANs). While showing promise in certain application domains, GANs lack a principled approach for EMR data that induces subpar simulation. In this article, we improve EMR simulation through a novel pipeline that (1) enhances the learning model, (2) incorporates evaluation criteria for data utility that informs learning, and (3) refines the training process. MATERIALS AND METHODS: We propose a new electronic health record generator using a GAN with a Wasserstein divergence and layer normalization techniques. We designed 2 utility measures to characterize similarity in the structural properties of real and simulated EMRs in the original and latent space respectively. We applied a filtering strategy to enhance GAN training for low-prevalence clinical concepts. We evaluated the new and existing GANs with utility and privacy measures (membership and disclosure attacks) using billing codes from over 1 million EMRs at Vanderbilt University Medical Center. RESULTS: The proposed model outperformed the state-of-the-art approaches with significant improvement in retaining the nature of real records, including prediction performance and structural properties, without sacrificing privacy. Additionally, the filtering strategy achieved higher utility when the EMR training dataset was small. CONCLUSIONS: These findings illustrate that EMR simulation through GANs can be substantially improved through more appropriate training, modeling, and evaluation criteria.},
-  journal = {J. Am. Med. Inform. Assoc.},
-  volume = {27},
-  number = {1},
-  pages = {99--108},
-  month = {jan},
-  year = {2020},
-  keywords = {EMRs; GANs; Wasserstein divergence; electronic medical records; generative adversarial networks; privacy; simulation},
-  language = {en},
+@article{Zhang2020,
+abstract = {Objective: Electronic medical records (EMRs) can support medical research and discovery, but privacy risks limit the sharing of such data on a wide scale. Various approaches have been developed to mitigate risk, including record simulation via generative adversarial networks (GANs). While showing promise in certain application domains, GANs lack a principled approach for EMR data that induces subpar simulation. In this article, we improve EMR simulation through a novel pipeline that (1) enhances the learning model, (2) incorporates evaluation criteria for data utility that informs learning, and (3) refines the training process. Materials and Methods: We propose a new electronic health record generator using a GAN with a Wasserstein divergence and layer normalization techniques. We designed 2 utility measures to characterize similarity in the structural properties of real and simulated EMRs in the original and latent space, respectively. We applied a filtering strategy to enhance GAN training for low-prevalence clinical concepts. We evaluated the new and existing GANs with utility and privacy measures (membership and disclosure attacks) using billing codes from over 1 million EMRs at Vanderbilt University Medical Center. Results: The proposed model outperformed the state-of-the-art approaches with significant improvement in retaining the nature of real records, including prediction performance and structural properties, without sacrificing privacy. Additionally, the filtering strategy achieved higher utility when the EMR training dataset was small. Conclusions: These findings illustrate that EMR simulation through GANs can be substantially improved through more appropriate training, modeling, and evaluation criteria.},
+author = {Zhang, Ziqi and Yan, Chao and Mesa, Diego A. and Sun, Jimeng and Malin, Bradley A.},
+doi = {10.1093/jamia/ocz161},
+file = {:C$\backslash$:/Users/jerem/Downloads/Zhang-2020-Ensuring-electronic-medical-record-.pdf:pdf},
+issn = {1527974X},
+journal = {Journal of the American Medical Informatics Association},
+keywords = {EMRs,GANs,Wasserstein divergence,electronic medical records,generative adversarial networks,privacy,simulation},
+mendeley-groups = {OHD-GAN},
+month = {jan},
+number = {1},
+pages = {99--108},
+pmid = {31592533},
+publisher = {Oxford University Press},
+title = {{Ensuring electronic medical record simulation through better training, modeling, and evaluation}},
+url = {https://academic.oup.com/jamia/article/27/1/99/5583723},
+volume = {27},
+year = {2020}
+}
+
+
+@inproceedings{Petzka2018,
+abstract = {Since their invention, generative adversarial networks (GANs) have become a popular approach for learning to model a distribution of real (unlabeled) data. Convergence problems during training are overcome by Wasserstein GANs which minimize the distance between the model and the empirical distribution in terms of a different metric, but thereby introduce a Lipschitz constraint into the optimization problem. A simple way to enforce the Lipschitz constraint on the class of functions, which can be modeled by the neural network, is weight clipping. Augmenting the loss by a regularization term that penalizes the deviation of the gradient norm of the critic (as a function of the network's input) from one, was proposed as an alternative that improves training. We present theoretical arguments why using a weaker regularization term enforcing the Lipschitz constraint is preferable. These arguments are supported by experimental results on several data sets.},
+archivePrefix = {arXiv},
+arxivId = {1709.08894},
+author = {Petzka, Henning and Fischer, Asja and Lukovnikov, Denis},
+booktitle = {6th International Conference on Learning Representations, ICLR 2018 - Conference Track Proceedings},
+eprint = {1709.08894},
+file = {:C$\backslash$:/Users/jerem/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Petzka, Fischer, Lukovnicov - 2017 - On the regularization of Wasserstein GANs.pdf:pdf},
+mendeley-groups = {OHD-GAN-misc},
+month = {sep},
+publisher = {International Conference on Learning Representations, ICLR},
+title = {{On the regularization of Wasserstein GaNs}},
+url = {https://arxiv.org/abs/1709.08894},
+year = {2018}
 }
 
 
@@ -339,19 +362,6 @@
 }
 
 
-@article{Yang_2019,
-  doi = {10.1109/access.2018.2888816},
-  url = {https://doi.org/10.1109%2Faccess.2018.2888816},
-  year = {2019},
-  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
-  volume = {7},
-  pages = {8048--8057},
-  author = {Yun Yang and Fengtao Nan and Po Yang and Qiang Meng and Yingfu Xie and Dehai Zhang and Khan Muhammad},
-  title = {{{GAN}-Based Semi-Supervised Learning Approach for Clinical Decision Support in Health-{IoT} Platform}},
-  journal = {{IEEE} Access},
-}
-
-
 @article{cui2019conan,
   title = {{CONAN: Complementary Pattern Augmentation for Rare Disease Detection}},
   author = {Cui, Limeng and Biswal, Siddharth and Glass, Lucas M and Lever, Greg and Sun, Jimeng and Xiao, Cao},
@@ -367,12 +377,10 @@
   year = {2020},
 }
 
-
-@inproceedings{mcdermott2018semi,
-  title = {{Semi-supervised biomedical translation with cycle wasserstein regression GANs}},
-  author = {McDermott, Matthew BA and Yan, Tom and Naumann, Tristan and Hunt, Nathan and Suresh, Harini and Szolovits, Peter and Ghassemi, Marzyeh},
-  booktitle = {Thirty-Second AAAI Conference on Artificial Intelligence},
-  year = {2018},
+@article{mcdermott2018semi,
+  title={Semi-supervised biomedical translation with cycle wasserstein regression GANs},
+  author={McDermott, Matthew and Yan, Tom and Naumann, Tristan and Hunt, Nathan and Suresh, Harini S and Szolovits, Peter and Ghassemi, Marzyeh},
+  year={2018}
 }
 
 @article {BaeAnomiGAN2020,
@@ -773,7 +781,7 @@
 }
 
 
-@article{Yoon2020,
+@article{Yoon2020-anon,
   title = {{Anonymization Through Data Synthesis Using Generative Adversarial Networks (ADS-GAN).}},
   date = {2020 Aug},
   source = {IEEE J Biomed Health Inform},
@@ -812,6 +820,44 @@
   booktitle = {2019 {IEEE} International Conference on Bioinformatics and Biomedicine ({BIBM})},
 }
 
+@article{Yang_2019,
+  doi = {10.1109/access.2018.2888816},
+  url = {https://doi.org/10.1109%2Faccess.2018.2888816},
+  year = {2019},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+  volume = {7},
+  pages = {8048--8057},
+  author = {Yun Yang and Fengtao Nan and Po Yang and Qiang Meng and Yingfu Xie and Dehai Zhang and Khan Muhammad},
+  title = {{{GAN}-Based Semi-Supervised Learning Approach for Clinical Decision Support in Health-{IoT} Platform}},
+  journal = {{IEEE} Access},
+}
+
+@inproceedings{Yang_2019b,
+  doi = {10.1109/ichi.2019.8904717},
+  url = {https://doi.org/10.1109%2Fichi.2019.8904717},
+  year = {2019},
+  month = {jun},
+  publisher = {{IEEE}},
+  author = {Yinchong Yang and Zhiliang Wu and Volker Tresp and Peter A. Fasching},
+  title = {{Categorical {EHR} Imputation with Generative Adversarial Nets}},
+  booktitle = {2019 {IEEE} International Conference on Healthcare Informatics ({ICHI})},
+}
+
+@article{Yang2020,
+  title = {{Unsupervised MR-to-CT Synthesis using Structure-Constrained CycleGAN.}},
+  date = {2020 Aug 11},
+  source = {IEEE Trans Med Imaging},
+  authors = {Yang, H and Sun, J and Carass, A and Zhao, C and Lee, J and Prince, JL and Xu, Z},
+  author = {Yang, H and Sun, J and Carass, A and Zhao, C and Lee, J and Prince, JL and Xu, Z},
+  year = {2020},
+  month = {Aug},
+  journal = {IEEE Trans Med Imaging},
+  volume = {PP},
+  number = {},
+  pages = {},
+  pubmed_id = {32780700},
+}
+
 
 @article{Lee_2020,
   doi = {10.1109/access.2020.2995762},
@@ -834,21 +880,6 @@
   year = {2019},
 }
 
-
-@article{Yang2020,
-  title = {{Unsupervised MR-to-CT Synthesis using Structure-Constrained CycleGAN.}},
-  date = {2020 Aug 11},
-  source = {IEEE Trans Med Imaging},
-  authors = {Yang, H and Sun, J and Carass, A and Zhao, C and Lee, J and Prince, JL and Xu, Z},
-  author = {Yang, H and Sun, J and Carass, A and Zhao, C and Lee, J and Prince, JL and Xu, Z},
-  year = {2020},
-  month = {Aug},
-  journal = {IEEE Trans Med Imaging},
-  volume = {PP},
-  number = {},
-  pages = {},
-  pubmed_id = {32780700},
-}
 
 
 @article{Ali2020,
@@ -1049,6 +1080,28 @@
   pubmed_id = {32748066},
 }
 
+@article{coravos2019developing,
+  title={Developing and adopting safe and effective digital biomarkers to improve patient outcomes},
+  author={Coravos, Andrea and Khozin, Sean and Mandl, Kenneth D},
+  journal={NPJ digital medicine},
+  volume={2},
+  number={1},
+  pages={1--5},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+@article{snyder2018best,
+  title={The best digital biomarkers papers of 2017},
+  author={Snyder, Christopher W and Dorsey, E Ray and Atreja, Ashish},
+  journal={Digital Biomarkers},
+  volume={2},
+  number={2},
+  pages={64--73},
+  year={2018},
+  publisher={Karger Publishers}
+}
+
 
 @article{Corral-Acero2020,
   title = {{The Digital Twin to enable the vision of precision cardiology.}},
@@ -1137,7 +1190,7 @@
 }
 
 
-@misc{yoon2018gain,
+@misc{yoon2018imputation,
   title = {{GAIN: Missing Data Imputation using Generative Adversarial Nets}},
   author = {Jinsung Yoon and James Jordon and Mihaela van der Schaar},
   year = {2018},
@@ -1162,16 +1215,6 @@
 }
 
 
-@inproceedings{Yang_2019b,
-  doi = {10.1109/ichi.2019.8904717},
-  url = {https://doi.org/10.1109%2Fichi.2019.8904717},
-  year = {2019},
-  month = {jun},
-  publisher = {{IEEE}},
-  author = {Yinchong Yang and Zhiliang Wu and Volker Tresp and Peter A. Fasching},
-  title = {{Categorical {EHR} Imputation with Generative Adversarial Nets}},
-  booktitle = {2019 {IEEE} International Conference on Healthcare Informatics ({ICHI})},
-}
 
 
 @misc{chen2019ganleaks,
@@ -1290,15 +1333,59 @@
   primaryclass = {cs.CV},
 }
 
-
-@inproceedings{ranzato2007unsupervised,
-  title = {{Unsupervised learning of invariant feature hierarchies with applications to object recognition}},
-  author = {Ranzato, Marc-Aurelio and Huang, Fu Jie and Boureau, Y-Lan and LeCun, Yann},
-  booktitle = {2007 IEEE conference on computer vision and pattern recognition},
-  pages = {1--8},
-  year = {2007},
-  organization = {IEEE},
+@inproceedings{choi2017generating,
+  title={Generating Multi-label Discrete Patient Records using Generative Adversarial Networks},
+  author={Choi, Edward and Biswal, Siddharth and Malin, Bradley and Duke, Jon and Stewart, Walter F and Sun, Jimeng},
+  booktitle={Machine Learning for Healthcare Conference},
+  pages={286--305},
+  year={2017}
 }
+
+
+@article{Lipton2016,
+abstract = {We demonstrate a simple strategy to cope with missing data in sequential
+      inputs, addressing the task of multilabel classification of diagnoses
+      given clinical time series. Collected from the intensive care unit (ICU)
+      of a major urban medical center, our data consists of multivariate time
+      series of observations. The data is irregularly sampled, leading to
+      missingness patterns in re-sampled sequences. In this work, we show the
+      remarkable ability of RNNs to make effective use of binary indicators to
+      directly model missing data, improving AUC and F1significantly. However,
+      while RNNs can learn arbitrary functions of the missing data and
+      observations, linear models can only learn substitution values. For linear
+      models and MLPs, we show an alternative strategy to capture this signal.
+      Additionally, we evaluate LSTMs, MLPs, and linear models trained on
+      missingness patterns only, showing that for several diseases, what tests
+      are run can be more predictive than the results themselves.},
+address = {Children's Hospital LA, Los Angeles, CA, USA},
+author = {Lipton, Zachary C and Kale, David and Wetzel, Randall},
+keywords = {Unsorted},
+mendeley-groups = {Phylogenetics,OHD-GAN-misc},
+pages = {253--270},
+publisher = {PMLR},
+title = {{Directly Modeling Missing Data in Sequences with RNNs: Improved
+      Classification of Clinical Time Series}},
+url = {http://proceedings.mlr.press/v56/Lipton16.html All Papers/Other/Lipton et al. 2016 - Directly Modeling Missing Data in Sequences with RNNs - Improved Classification of Clinical Time Series.pdf},
+volume = {56},
+year = {2016}
+}
+
+
+@article{Cowie_2016,
+author = {Cowie, Martin R and Blomster, Juuso I and Curtis, Lesley H and Duclaux, Sylvie and Ford, Ian and Fritz, Fleur and Goldman, Samantha and Janmohamed, Salim and Kreuzer, J{\"{o}}rg and Leenay, Mark and Michel, Alexander and Ong, Seleen and Pell, Jill P and Southworth, Mary Ross and Stough, Wendy Gattis and Thoenes, Martin and Zannad, Faiez and Zalewski, Andrew},
+doi = {10.1007/s00392-016-1025-6},
+journal = {Clinical Research in Cardiology},
+mendeley-groups = {OHD-GAN-misc},
+month = {aug},
+number = {1},
+pages = {1--9},
+publisher = {Springer Science and Business Media {\{}LLC{\}}},
+title = {{Electronic health records to facilitate clinical research}},
+url = {https://doi.org/10.1007{\%}2Fs00392-016-1025-6},
+volume = {106},
+year = {2016}
+}
+
 
 
 @article{Yi2019,
@@ -1488,4 +1575,11 @@
   author={Severo, Daniel and Amaro, Fl{\'a}vio and Hruschka Jr, Estevam R and Costa, Andr{\'e} Soares de Moura},
   journal={arXiv preprint arXiv:1910.00752},
   year={2019}
+}
+
+@article{antoniou2017data,
+  title={Data augmentation generative adversarial networks},
+  author={Antoniou, Antreas and Storkey, Amos and Edwards, Harrison},
+  journal={arXiv preprint arXiv:1711.04340},
+  year={2017}
 }

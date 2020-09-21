@@ -1,78 +1,89 @@
 
-
-\begin{table}
+\begin{sidewaystable}[htpb]
 \scriptsize
   \centering
-    \caption{Publications included}\label{tab:citeinc}
+    \caption{Publications included}\label{tab:publications}
   
-    \begin{tabularx}{\textwidth}{@{}Xp{1cm}XXXXXXXX@{}} \toprule
-    Authors & Pub. date & Algorithm & Focus & Data type & Algorithm & Techniques & Evaluation & Privacy & Adapted\\ \midrule
+    \begin{tabularx}{\textwidth}{@{}p{3cm}XXXXXX@{}} \toprule
+    Publication 
+    & Algorithm 
+    & Focus 
+    & Data type 
+    & Algorithm and Techniques 
+    & Evaluation 
+    & Privacy\\ \midrule
     
-    \citeauthor{Choi2017-nt}& 2017 & \thealgo{medGAN} & Discrete features, Mode collapse & Binary, Ordinal & FF,AE & MBA, BN, SC & DWPre, DWPro & AD, PD & \\
+    \cite{Choi2017-nt}
+    & \thealgo{medGAN} 
+    & Discrete features, Mode collapse 
+    & Binary, Ordinal 
+    & \gls{ffn},\gls{ae}, \gls{mba}, \gls{bn}, \gls{sc} 
+    & \gls{dwpre}, \gls{dwpro} 
+    & \gls{ad}, \gls{pd}\\
     
-    \citeauthor{esteban2017real}& 2017& \thealgo{RGAN}, \thealgo{RCGAN} & Real-valued time-series, conditional training & Regulary obsverved time-series & LSTM & SWL, CT & MMD, TSTR, TRTS, AUROC, AUPRC, PTA & DP-SGD & \\
+    \cite{esteban2017real}
+    & \thealgo{RGAN}, \thealgo{RCGAN} 
+    & Real-valued time-series, conditional training 
+    & Regulary obsverved time-series 
+    & \gls{lstm}, \gls{swl}, \gls{cgan} 
+    & \gls{mmd}, \gls{tstr}, \gls{trts}, \gls{auroc}, \gls{auprc}, \gls{pta} 
+    & \gls{dp-sgd}\\
     
-    \citeauthor{yahi2017generative}& 2017 & - & Continuous time-series, Drug laboratory effects (DRE) & Paired pre and post exposure time-series & FF, AE & CBT, t-SNE &  MSE & - & \algo{medGAN} \\
+    \cite{yahi2017generative} 
+    & $-$
+    & Continuous time-series, Drug laboratory effects (DRE) 
+    & Paired pre and post exposure time-series 
+    & \algo{medGAN}, Clustering, t-SNE 
+    & \gls{mse}
+    & $-$ \\
     
-    \citeauthor{Che_2017}& 2017 & \thealgo{ehrGAN}, \thealgo{SSL-GAN} & Discrete time-series, semi-supervised augmentation & Sequences of medical codes & 1D-CNN  & Word2vec, VCD  & CC, FD, SSA & - & - \\
+    \cite{Che_2017} 
+    & \thealgo{ehrGAN}, \thealgo{SSL-GAN} 
+    & Discrete time-series, semi-supervised augmentation 
+    & Sequences of medical codes 
+    & 1D-CNN, Word2vec, \gls{vcd}  
+    &\gls{cc}, \gls{fd}, \gls{ssa}
+    & $-$\\
     
-    \citeauthor{Xiao2017-lh}& 2017 & \thealgo{WGANTPP} & Temporal Point Processes & Sporadic occurences & LSTM, WGAN & Poisson process & QQ & - & -\\
-        
-    \citeauthor{Yoon2018-dm}& 2018 & \thealgo{RadialGAN} & Multi-domain translation, features and distribution mismatch, cycle-consistency, augmentation & Tabular, discrete and continuous & FF & CT, WGAN, MD-CC & PTA, AUROC, AUPRC & - \\
+    \cite{Xiao2017-lh} 
+    & \thealgo{WGANTPP} 
+    & Temporal Point Processes 
+    & Sporadic occurences 
+    & \gls{lstm}, \gls{wgan} 
+    & Poisson process 
+    & \gls{qq} \\
     
-    \citeauthor{Yoon2018-mo}&2018 & \thealgo{GANITE} & Individualized treatment effects (ITE), unobserved counterfactuals & Feature, treatment and outcome vectors & CGAN pair & See publicaton & See publication & - & - \\
+    \cite{Yoon2018-dm}
+    & \thealgo{RadialGAN} 
+    & Multi-domain translation, features and distribution mismatch, cycle-consistency, augmentation 
+    & Tabular, discrete and continuous 
+    & \gls{ffn} 
+    & \gls{cgan}, \gls{wgan}, \gls{md-cc} 
+    & \gls{pta}, \gls{auroc}, \gls{auprc} \\
     
-    \citeauthor{Camino2018-re}&2018 & & & & & & & \\
+    \cite{Yoon2018-mo} 
+    & \thealgo{GANITE} 
+    & \gls{ite}, unobserved counterfactuals 
+    & Feature, treatment and outcome vectors 
+    & \gls{cgan} pair 
+    & See publication 
+    & See publication \\
     
-    \citeauthor{mcdermott2018semi}& 2018& & & & & & & \\
+    \cite{Camino2018-re} 
+    &\thealgo{MC-ARAE}, \thealgo{MC-medGAN}, \thealgo{MC-GumbelGAN}, \thealgo{MC-WGAN-GP} 
+    & Data composed of multiple categorical variables 
+    & Multiple categorical variables represented as one-hot encoded vectors 
+    & \algo{medGAN}, \algo{WGAN-GP}, \gls{gumbel-gan}, \gls{arae} 
+    & See Section \ref{sec:categorical} 
+    & $-$\\
     
-    \citeauthor{Wang_2019}& 2019& & & & & & & \\
+    \cite{Zhang2020}
+    &\thealgo{EMR-WGAN}
+    & Medical codes, improving training, evaluation metrics
+    & Binary vector of occurrence over the medical codes. Low-prevalence of codes by which approximately half the dataset is discarded.
+    & \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}
+    & \gls{dwpro}, \gls{dwpre}, \gls{lsr}, \gls{fop}
+    &\gls{ad}, \gls{mi}, \gls{rr}\\
     
-    \citeauthor{Fisher2019}&2019 & & & & & & & \\
-    
-    \citeauthor{cui2019conan}&2019 & & & & & & & \\
-
-    
-    \citeauthor{Xu2019-ay}& 2019& & & & & & & \\
-
-    
-    \citeauthor{Beaulieu-Jones2019-ct}&2019 & & & & & & & \\
-    
-    \citeauthor{severo2019ward2icu}&2019 & & & & & & & \\
-    
-    \citeauthor{Jackson_2019}& 2019& & & & & & & \\
-    
-    \citeauthor{Yang_2019}& 2019& & & & & & & \\
-    
-    
-    \citeauthor{chu2019treatment}&2019 & & & & & & & \\
-    
-    \citeauthor{Chen_2019}& 2019& & & & & & & \\
-    
-    \citeauthor{Baowaly_2019}& 2019& & & & & & & \\
-    
-    \citeauthor{Baowaly2019}& 2019& & & & & & & \\
-    
-    \citeauthor{torfi2019generating}& 2019& & & & & & & \\
-    
-    \citeauthor{Zhang2020-wp}& 2020& & & & & & & \\
-    
-    \citeauthor{Goncalves2020}&2020 & & & & & & & \\
-    
-    \citeauthor{Yale_2020}& 2020& & & & & & & \\
-    
-    \citeauthor{BaeAnomiGAN2020}& 2020& & & & & & & \\
-    
-    \citeauthor{Yoon2020}& 2020& & & & & & & \\
-    
-    \citeauthor{Li_2020}& 2020& & & & & & & \\
-        
-    \citeauthor{walsh2020generating}& 2020 & & & & & & & \\
-    
-    \citeauthor{yale:hal-02160496}& & & & & & & & \\
-    
-    \citeauthor{chincheong2020generation}& 2020 & & & & & & & \\
-    
-    \bottomrule
-    \end{tabularx}
-\end{table}
+    \bottomrule    \end{tabularx}
+\end{sidewaystable}

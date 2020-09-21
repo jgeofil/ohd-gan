@@ -1,15 +1,125 @@
 \section{Results}
     \subsection{Summary}
-        We have found a total of \todo publications describing the development or adaption of GAN algorithms for OHD, presented in Table \ref{tab:citeinc}. The type of data addressed in each of these publications can be generalized into one of two categories: time-dependent observations, such as time-series, or static representation in the form of feature tables. Publications considering privacy either perform privacy evaluations of their algorithms and synthetic data, or exclusively concentrate on comparing methods about privacy.
+        We have found a total of \todo{count the number of publications} publications describing the development or adaption of \gls{gan} algorithms for \gls{ohd}, presented in Table \ref{tab:publications}. The type of data addressed in each of these publications can be generalized into one of two categories: time-dependent observations, such as time-series, or static representation in the form of feature vectors. Publications considering privacy either perform privacy evaluations of their algorithms and synthetic data, or exclusively concentrate on comparing methods about privacy.
         
-        \todo%\include{table_glossary}
-        \todo%\include{table_included_publications}
+        The most efforts are focused on adapting the current methods to the characteristics and complexities of OHD, of which multi-modality or non-Gaussian continuous features, heterogeneity, a combination of discrete and continuous features, longitudinal irregularity, correlation complexity, missingness or sparsity, class imbalance and noise are often cited. While these properties may pose a challenge for the development of useful algorithms, others aspects make the prospect of success highly valuable. In fact, the most cited motive to develop \gls{ohd-gan} is to cope with the often limited number of samples in medical datasets and to overcome the highly restricted access to \gls{ohd}.\par
         
-        The most efforts are focused on adapting the current methods to the characteristics and complexities of OHD, of which multi-modality or non-Gaussian continuous features, heterogeneity, a combination of discrete and continuous features, longitudinal irregularity, correlation complexity, missingness or sparsity, class imbalance and noise are often cited. While these properties may pose a challenge for the development of useful algorithms, others aspects make the prospect of success highly valuable. In fact, the most cited motive to develop OHD-GAN is to cope with the often limited number of samples in medical datasets and to overcome the highly restricted access to OHD.\par
+        \subsection{Motives for developing \gls{ohd}-\gls{gan}}
+The authors mention a wide range of potential applications for \gls{ohd-gan}. While some of these goals are overoptimistic and have yet to be realized, they paint an encouraging picture for the value of synthetic \gls{ohd} and the transformative effect it could have on healthcare initiatives and scientific progress. We briefly describe the four prevailing themes in the following sections: data augmentation (Sec.\ref{sec:augmentation}), privacy and accessibility (Sec.\ref{sec:access_privacy}), precision medicine (Sec.\ref{sec:precision_med}) and  modelling simulations (Sec.\ref{sec:models_twins}). 
+
+    \subsubsection{Data augmentation}\label{sec:augmentation}
+    
+    Data augmentation is mentioned in nearly all publications. Although counter-intuitive, it is well known that \glspl{gan} can generate \gls{sd} that conveys more information about the real data distribution. Effectively, the continuous space distribution of the generator produces a more comprehensive set of data points, valid but not present in the discrete real data points. A combination of real and synthetic training data habitually leads to increased predictor performance \cite{Wang_2019,Che_2017,Yoon2018-ite, yoon2018imputation}. A more intelligible way to seize the concept from the point of view of image classification, in which it is known as invariances, perturbations such as rotation, shift, sheer and scale \cite{antoniou2017data}. Similarly, domain translation and \gls{semi-sup} training approaches could support predictive tasks that lack data with accurate labels, paired samples, or suffer from class imbalance \cite{Che_2017,mcdermott2018semi}. 
+
+    \subsubsection{Enhancing privacy and increasing data accessibility}\label{sec:access_privacy}
+    
+    \gls{sd} is seen as the key to unlocking the unexploited value of \gls{ohd} due to privacy concerns. Preserving privacy can broadly be described as reducing the risk of \glspl{re-iden} to an acceptable level. This level of risk is quantified when releasing data anonymized with \gls{dp}. Authors noted that highly restricted access to \gls{ohd} is hindering machine learning, and more generally scientific progress \cite{Beaulieu-Jones2019-ct, Baowaly_2019,Che_2017,esteban2017real,Fisher2019}.\par
+    
+    Due to its artificial nature, SD is put forward as a means to forgo data use agreements, while potentially providing greater privacy guarantees\cite{Beaulieu-Jones2019-ct, baowaly_2019_IEEE, baowaly_2019_jamia,esteban2017real,Fisher2019,walsh2020generating}. In fact, \gls{gan} training according to \gls{dp} shows evidence of reducing the loss of utility in comparison to \gls{dp} alone. \todo{Find these citations} Overall, enabling access to greater variety, quality and quantity of \gls{ohd} could have positive effects in a wide range of fields, such as software development, education, and training of medical professionals. 
+    
+    \subsubsection{Enabling precision medicine}\label{sec:precision_med}
+    
+    The ability to conduct personalized simulations of disease progression for individual patients could have transformative impacts on healthcare. Generative models able to produce time-series trajectories conditioned on a patient's baseline state could help inform clinical decision making by quantifying disease progression and outcomes \cite{walsh2020generating, Fisher2019}. Ensembles of stochastic simulations of individual patient profiles such as those produced by gls{crmb} could help quantify risk at an unprecedented level of granularity \cite{Fisher2019}.\par
+    Predicting patient-specific responses to drugs is still a new field of research, a problem known as \gls{ite}. The task of estimating \glspl{ite} is persistently hampered by the lack of paired counterfactual samples \cite{Yoon2018-ite, chu2019treatment}. In medical imaging, various \gls{gan} algorithms were developed for domain translation, mapping a sample from its to original class to the paired equivalent. This includes bidirectional transformations, allowing \glspl{gan} to learn mappings from very few, or a lack of paired samples \cite{Wolterink2017DeepMT}.
+    
+    \subsubsection{From patient and disease models to digital twins}\label{sec:models_twins}
+    
+    A well trained model approximates the process that generated the real data points \cite{esteban2017real}. In other words, the relations learned by the model, its parameters, contains meaningful information if we can learn to harness it. Interpretability is a growing field of research concerned with understanding how these learned parameters relate, and thus explaining the representations the algorithm has converged to in linking the features to the outcome.\par
+    Achieving models of significant complexity would both open up unprecedented simulation capabilities, but also the chance to explore meaningful representations that would otherwise be beyond our reasoning.\par 
+    In clinical research, such models could help quantify cause and effect, simulate different study designs, provide control samples or more generally give us a better understanding of disease progression in relation to initial conditions \cite{Fisher2019, yahi2017generative, walsh2020generating}.\par
+    
+    Approaching these ideas from above, the concept of "digital twins" represents in a way the ultimate realization of \gls{pm}. A common practice in industrial sectors is high-fidelity virtual representations of physical assets. Long-term simulations, that provide an overview and comprehensive understanding of the workings, behavior and life-cycle of their real counterparts. The state of the models is continuously updated from theoretical data, real data and streaming \gls{iot} indicators.\par
+    Intently conditioned input data allows the exploration of specific events or conditions. In a position paper on the subject, Angulo et al. draw the parallels of this technique with the current needs in healthcare and the emergence of the necessary technologies for actionable models of patients. \cite{angulo2019towards,Angulo_2020}. The authors bring up the rapid adoption of wearables that are continuously monitoring people's physiological state. 
+    Wearables are one of many mobile digitally connected devices that collect patient data over a broad range of physiological characteristic and behavioral patterns \cite{coravos2019developing}. This emerging trend known as \gls{dbio} has already led to studies demonstrating predictive models with the potential for improved patient care \cite{snyder2018best}. Through continuous lifelong learning, integrating  multiple modes of personal data, generative patient models could inform diagnostics of medical professionals and also enable testing treatment options. In their proposal, \glspl{gan} are an essential component of the ecosystem to ensure patient privacy and to provide bootstrap data. Notably, Fisher et al. already employ the term "digital twin" to describe their process \cite{walsh2020generating}.
         
-        \input{31-results_motives}
-        
-        \input{32-results_features}
+\begin{sidewaystable}[htpb]
+\scriptsize
+  \centering
+    \caption{Publications included}\label{tab:publications}
+  
+    \begin{tabularx}{\textwidth}{@{}p{3cm}XXXXXX@{}} \toprule
+    Publication 
+    & Algorithm 
+    & Focus 
+    & Data type 
+    & Algorithm and Techniques 
+    & Evaluation 
+    & Privacy\\ \midrule
+    
+    \cite{Choi2017-nt}
+    & \thealgo{medGAN} 
+    & Discrete features, Mode collapse 
+    & Binary, Ordinal 
+    & \gls{ffn},\gls{ae}, \gls{mba}, \gls{bn}, \gls{sc} 
+    & \gls{dwpre}, \gls{dwpro} 
+    & \gls{ad}, \gls{pd}\\
+    
+    \cite{esteban2017real}
+    & \thealgo{RGAN}, \thealgo{RCGAN} 
+    & Real-valued time-series, conditional training 
+    & Regulary obsverved time-series 
+    & \gls{lstm}, \gls{swl}, \gls{cgan} 
+    & \gls{mmd}, \gls{tstr}, \gls{trts}, \gls{auroc}, \gls{auprc}, \gls{pta} 
+    & \gls{dp-sgd}\\
+    
+    \cite{yahi2017generative} 
+    & $-$
+    & Continuous time-series, Drug laboratory effects (DRE) 
+    & Paired pre and post exposure time-series 
+    & \algo{medGAN}, Clustering, t-SNE 
+    & \gls{mse}
+    & $-$ \\
+    
+    \cite{Che_2017} 
+    & \thealgo{ehrGAN}, \thealgo{SSL-GAN} 
+    & Discrete time-series, semi-supervised augmentation 
+    & Sequences of medical codes 
+    & 1D-CNN, Word2vec, \gls{vcd}  
+    &\gls{cc}, \gls{fd}, \gls{ssa}
+    & $-$\\
+    
+    \cite{Xiao2017-lh} 
+    & \thealgo{WGANTPP} 
+    & Temporal Point Processes 
+    & Sporadic occurences 
+    & \gls{lstm}, \gls{wgan} 
+    & Poisson process 
+    & \gls{qq} \\
+    
+    \cite{Yoon2018-dm}
+    & \thealgo{RadialGAN} 
+    & Multi-domain translation, features and distribution mismatch, cycle-consistency, augmentation 
+    & Tabular, discrete and continuous 
+    & \gls{ffn} 
+    & \gls{cgan}, \gls{wgan}, \gls{md-cc} 
+    & \gls{pta}, \gls{auroc}, \gls{auprc} \\
+    
+    \cite{Yoon2018-mo} 
+    & \thealgo{GANITE} 
+    & \gls{ite}, unobserved counterfactuals 
+    & Feature, treatment and outcome vectors 
+    & \gls{cgan} pair 
+    & See publication 
+    & See publication \\
+    
+    \cite{Camino2018-re} 
+    &\thealgo{MC-ARAE}, \thealgo{MC-medGAN}, \thealgo{MC-GumbelGAN}, \thealgo{MC-WGAN-GP} 
+    & Data composed of multiple categorical variables 
+    & Multiple categorical variables represented as one-hot encoded vectors 
+    & \algo{medGAN}, \algo{WGAN-GP}, \gls{gumbel-gan}, \gls{arae} 
+    & See Section \ref{sec:categorical} 
+    & $-$\\
+    
+    \cite{Zhang2020}
+    &\thealgo{EMR-WGAN}
+    & Medical codes, improving training, evaluation metrics
+    & Binary vector of occurrence over the medical codes. Low-prevalence of codes by which approximately half the dataset is discarded.
+    & \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}
+    & \gls{dwpro}, \gls{dwpre}, \gls{lsr}, \gls{fop}
+    &\gls{ad}, \gls{mi}, \gls{rr}\\
+    
+    \bottomrule    \end{tabularx}
+\end{sidewaystable}
         
         \input{33-results_discrete}
         

@@ -1,0 +1,31 @@
+\begin{table}[htpb]
+    \caption{Metrics employed to validate trained models based on the comparison of distributions.\label{tab:evaldist}} 
+        
+    \begin{tabular}{@{} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} @{}}\toprule
+        
+        Metric & Description & Example & References\\\midrule
+        
+        Kullback-Leibler (KL) divergence & Compares the distributions isolated features by measuring the similarity of their marginal probability mass functions (PMF). & - &
+        \cite{Goncalves2020}\\
+        
+        Maximum Mean Discrepancy (MMD) & 
+        Checks the dissimilarity between the real and synthetic probability distributions using samples drawn independently from each other. & - &
+        \cite{esteban2017real}\\
+        
+        2-sample test (2-ST) & Answers whether two samples, the real and synthetic, originate from the same distribution through the use of a statistical test. & 
+        Kolmogorov-Smirnov (KS) & 
+        \cite{Fisher2019,Baowaly2019}\\
+        
+        Distribution of Reconstruction Error & 
+        Determine if the samples in the synthetic set are more similar to those in the training set than those in the testing set. & Nearest-neighbor &
+        \cite{esteban2017real}\\
+        
+        Latent projection distribution & 
+        Compares the distribution of real and synthetic samples projected back into the latent space \cite{Zhang2020-wp}, or encoded with a \gls{beta-vae} \cite{Zhang2020} & Mean of the variance, Distance between modes & \\
+        
+        Domain specific measures & Comparison of the distributions according to a domain specific measure & Quantile-Quantile (Q-Q) plot (point-processes) & \cite{Xiao2017-lh}\\
+        
+        Classifier accuracy & Accuracy of a classifier trained to discriminate real from synthetic units. & - & \cite{Fisher2019,walsh2020generating}\\\bottomrule
+        
+    \end{tabular}
+\end{table}
