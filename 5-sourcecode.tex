@@ -1,6 +1,62 @@
 \section{Sourcecode and datasets}
-The algorithms presented in this review can undoubtetdly find usefulness for other health data or similar problems. Most importantly they can be reevaluated on other datasets or improved by adapting them with latest ML techniques. We present in Table \ref{tab:sourcecode} a list of links to the source code published by the authors. In addition, we present in Table \ref{tab:datasets} the datasets which were employed by the authors in their experiments, for those who were referenced and available. 
+The algorithms presented in this review can undoubtedly find usefulness for other health data or similar problems. Most importantly they can be reevaluated on other datasets or improved by adapting them with latest ML techniques. We present in Table \ref{tab:sourcecode} a list of links to the source code published by the authors. In addition, we present in Table \ref{tab:datasets} the datasets which were employed by the authors in their experiments, for those who were referenced and available. 
 
-\input{5A-table-data}
 
-\input{5B-table-opensource}
+\begin{table}[H]
+    \caption{Source code and data released and made open-source by the authors\label{tab:sourcecode}}
+    
+    \begin{tabular}{@{}lllll@{}}
+        Algorithm & Format & Location & Source code & Data\\ \toprule
+        
+        AC-GAN \cite{Beaulieu-Jones2019-ct} & Jupyter notebook & GitHub & \href{https://github.com/greenelab/SPRINT_gan}{greenelab/SPRINT\_gan} & \checkmark \\
+        
+        Ward2ICU \cite{severo2019ward2icu} & Python & GitHub & \href{https://github.com/3778/Ward2ICU}{3778/Ward2ICU} & \checkmark\\
+        
+        \gls{anomigan} \cite{BaeAnomiGAN2020} & Python, Tensorflow & Github & \href{https://github.com/hobae/AnomiGAN/}{hobae/anomigan} & \\
+        
+        \gls{gain} \cite{yoon2018imputation} & Python, Tensorflow & Github & \href{https://github.com/jsyoon0823/GAIN}{jsyoon0823/GAIN} & \checkmark\\
+        
+        \gls{rgan} \citeauthor{esteban2017real} & Python, Tensorflow & Github & \href{https://github.com/ratschlab/RGAN}{ratschlab/RGAN} & \checkmark\\
+        
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \footnotesize
+    \caption{Dataset used in the publications\label{tab:datasets}}
+    \begin{tabularx}{\textwidth}{@{}XX@{}}\toprule
+    Dataset & Link\\\midrule
+    
+    SPRINT Clinical Trial Data \cite{wright2016randomized} 
+      
+    & \href{https://challenge.nejm.org/pages/home}{SPRINT Data Analysis Challenge}\\
+    
+    Coalition Against Major diseases Online data Repository for AD \cite{Neville_2015} 
+     
+    & \href{https://c-path.org/programs/dcc/projects/alzheimers-disease/coalition-against-major-diseases-consortium-database-camd-admci/}{Critical Path Institute (C-Path)}\\
+
+    Philips eICU \cite{pollard2018eicu}    & \href{https://physionet.org}{Physionet \cite{Goldberger_2000}}\\
+    
+    Multiparameter Intelligent Monitoring in Intensive Care (MIMIC-III v1.4) \cite{Johnson_2016}   & \href{https://mimic.physionet.org}{MIMIC Physionet} \cite{Goldberger_2000}\\
+    
+    Vanderbilt University Medical Center Synthetic Derivative \cite{Roden_2008}   & \href{https://victr.vumc.org/biovu-description/}{BioVU}\\
+    
+    UC Irvine Machine Learning Repository \cite{Dua:2019}  & \href{http://archive.ics.uci.edu/ml/index.php }{UCI ML repository}\\
+    
+    Ward2ICU \cite{severo2019ward2icu}     & \href{https://arxiv.org/abs/1910.00752}{ArXiv}\\
+    
+    SEER Cancer Statistics Review (CSR) \cite{noone2018cronin}   & \href{https://seer.cancer.gov/data/access.html}{SEEr Incidence database}\\
+    
+    PREAGRANT \cite{Fasching_2015}  & Seemingly not publicly available. Correspondence address: \href{mailto:peter.fasching@uk-erlangen.de}{peter.fasching@uk-erlangen.de} \\
+    
+    New Zealand National Minimum Dataset (hospital events) \cite{events}    & \href{https://www.health.govt.nz/nz-health-statistics/access-and-use/data-request-form}{Data request form}\\
+    
+    Sutter Palo Alto Medical Foundation (PAMF) \todo{find more info about this data} \cite{Choi2017-nt}    &\\
+    
+    Heart failure study dataset from Sutter \cite{Choi2017-nt}  & \\
+    
+    \bottomrule
+    \end{tabularx}
+\end{table}

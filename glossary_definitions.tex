@@ -1,9 +1,7 @@
-\makeglossaries
-
 \newglossaryentry{gumbel-gan}
 {
         name=Gumbel-Softmax GAN,
-        description={\todo}
+        description={\todo{definition}}
 }
 
 \newglossaryentry{arae}
@@ -35,13 +33,13 @@
     description={Transforming data points from one domain or category to another.}
 }
 
-\newglossaryentry{semi-sup}{name=semi-supervised, description={\todo
+\newglossaryentry{semi-sup}{name=semi-supervised, description={\todo{definition}
 }}
 
-\newglossaryentry{re-iden}{name=reidentification attack, description={\todo
+\newglossaryentry{re-iden}{name=reidentification attack, description={\todo{definition}
 }}
 
-\newglossaryentry{dbio}{name=digital bio-markers, description={\todo
+\newglossaryentry{dbio}{name=digital bio-markers, description={\todo{definition}
 }}
 
 \newglossaryentry{exploding}{name=exploding gradient,
@@ -51,20 +49,20 @@
 \newglossaryentry{vanishing}{name=vanishing gradient, description={The gradients become null and the network can no longer be updated.
 }}
 
-\newglossaryentry{a-disclosure}{name=Attribute disclosure, description={}}
+\newglossaryentry{a-disclosure}{name=Attribute disclosure, description={\todo{definition}}}
 
-\newglossaryentry{mem-inference}{name=Membership inference, description={}}
+\newglossaryentry{mem-inference}{name=Membership inference, description={\todo{definition}}}
 
-\newglossaryentry{repro-rate}{name=Reproduction rate, description={}}
+\newglossaryentry{repro-rate}{name=Reproduction rate, description={\todo{definition}}}
 
 \newglossaryentry{utility-metric}{name=utility-based metric, description={In a broad sense, any metric that measure the amount of work that can be done with the data}}
 
-%\newglossaryentry{}{name=, description={
-%}}
-%\newglossaryentry{}{name=, description={
-%}}
-%\newglossaryentry{}{name=, description={
-%}}
+\newglossaryentry{iteff}{name=Individual Treatment Effects, description={\todo{definition}
+}}
+\newglossaryentry{pmed}{name=Personalized Medicine, description={\todo{definition}
+}}
+\newglossaryentry{mar}{name=Missing at Random, description={\todo{definition}
+}}
 %\newglossaryentry{}{name=, description={
 %}}
 %\newglossaryentry{}{name=, description={
@@ -76,36 +74,67 @@
 \newglossaryentry{self-training}{name=self-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively.
 }}
 
+
+
 %% Algorithms
-\newacronym{gan]}{GAN}{Generative Adversarial Network}
-\newacronym{ohd}{OHD}{Observational Health Data}
-\newacronym{ehr}{EHR}{Electronic Health Record}
 \newacronym{nn}{NN}{Neural Network}
 \newacronym{gan}{GAN}{Generative Adversarial Network}
-\newacronym{sd}{SD}{Synthetic Data}
 \newacronym{ohd-gan}{OHD-GAN}{\glspl{gan} for Observation Health Data}
-\newacronym{ffn}{FFN}{\gls{feed-forward}}
+\newacronym{ffn}{FFN}{\gls{feed-forward} Network}
 \newacronym{ae}{AE}{Autoencoder}
 \newacronym{rnn}{RNN}{Reccurent \gls{nn}}
 \newacronym{lstm}{LSTM}{Long Short-term Memory}
 \newacronym{cgan}{CGAN}{Conditional \gls{gan}}
 \newacronym{crmb}{CRMB}{Conditional Restricted Boltzamann Machine}
-\newacronym{ctgan}{CTGAN}{Conditional Tabular \Gls{gan}}
-\newacronym{heterogan}{HGAN}{Heterogeneous GAN}
-\newacronym{beta-vae}{\beta-VAE}{\beta variational auto-encoder}
+\newacronym{cnn}{CNN}{Convolutional \gls{nn}}
 \newacronym{wgan}{WGAN}{Wassertein \gls{gan}}
-\newacronym{emr-wgan}{EMR-WGAN}{EMR Wassertein GAN}
-\newacronym{corgan}{corGAN}{corGAN}
-\newacronym{1d-cae}{1D-CAE}{1-dimensional Convolutional \gls{ae}}
-\newacronym{ehrgan}{ehrGAN}{Electronic Health Record GAN}
+\newacronym{beta-vae}{\ensuremath{\beta}-VAE}{\ensuremath{\beta} variational auto-encoder}
+\newacronym{lr}{LR}{Logistic-regression}
+
+\newacronym{cycle-gan}{Cycle-GAN}{Cycle-consistent \gls{gan}}
+\newacronym{adtep}{ADTEP}{\todo{expand}}
+
+\newacronym[type=oalgo]{medgan}{medGAN}{medGAN}
+\newacronym[type=oalgo]{ssl-gan}{SSL-GAN}{Semi-supervised Learning with a learned ehrGAN}
+\newacronym[type=oalgo]{wgantpp}{WGANTPP}{\gls{wgan} for Temporal Point-processes}
+\newacronym[type=oalgo]{radialgan}{RadialGAN}{RadialGAN}
+\newacronym[type=oalgo]{mc-arae}{MC-ARAE}{Multi-categorical gls{arae}}
+\newacronym[type=oalgo]{ctgan}{CTGAN}{Conditional Tabular \Gls{gan}}
+\newacronym[type=oalgo]{heterogan}{HGAN}{Heterogeneous GAN}
+\newacronym[type=oalgo]{emr-wgan}{EMR-WGAN}{EMR Wassertein GAN}
+\newacronym[type=oalgo]{corgan}{corGAN}{corGAN}
+\newacronym[type=oalgo]{1d-cae}{1D-CAE}{1-dimensional Convolutional \gls{ae}}
+\newacronym[type=oalgo]{ehrgan}{ehrGAN}{Electronic Health Record GAN}
+\newacronym[type=oalgo]{rgan}{RGAN}{Recurrent \gls{gan}}
+\newacronym[type=oalgo]{rcgan}{RC-GAN}{Recurrent Convolutional \gls{gan}}
+\newacronym[type=oalgo]{ganite}{GANITE}{Generative Adversarial Nets for inference of Individualized Treatment Effects}
+\newacronym[type=oalgo]{cwr-gan}{CWR-GAN}{Cycle Wasserstein Regression \gls{gan}}
+\newacronym[type=oalgo]{gain}{GAIN}{Generative Adversarial Imputation Network}
+\newacronym[type=oalgo]{mc-medgan}{MC-medGAN}{Multi-categorical \gls{medgan}}
+\newacronym[type=oalgo]{mc-gumbelgan}{MC-GumbelGAN}{Multi-categorical Gumbel-softmax \gls{gan}}
+\newacronym[type=oalgo]{mc-wgan-gp}{MC-WGAN-GP}{Multi-categorical \gls{wgan} with Gradient Penality}
+\newacronym[type=oalgo]{medbgan}{MedBGAN}{Boundry-seeking \gls{medgan}}
+\newacronym[type=oalgo]{healthgan}{HealthGAN}{}
+\newacronym[type=oalgo]{medwgan}{MedWGAN}{Wassertein \gls{medgan}}
+\newacronym[type=oalgo]{sc-gan}{SC-GAN}{Sequentially Coupled \gls{gan}}
+\newacronym[type=oalgo]{rmb}{RMB}{Restricted Boltzmann Machine}
+\newacronym[type=oalgo]{anomigan}{AnomiGAN}{GANs for anonymizing private medical data}
+\newacronym[type=oalgo]{wgan-gp}{WGAN-GP}{\gls{wgan} with Gradient Penality}
+
+\newacronym[type=oalgo]{}{}{}
 %\newacronym{}{}{}
-%\newacronym{}{}{}
-%\newacronym{}{}{}
-%\newacronym{}{}{}
-%\newacronym{}{}{}
-%\newacronym{}{}{}
-%\newacronym{}{}{}
-%\newacronym{}{}{}
+
+%% Terms
+\newacronym{sd}{SD}{Synthetic Data}
+\newacronym{ohd}{OHD}{Observational Health Data}
+\newacronym{ehr}{EHR}{Electronic Health Record}
+\newacronym{icu}{ICU}{Intensive Care Unit}
+
+%% Fields
+\newacronym[seealso=iteff]{ite}{ITE}{Individual Treatment Effects}
+\newacronym[seealso=pmed]{pm}{PM}{Personalized Medicine}
+\newacronym{iot}{IoT}{Internet of Things}
+
 %% Techniques
 \newacronym{mba}{MbA}{\gls{mb-avg}}
 \newacronym{bn}{BN}{batch-normalization}
@@ -114,12 +143,15 @@
 \newacronym{cbt}{CBT}{Cluster-based training}
 \newacronym{vcd}{VCD}{Variational contrastive divergence}
 \newacronym{ln}{LN}{Layer normalisation}
+\newacronym{ssl}{SSL}{Semi-supervised Learning}
 
 %% Privacy
+\newacronym{dp}{DP}{Differential privacy}
 \newacronym{dp-sgd}{DP-SGD}{Differential private stochastic gradient descent}
 \newacronym{ad}{AD}{Attribute Disclosure}
-\newacronym{pd}{PD}{Presence Disclosure}
+\newacronym[seealso=mi]{pd}{PD}{Presence Disclosure}
 \newacronym{rr}{RR}{Reproduction rate}
+\newacronym[seealso=pd]{mi}{MI}{Membership Inference}
 
 %% Evaluation qualitative
 \newacronym{ved}{VED}{Visual Expert Discrimination}
@@ -136,23 +168,19 @@
 %% Metrics
 \newacronym{fop}{F-OP}{First-order proximity}
 \newacronym{cc}{CC}{Correlation coefficient}
+\newacronym{md-cc}{MD-CC}{\todo{Redundant?}}
 \newacronym{mmd}{MMD}{Maximum Mean Discrepency}
 \newacronym{rbf}{RBF}{Radial Basis Function}
 \newacronym{mse}{MSE}{Mean Squared Error}
 \newacronym{auroc}{AUROC}{Area under ROC curve}
 \newacronym{auprc}{AUPRC}{Area under the precision-recall curve}
+\newacronym{kld}{KLD}{Kullback-Leibler divergence}
 
 %% Evaluation augmentation
 \newacronym{tstr}{TSTR}{Train on synthetic, test on real}
 \newacronym{trts}{TRTTS}{Train on real, test on synthetic}
 \newacronym{pta}{PTA}{Prediction task accuracy}
 \newacronym{ssa}{SSA}{Semi-supervised augmentation}
-
-
-
-
-
-
 
 
 

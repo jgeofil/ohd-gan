@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[10pt,acronym]{article}
 
 \usepackage{fullpage}
 \usepackage{setspace}
@@ -10,8 +10,43 @@
 \usepackage{lineno}
 \usepackage{hyphenat}
 \usepackage{rotating}
-\usepackage[acronym]{glossaries}
+\usepackage{etoolbox}
+\usepackage[colorlinks]{hyperref}
+\usepackage{glossaries}
+\usepackage{glossaries-extra}
+\usepackage[round]{natbib}
+\usepackage{authblk}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{tabulary}
+\usepackage{booktabs,array,multirow}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{xspace}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{etex}
+\usepackage{makecell}
+\usepackage[disable]{todonotes}
+\usepackage{float}
 
+\hypersetup{
+     colorlinks = true,
+     linkcolor = blue,
+     anchorcolor = blue,
+     citecolor = teal,
+     filecolor = blue,
+     urlcolor = blue
+     }
+
+\bibliographystyle{unsrtnat}
 \renewcommand{\familydefault}{\sfdefault}
 
 
@@ -22,9 +57,7 @@
       citecolor = blue,
       anchorcolor = blue]{hyperref}
       
-\usepackage{etoolbox}
-\usepackage[round]{natbib}
-\bibliographystyle{unsrtnat}
+
 
 
 \renewenvironment{abstract}
@@ -35,17 +68,7 @@
 \titlespacing{\subsection}{0pt}{*2}{*0.5}
 \titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
 
-\usepackage{authblk}
 
-
-\usepackage{graphicx}
-\usepackage[space]{grffile}
-\usepackage{latexsym}
-\usepackage{textcomp}
-\usepackage{longtable}
-\usepackage{tabulary}
-\usepackage{booktabs,array,multirow}
-\usepackage{amsfonts,amsmath,amssymb}
 \providecommand\citet{\cite}
 \providecommand\citep{\cite}
 \providecommand\citealt{\cite}
@@ -57,26 +80,16 @@
 
 \AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
 
-\usepackage[utf8]{inputenc}
-\usepackage[greek,english]{babel}
-\usepackage{xspace}
-\usepackage{caption}
-\usepackage{tabularx}
-\usepackage[ampersand]{easylist}
-\usepackage{enumitem}
-\usepackage{pifont}
-\usepackage{etex}
-\usepackage{makecell}
-\usepackage{todonotes}
+\newglossary[odg]{oalgo}{old}{odn}{OHD-GAN Acronyms}
+\glsxtraddallcrossrefs
 
-\newcommand{\algo}[1]{\hyperlink{#1}{\underline{#1}}}
-\newcommand{\thealgo}[1]{\hypertarget{#1}{\textbf{\underline{#1}}}}
+\makeglossaries
 
-
-\input{0-glossary}
 
 
 \begin{document}
+
+\input{glossary_definitions}
 
 \title{Generative Adversarial Networks Applied to Observational Health Data}
 
@@ -111,11 +124,8 @@ efficiently learn generative models that produce realistic \gls{sd}. However, th
 lagging in comparison to other fields.
 
 We conducted a review of \gls{gan} algorithms for OHD in the published
-literature, and report our findings here.%
-
-
-
-\end{abstract}%
+literature, and report our findings here.
+\end{abstract}
 
 \input{1-introduction}
 \input{2-methods}
@@ -123,16 +133,21 @@ literature, and report our findings here.%
 \input{4-discussion}
 \input{5-sourcecode}
 \input{6-conclusion}
-\input{7-glossary}
 
 
-\bibliography{biblio}
 
-\clearpage
 
+\pagebreak
+
+%\clearpage
+\printglossary[type=oalgo]
 \printglossary[type=\acronymtype]
 
 \printglossary
+
+\pagebreak
+
+\bibliography{biblio}
 
 
 \end{document}
