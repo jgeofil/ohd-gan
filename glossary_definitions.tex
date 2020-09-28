@@ -1,13 +1,20 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Algorithms
 \newglossaryentry{gumbel-gan}
 {
         name=Gumbel-Softmax GAN,
-        description={\todo{definition}}
+        description={}
 }
 
 \newglossaryentry{arae}
 {
         name=ARAE,
         description={Adversarially regularized autoencoders.}
+}
+
+\newglossaryentry{t-sne}{
+    name=t-SNE,
+    description={The t-Distributed Stochastic Neighbor Embedding clustering algorithm is a nonlinear dimensionality reduction technique commonly applied to high-dimensiona data. See \citet{maaten2008tsne}.}
 }
 
 \newglossaryentry{mode-collapse}
@@ -61,20 +68,99 @@
 }}
 \newglossaryentry{pmed}{name=Personalized Medicine, description={\todo{definition}
 }}
-\newglossaryentry{mar}{name=Missing at Random, description={\todo{definition}
+
+\newglossaryentry{}{name=, description={
 }}
-%\newglossaryentry{}{name=, description={
-%}}
-%\newglossaryentry{}{name=, description={
-%}}
-%\newglossaryentry{}{name=, description={
-%}}
+
+%% Missingness
+\newglossaryentry{mar}{name=Missing at Random, description={Given a dataset with missing entries , the missingness depends only on the observed variables \cite{yoon2018imputation}.
+}}
+
+\newglossaryentry{mcar}{name=Missing Completly at Random, description={Given a dataset with missing entries, the missingness is not depedant on any of the variables, thus occurs completly at random \cite{yoon2018imputation}.
+}}
+
+%% Self and co-training semi-supervised training
 \newglossaryentry{co-training}{name=co-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively.}}
 
 \newglossaryentry{self-training}{name=self-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively.
 }}
 
+%% Privacy
+\newglossaryentry{mia}{name=Membership Inference Attack, description={Broadly, an MIA attack aims to determine if a particular record was used to train a machine learning model \cite{chen2019ganleaks}. There is no canonical process by which an attack is conducted, nor specification of the data assets initially in possession of the attacker. For a comprehensive taxonomy of MIA against \gls{gan}, refer to the suitably titled publication by \citeauthor{chen2019ganleaks} in which \gls{medgan} was subjected to a number of trials.}}
 
+%% Training techniques
+\newglossaryentry{msn}{
+ type=\acronymtype,
+ name={MSN},
+ description={Per feature, a variational Gaussian mixture model is used to estimate the number of modes and fit a Gaussian mixture. A one-hot vector indicating the mode, and a scalar indicating the value within the mode is produced. See \cite{Xu2019-ay}.},
+ text={MSN},
+ first={Mode-specific normalization (MSN)}
+}
+
+\newglossaryentry{tbs}{
+    type=\acronymtype,
+    name={TbS}, 
+    description={To deal with the imbalance of values in categorical featues, during training the data is resampled in a way that all the categories from discrete attributes are sampled evenly, without inducing bias and so as to recover real data distribution. See \cite{Xu2019-ay} for a step-by-step spefication.}
+    text={TbS},
+    first={Training by sampling (TbS)}  
+}
+
+\newglossaryentry{nnaa}{
+    type=\acronymtype,
+    name={NN-AA}, 
+    description={"Compares the distance from one point in a target distribution T, to the nearest point in a source distribution S, to the distance to the next nearest point in the target distribution." See \cite{yale2019ESANN}.}
+    text={NN-AA},
+    first={Nearest-neighbor Adversarial Accuracy (NN-AA)}
+}
+
+\newglossaryentry{pl}{
+    type=\acronymtype,
+    name={PL}, 
+    description={Difference of \gls{NN-AA} on the test set and on the training set. See \cite{yale2019ESANN}.}
+    text={PL},
+    first={Privacy loss (PL)}
+}
+
+\newglossaryentry{dt}{
+    type=\acronymtype,
+    name={DT}, 
+    description={The discriminator is tested on batches of synthetic data produced by other methods to asses the possibility of overfitting, see \cite{yale2019ESANN}.}
+    text={DT},
+    first={Discriminator testing (DT)}
+}
+
+\newglossaryentry{do}{
+    type=\acronymtype,
+    name={DO}, 
+    description={Privacy preservation method. See \cite{yale2019ESANN} based on \cite{Dwork2008, Prasser2017}.}
+    text={DO},
+    first={Data obfuscation (DO}
+}
+
+\newglossaryentry{pate}{
+    type=\acronymtype,
+    name={PATE}, 
+    description={Differntial privacy method: "The approach combines, in a black-box fashion, multiple models trained with disjoint datasets, such as records from different subsets of users. Because they rely directly on sensitive data, these models are not published, but instead used as "teachers" for a "student" model. The student learns to predict an output chosen by noisy voting among all of the teachers, and cannot directly access an individual teacher or the underlying data or parameters. The student's privacy properties can be understood both intuitively (since no single teacher and thus no single dataset dictates the student's training) and formally, in terms of differential privacy." \cite{Papernot2017,Papernot2018}}
+    text={PATE},
+    first={Private Aggregation of Teacher Ensembles (PATE)}
+}
+
+\newglossaryentry{mbd}{
+    type=\acronymtype,
+    name={MBD}, 
+    description={Training technique. See \cite{Salimans2016}}
+    text={MBD},
+    first={Mini-batch discrimination (MDB)}
+}
+
+% \newglossaryentry{⟨label ⟩}{type=\acronymtype,
+% name={⟨abbrv ⟩},
+% description={⟨long⟩},
+% text={⟨abbrv ⟩},
+% first={⟨long⟩ (⟨abbrv ⟩)},
+% plural={⟨abbrv ⟩\glspluralsuffix},
+% firstplural={⟨long⟩\glspluralsuffix\space (⟨abbrv ⟩\glspluralsuffix)},
+% ⟨key-val list⟩}
 
 %% Algorithms
 \newacronym{nn}{NN}{Neural Network}
@@ -90,9 +176,9 @@
 \newacronym{wgan}{WGAN}{Wassertein \gls{gan}}
 \newacronym{beta-vae}{\ensuremath{\beta}-VAE}{\ensuremath{\beta} variational auto-encoder}
 \newacronym{lr}{LR}{Logistic-regression}
-
 \newacronym{cycle-gan}{Cycle-GAN}{Cycle-consistent \gls{gan}}
 \newacronym{adtep}{ADTEP}{\todo{expand}}
+\newacronym{cae}{CAE}{Convolutional \gls{AE}}
 
 \newacronym[type=oalgo]{medgan}{medGAN}{medGAN}
 \newacronym[type=oalgo]{ssl-gan}{SSL-GAN}{Semi-supervised Learning with a learned ehrGAN}
@@ -120,8 +206,10 @@
 \newacronym[type=oalgo]{rmb}{RMB}{Restricted Boltzmann Machine}
 \newacronym[type=oalgo]{anomigan}{AnomiGAN}{GANs for anonymizing private medical data}
 \newacronym[type=oalgo]{wgan-gp}{WGAN-GP}{\gls{wgan} with Gradient Penality}
+\newacronym[type=oalgo]{dp-auto-gan}{DP-auto-GAN}{\gls{DP}-auto-\gls{gan}}
 
-\newacronym[type=oalgo]{}{}{}
+
+%\newacronym[type=oalgo]{}{}{}
 %\newacronym{}{}{}
 
 %% Terms
@@ -130,8 +218,11 @@
 \newacronym{ehr}{EHR}{Electronic Health Record}
 \newacronym{icu}{ICU}{Intensive Care Unit}
 
+
+
 %% Fields
 \newacronym[seealso=iteff]{ite}{ITE}{Individual Treatment Effects}
+\newacronym[seealso=iteff]{dle}{DLE}{Drug Laboratory Effects}
 \newacronym[seealso=pmed]{pm}{PM}{Personalized Medicine}
 \newacronym{iot}{IoT}{Internet of Things}
 
@@ -139,19 +230,22 @@
 \newacronym{mba}{MbA}{\gls{mb-avg}}
 \newacronym{bn}{BN}{batch-normalization}
 \newacronym{sc}{SC}{shortcut connections}
-\newacronym{swl}{SWL}{Step-wise loss}
 \newacronym{cbt}{CBT}{Cluster-based training}
 \newacronym{vcd}{VCD}{Variational contrastive divergence}
 \newacronym{ln}{LN}{Layer normalisation}
 \newacronym{ssl}{SSL}{Semi-supervised Learning}
 
+
 %% Privacy
 \newacronym{dp}{DP}{Differential privacy}
 \newacronym{dp-sgd}{DP-SGD}{Differential private stochastic gradient descent}
 \newacronym{ad}{AD}{Attribute Disclosure}
-\newacronym[seealso=mi]{pd}{PD}{Presence Disclosure}
+\newacronym[seealso=mia]{pd}{PD}{Presence Disclosure}
 \newacronym{rr}{RR}{Reproduction rate}
-\newacronym[seealso=pd]{mi}{MI}{Membership Inference}
+\newacronym[seealso=mia]{mi}{MI}{Membership Inference}
+
+\newacronym{anm}{ANM}{Additive noise model}
+
 
 %% Evaluation qualitative
 \newacronym{ved}{VED}{Visual Expert Discrimination}
@@ -164,6 +258,10 @@
 \newacronym{fd}{FD}{Feature distributions}
 \newacronym{qq}{QQ}{Quantile-quantile plot}
 \newacronym{lsr}{LSR}{Latent space representation}
+\newacronym{rdp}{RDP}{Renyi Differential Privacy}
+\newacronym{pcam}{PCAM}{\gls{pca} Marginal}
+\newacronym{pca}{PCA}{Principal Component Analysis}
+\newacronym{pcawdd}{PCA-DWD}{\gls{pca} Distributinal Wassertein Distance}
 
 %% Metrics
 \newacronym{fop}{F-OP}{First-order proximity}

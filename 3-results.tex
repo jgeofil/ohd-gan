@@ -9,13 +9,15 @@
 
         \subsubsection{Data augmentation}\label{sec:augmentation}
     
-            Data augmentation is mentioned in nearly all publications. Although counter-intuitive, it is well known that \gls{gan} can generate \gls{sd} that conveys more information about the real data distribution. Effectively, the continuous space distribution of the generator produces a more comprehensive set of data points, valid but not present in the discrete real data points. A combination of real and synthetic training data habitually leads to increased predictor performance \cite{Wang_2019,Che_2017,Yoon2018-ite, yoon2018imputation}. A more intelligible way to seize the concept from the point of view of image classification, in which it is known as invariances, perturbations such as rotation, shift, sheer and scale \cite{antoniou2017data}. Similarly, domain translation and \gls{semi-sup} training approaches could support predictive tasks that lack data with accurate labels, paired samples, or suffer from class imbalance \cite{Che_2017,mcdermott2018semi}. 
+            Data augmentation is mentioned in nearly all publications. Although counter-intuitive, it is well known that \gls{gan} can generate \gls{sd} that conveys more information about the real data distribution. Effectively, the continuous space distribution of the generator produces a more comprehensive set of data points, valid but not present in the discrete real data points. A combination of real and synthetic training data habitually leads to increased predictor performance \cite{Wang_2019,Che_2017,Yoon2018-ite, yoon2018imputation}. A more intelligible way to seize the concept from the point of view of image classification, in which it is known as invariances, perturbations such as rotation, shift, sheer and scale \cite{antoniou2017data}.\par 
+            
+            Similarly, domain translation and \gls{semi-sup} training approaches with \glspl{GAN} could support predictive tasks that lack data with accurate labels, lack paired samples, suffer class imbalance \cite{Che_2017,mcdermott2018semi}. Another example is correcting discrepancies between datasets collected in different locations or under different conditions inducing bias \cite{Yoon2018-radial}. \Glspl{gan} are also well adapted for data imputation, were data have entries \gls{mar} \cite{yoon2018imputation}. 
 
         \subsubsection{Enhancing privacy and increasing data accessibility}\label{sec:access_privacy}
     
-            \gls{sd} is seen as the key to unlocking the unexploited value of \gls{ohd} due to privacy concerns. Preserving privacy can broadly be described as reducing the risk of \gls{re-iden} to an acceptable level. This level of risk is quantified when releasing data anonymized with \gls{dp}. Authors noted that highly restricted access to \gls{ohd} is hindering machine learning, and more generally scientific progress \cite{Beaulieu-Jones2019-ct, baowaly_2019_IEEE,baowaly_2019_jamia,Che_2017,esteban2017real,Fisher2019}.\par
+            \gls{sd} is seen as the key to unlocking the unexploited value of \gls{ohd} due to privacy concerns. Preserving privacy can broadly be described as reducing the risk of \gls{re-iden} to an acceptable level. This level of risk is quantified when releasing data anonymized with \gls{dp}. Authors noted that highly restricted access to \gls{ohd} is hindering machine learning, and more generally scientific progress \cite{Beaulieu-Jones2019-ct, baowaly_2019_IEEE,baowaly_2019_jamia,Che_2017,esteban2017real,Fisher2019,severo2019ward2icu}. To develop and validate \gls{ML} method or two compare the performance of alternative models \gls{SD} is often sufficient \cite{Jordon2019}.\par
     
-            Due to its artificial nature, SD is put forward as a means to forgo data use agreements, while potentially providing greater privacy guarantees\cite{Beaulieu-Jones2019-ct, baowaly_2019_IEEE, baowaly_2019_jamia,esteban2017real,Fisher2019,walsh2020generating}. In fact, \gls{gan} training according to \gls{dp} shows evidence of reducing the loss of utility in comparison to \gls{dp} alone. \todo{Find these citations} Overall, enabling access to greater variety, quality and quantity of \gls{ohd} could have positive effects in a wide range of fields, such as software development, education, and training of medical professionals. 
+            Due to its artificial nature, SD is put forward as a means to forgo data use agreements, while potentially providing greater privacy guarantees\cite{Beaulieu-Jones2019-ct, baowaly_2019_IEEE, baowaly_2019_jamia,esteban2017real,Fisher2019,walsh2020generating, chin2019generation}. In fact, \gls{gan} training according to \gls{dp} shows evidence of reducing the loss of utility in comparison to \gls{dp} alone. \todo{Find these citations} Overall, enabling access to greater variety, quality and quantity of \gls{ohd} could have positive effects in a wide range of fields, such as software development, education, and training of medical professionals. 
     
         \subsubsection{Enabling precision medicine}\label{sec:precision_med}
     
@@ -37,361 +39,244 @@
     \centering
     \caption{Publications included}\label{tab:publications}
       
-        \begin{tabularx}{\textwidth}{@{}p{3cm}XXXXXX@{}} \toprule
-            Publication 
-            & Algorithm 
-            & Focus 
-            & Data type 
-            & Algorithm and Techniques 
-            & Evaluation 
-            & Privacy\\ \midrule
+        \begin{tabularx}{\textwidth}{@{}p{4cm}XXX@{}} \toprule
+            Publication & Algorithm(s) & Focus and topics & Data type \\ \midrule
             
             \cite{Choi2017-nt}
             & \gls{medgan} 
-            & Discrete features, Mode collapse 
-            & Binary, Ordinal 
-            & \gls{ffn},\gls{ae}, \gls{mba}, \gls{bn}, \gls{sc} 
-            & \gls{dwpre}, \gls{dwpro} 
-            & \gls{ad}, \gls{pd}\\
+            & Incompatibility of backpropagation with discrete features. \gls{mc}, \gls{ae}, \gls{mba}, \gls{bn}, \gls{sc}, \gls{ad}, \gls{pd}
+            & Discrete features, aggregated counts and occurences of medical codes.\\
+            
+            \cite{yahi2017generative} 
+            & \gls{medgan} adaptation
+            & \Gls{dle} on continuous time-series, multi-modality, \gls{t-sne}.
+            & Paired pre/post treatment exposure time-series\\
             
             \cite{esteban2017real}
             & \gls{rgan}, \gls{rcgan} 
-            & Real-valued time-series, conditional training 
-            & Regulary obsverved time-series 
-            & \gls{lstm}, \gls{swl}, \gls{cgan} 
-            & \gls{mmd}, \gls{tstr}, \gls{trts}, \gls{auroc}, \gls{auprc}, \gls{pta} 
-            & \gls{dp-sgd}\\
-            
-            \cite{yahi2017generative} 
-            & $-$
-            & Continuous time-series, Drug laboratory effects (DRE) 
-            & Paired pre and post exposure time-series 
-            & \gls{medgan}, Clustering, t-SNE 
-            & \gls{mse}
-            & $-$ \\
-            
-            \cite{Che_2017} 
-            & \gls{ehrgan}, \gls{ssl-gan} 
-            & Discrete time-series, semi-supervised augmentation 
-            & Sequences of medical codes 
-            & 1D-CNN, Word2vec, \gls{vcd}  
-            &\gls{cc}, \gls{fd}, \gls{ssa}
-            & $-$\\
+            &  Adversarial training of (conditional) \glspl{RNN} on time-series, evaluation, privacy. \gls{lstm}, \gls{cgan}, \gls{dp-sgd}
+            & Regulary obsverved real-valued time-series\\
             
             \cite{Xiao2017-lh} 
             & \gls{wgantpp} 
-            & Temporal Point Processes 
-            & Sporadic occurences 
-            & \gls{lstm}, \gls{wgan} 
-            & Poisson process 
-            & \gls{qq} \\
+            & Temporal Point Processes. \gls{lstm}, \gls{wgan}, Poisson process
+            & Sporadic occurences, hospital visits.\\
             
-            \cite{Yoon2018-radial}
-            & \gls{radialgan} 
-            & Multi-domain translation, features and distribution mismatch, cycle-consistency, augmentation 
-            & Tabular, discrete and continuous 
-            & \gls{ffn} 
-            & \gls{cgan}, \gls{wgan}, \gls{md-cc} 
-            & \gls{pta}, \gls{auroc}, \gls{auprc} \\
-            
-            \cite{Yoon2018-ite} 
-            & \gls{ganite} 
-            & \gls{ite}, unobserved counterfactuals 
-            & Feature, treatment and outcome vectors 
-            & \gls{cgan} pair 
-            & See publication 
-            & See publication \\
+            \cite{Che_2017} 
+            & \gls{ehrgan}, \gls{ssl-gan} 
+            & Semi-supervised augmentation, transitional distribution. 1D-CNN, Word2vec, \gls{vcd}
+            & Discrete time-series, sequences of medical codes. \\
             
             \cite{Camino2018-re} 
             &\gls{mc-arae}, \gls{mc-medgan}, \gls{mc-gumbelgan}, \gls{mc-wgan-gp} 
-            & Data composed of multiple categorical variables 
-            & Multiple categorical variables represented as one-hot encoded vectors 
-            & \gls{medgan}, \gls{wgan-gp}, \gls{gumbel-gan}, \gls{arae} 
-            & See Section \ref{subsec:data_gan_dev} 
-            & $-$\\
+            & Improving training process. \gls{medgan}, \gls{wgan-gp}, \gls{gumbel-gan}, \gls{arae}
+            & Data composed of multiple categorical variables, represented as one-hot encoded vectors. \\
             
             \cite{mcdermott2018semi}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{cwr-gan}
+            & Cycle-consistent semi-supervised regression learning, unpaired data, class imbalance. \gls{wgan} \gls{cc-gan} \gls{ite}
+            & ICU time-series with lack of paired samples, \gls{SD}. \\
+            
+            \cite{Yoon2018-ite} 
+            & \gls{ganite} 
+            & \gls{ite}, unobserved counterfactuals, multilabel classfication, uncertainty. \gls{cgan} pair
+            & Feature, treatment and outcome vectors\\
             
             \cite{Yoon2018-radial}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{radialgan} 
+            & Multi-domain translation, features and distribution mismatch, cycle-consistency, augmentation. \gls{cgan}, \gls{wgan}, \gls{md-cc}.
+            & Tabular, discrete and continuous features.\\
             
             \cite{yoon2018imputation}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & GAIN
+            & Tabular data imputation. \gls{mcar} \gls{cgan}
+            & Incomplete datasest of continuous variables with entries \gls{mcar}.\\
             
-            \cite{Yoon2018-ite}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
             
             \cite{Wang_2019}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{SC-GAN}
+            & Capturing mutual influence in time-series. Coupled generator pair. Treatment recommendation task.  \gls{LSTM} \gls{cgan}
+            & Continuous patient-centric data, including patient state and medication dosage data.\\
             
             \cite{Fisher2019}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{baowaly_2019_IEEE}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{medBGAN}
+            & Improving training process. \gls{medGAN} \gls{bgan}
+            & Binary counts and occurences of medcial concepts.\\
             
             \cite{baowaly_2019_jamia}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{medbgan}, \gls{medwgan}
+            & Improving training process. \gls{medGAN} \gls{bgan} \gls{wgan}
+            & Binary counts and occurences of medcial concepts.\\
             
+            \cite{severo2019ward2icu}
+            & Conditional gls{cwgan-gp} 
+            & Generation and public release of dataset. Protecting commercial sensitive information. Class imbalance. \gls{cwgan-gp}, \gls{cgan}
+            & Continuous features of vital signs.
+            
+            \cite{chin2019generation}
+            & Heterogeneous mixture of dense and sparse features. Privacy and evaluating the introduction of bias. \gls{wgan}, \gls{wgan-gp}, \gls{msn}, \gls{dp} aware optimizer from Tensorflow \cite{tensorflow-privacy}.
+            
+            \cite{Jordon2019}
+            & \gls{pate-gan}
+            & Alternative differential privacy, adaptation of the  \gls{pate} framework.
+            & Demographic and binary features.
             
             \cite{torfi2019generating}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{corGAN}
+            & \gls{CNN} architecture, capturing feature correlations, evaluating realism, privacy evaluation using \gls{mia}. 1D-\gls{cae}
+            & Discrete counts and occurences of medical codes.\\
             
             \cite{Yale_2020}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{chu2019treatment}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{severo2019ward2icu}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             
             \cite{chincheong2020generation}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             
             \cite{Jackson_2019}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{medGAN}
+            & Evaluating medGAN with the addition of demographics features.
+            & One-hot encoded demographic features and original data. \\
             
-            
+            metrics for assessing privacy and utility of synthetic data and models
             \cite{yu2019rare}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             
             \cite{Yang_2019_cdss}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             
             \cite{Yang_2019_ehr}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             
             \cite{Yang_2019_impute_ehr}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{rubanova2019latent}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{Beaulieu-Jones2019-ct}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{Xu2019-ay}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{ctgan}
+            & Non-Gaussian multimodal distribution of continuous columns and imbalanced discrete column in tabular data. Evaluation benchmark. \gls{cgan} \gls{tbs} \gls{msn} \gls{wgan-gp} \gls{gumbelgan}
+            & Tabular data, mixture of continuous and categorical features.\\
             
             
             \cite{Zhang2020}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
+            \cite{yale2019ESANN}
+            & \gls{healthgan}
+            & Privacy metrics and overfitting. \gls{mi}, \gls{nnaa}, \gls{pl}, \gls{dt}
+            & Categorical demographics, continuous vital signs and binary medical codes.
             
             \cite{Yale_2020}
-            &
-            & 
-            & 
-            & 
-            & 
-            &\\
+            & \gls{healthgan}
+            & Metrics to capture a synthetic dataset’s resemblance, privacy, utility and footprint. Evaluating applications. \gls{nnaa}, gls{pl}, \gls{do}, \gls{medgan}, \gls{wgan-gp}, \gls{sdv}, Application case studies, Reproducibility of studies with \gls{SD}.
+            & Continous and categorical data, demographics, vital signs, diagnoses, and procedures.\\
             
+            \cite{tanti2019}
+            & \gls{dp-auto-gan}
+            & Privacy, \gls{medgan} adaptation, evaluation metrics. \gls{dp-sgd} \gls{ae} \gls{medgan} \gls{rdp}
             
             \cite{cui2019conan}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             
             \cite{chincheong2020generation}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{yan2020generating}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{ozyigit2020generation}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{walsh2020generating}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{Rankin2020}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{Zhang2020}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{Yoon2020-anon}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{BaeAnomiGAN2020}
-            &
-            & 
-            & 
             & 
             & 
             &\\
             
             \cite{Goncalves2020}
-            &
             & 
             & 
+            &\\
+            
+            \cite{chen2019ganleaks}
             & 
             & 
             &\\
             
             \cite{Zhang2020}
             &\gls{emr-wgan}
-            & Medical codes, improving training, evaluation metrics
-            & Binary vector of occurrence over the medical codes. Low-prevalence of codes by which approximately half the dataset is discarded.
-            & \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}
-            & \gls{dwpro}, \gls{dwpre}, \gls{lsr}, \gls{fop}
-            &\gls{ad}, \gls{mi}, \gls{rr}\\
+            & Improving training, evaluation metrics, sparsity. \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}
+            & Binary vector of occurrence over the medical codes. Low-prevalence of codes. \\
             
             \bottomrule
         \end{tabularx}
@@ -604,10 +489,10 @@
 \end{table}
 
 \subsection{Alternative evaluation}
-In their publications, Yale et al. propose refreshing approaches to evaluating the utility of synthetic data. For example, they organized a hack-a-thon type challenge. During the event, students were tasked with creating classifiers, while provided only with synthetic data \cite{Yale_2020}. They were then scored on the accuracy of their model in real data. Similarly, in a different evaluation experiment, they attempted (successfully) to recreate published medical papers based on the MIMIC dataset using only data generated from their model HealthGAN. The implications of these results for exploratory data analysis, reproducibility experiments in cases where data cannot be distributed and more generally education in health-related scientific training are glaring. In a subsequent paper, the authors evaluate the performance of their model against traditional privacy preservation methods by using the trained discriminator component of HealthGAN to discriminate real from synthetic samples.
+In their publications, \citeauthor{Yale_2020} propose refreshing approaches to evaluating the utility of synthetic data. For example, they organized a hack-a-thon type challenge involving the data. During the event, students were tasked with creating classifiers, while provided only with synthetic data \cite{Yale_2020}. They were then scored on the accuracy of their model in real data. In more rigorous initiatives, they attempted (successfully) to recreate the experiments published in medical papers based on the MIMIC dataset using only data generated from their model HealthGAN. The implications of these results for exploratory data analysis, reproducibility on restricted data and more generally education in scientific training are glaring. In a subsequent version of their article, the authors evaluate the performance of their model against traditional privacy preservation methods by using the trained discriminator component of HealthGAN to discriminate real from synthetic samples.
         
 \subsection{Privacy Preservation}
-To evaluate the risk of reidentification of synthetic data in the publications included, empirical analyses of privacy preservation are conducted according to the definitions of Membership Inference (MI), Attribute Disclosure (AD)  \cite{Choi2017-nt,Goncalves2020,yan2020generating} and Reproduction rate (RR) \cite{Zhang2020}. Cosine similarities between pairs of samples are also employed \cite{torfi2019generating}. All studies report low success rates for these types of attacks, while there is little effect from the sample size. Broadly, an MIA attack aims to determine if a particular record was used to train a machine learning model \cite{chen2019ganleaks}. There is no canonical process by which an attack is conducted, nor specification of the data assets initially in possession of the attacker. For a comprehensive taxonomy of MIA against \gls{gan}, refer to the suitably titled publication by Chen et al. in which \gls{medgan} was subjected to a number of trials.\par
+To evaluate the risk of reidentification of synthetic data in the publications included, empirical analyses of privacy preservation are conducted according to the definitions of gls{mi}, \gls{ad}  \cite{Choi2017-nt,Goncalves2020,yan2020generating} and the \gls{rr} \cite{Zhang2020}. Cosine similarities between pairs of samples are also employed \cite{torfi2019generating}. All studies report low success rates for these types of attacks, while there is little effect from the sample size. \par
 In black-box and white-box type attacks, including the LOGAN \cite{hayes2017logan} method, \gls{medgan} performed considerably better than \gls{wgan-gp} \cite{gulrajani2017improved}, the algorithm which served as basis for improvements to \gls{medgan} in publications discussed in Section 3.1. Overall, the authors note that releasing the full model poses a high risk of privacy breaches and that smaller training sets (under 10k) also lead to a higher risk.\par  
 AD is defined as the risk of an attacker correctly inferring unknown attributes of a patient's record, given a number of known attributes. Goncalves et al. evaluated MC-medGAN against multiple non-adversarial generative models in a variety of privacy compromising attacks, including AD, obtaining inconsistent results for MC-medGAN \cite{Goncalves2020}. While this is not mentioned by the authors, multiple results reported in the publication point to the fact that the \gls{gan} was not properly trained or suffered mode-collapse.\par
 Numerous attempts have been made to confer traditional privacy guarantees that deteriorate data, such as deferentially-private stochastic gradient descent. By limiting the gradient amplitude at each step and adding random noise, AC-GAN could produce useful data witth $\epsilon=3.5$ and $\delta<10^{-5}$ according to the definition of differential privacy \cite{Beaulieu-Jones2019-ct, esteban2017real,chincheong2020generation}. \cite{BaeAnomiGAN2020}. Uniquely, Bae et al. ensure privacy with a probabilistic scheme that ensure indistinguishably, but also maximizes utility. Specifically, a multiplicative perturbation by random orthogonal matrices with input entries of $k x m$ medical records and a second second discriminator in the form of a pretrained  predictor \cite{BaeAnomiGAN2020}. Means to confer privacy guarantees on synthetic data generated by \gls{gan} are being actively researched in a variety of fields, many of which are a priori readily applicable to health data. At this stage, however, contradictory results have between obtained where the statistical fidelity of the synthetic seemed to be preserved, but utility-based measures based on a classification were degraded by incorporating DP.\par
@@ -616,7 +501,7 @@ It seems intuitively possible that the artificial nature of synthetic data essen
 \subsection{GAN-centric approach to privacy}
 Some have put forward the notion that preventing over-fitting and preserving privacy may not be conflicting goals \cite{Wu2019-ui,Mukherjee2019-vu}. In privGAN, Mukherjee et al., an adversary is introduced, forcing the generator to produce samples that minimize the risk of MIA attack, in addition to cheating the discriminator. The combination of both goals has the explicit effect of preventing over-fitting, and their algorithm produces samples of similar quality to non-private \gls{gan}.\par
 The discordance between the theoretical concepts of DP, which are  based ultimately on infinite samples, and the often insufficient data on which the probability of disclosure is calculated remains deficient. Therefore, Yoon et al. have postulated an intriguing alternative view of privacy \cite{Yoon2020-anon}. They propose to emphasize measuring identifiability of finite patient data, rather than the probabilistic disclosure loss of DP based on unrealistic premises. Simplistically, they define identifiability as the minimum closest distance between any pair of synthetic and real samples. In their implementation, the generator receives both the usual random seed and a real sample as input. This has the effect of mitigating mode collapse, but also of reproducing the real samples. On the other hand, the discriminator is equipped with an additional loss metric based on a measure of similarity between the original sample and the generated one, thus ensuring the tuneable threshold of identifiability is met. Their results on a number of previously discussed evaluation metrics are encouraging.\par
-In a similar approach, Yale et al. broke away from the theoretical guarantees of traditional methods with a measure native to \gls{gan}. Their proposal is a metric quantifying the loss of privacy, a concept more aligned with the objective of \gls{gan} to minimize the loss of data utilit \cite{yale:hal-02160496,p2019}. They point out, quite appropriately, the advantage of concrete measurable values of loss in utility and privacy when making the decision of releasing sensitive data. Briefly, the Nearest Neighbor Adversarial Accuracy measures the loss in privacy based on the difference between two nearest neighbor metrics. The  first component is the proportion of synthetic samples that are closer to any real sample than any pair of real samples. The second component is the reverse operation. In a subsequent paper, HealthGAN evaluated against traditional privacy preservation methods with a variant of the IA based on the nearest neighbor metric. HealthGAN performs considerably better than all other methods, while still maintaining utility on a prediction task .
+In a similar approach, \citeauthor{Yale_2020} broke away from the theoretical guarantees of traditional methods with a measure native to \gls{gan}. Their proposal is a metric quantifying the loss of privacy, a concept more aligned with the objective of \gls{gan} to minimize the loss of data utilit \cite{yale:hal-02160496,p2019}. They point out, quite appropriately, the advantage of concrete measurable values of loss in utility and privacy when making the decision of releasing sensitive data. Briefly, the Nearest Neighbor Adversarial Accuracy measures the loss in privacy based on the difference between two nearest neighbor metrics. The  first component is the proportion of synthetic samples that are closer to any real sample than any pair of real samples. The second component is the reverse operation. In a subsequent paper, HealthGAN evaluated against traditional privacy preservation methods with a variant of the IA based on the nearest neighbor metric. HealthGAN performs considerably better than all other methods, while still maintaining utility on a prediction task .
 
 
        
