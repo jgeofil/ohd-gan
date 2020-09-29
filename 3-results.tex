@@ -99,9 +99,9 @@
             & Continuous patient-centric data, including patient state and medication dosage data.\\
             
             \cite{Fisher2019}
-            & 
-            & 
-            &\\
+            & Adversarially trained \gls{crmb}
+            & Simulation of patient trajectories from their baseline state, disease prediction and risk quantification, missingness. \gls{crbm}
+            &  Binary, ordinal, categorical, and continuous, recorded in intervals of 3 months.\\
             
             \cite{baowaly_2019_IEEE}
             & \gls{medBGAN}
@@ -119,7 +119,7 @@
             & Continuous features of vital signs.
             
             \cite{chin2019generation}
-            & Heterogeneous mixture of dense and sparse features. Privacy and evaluating the introduction of bias. \gls{wgan}, \gls{wgan-gp}, \gls{msn}, \gls{dp} aware optimizer from Tensorflow \cite{tensorflow-privacy}.
+            & Heterogeneous mixture of dense and sparse features. Privacy and evaluating the introduction of bias. \gls{wgan}, \gls{wgan-gp}, 					\gls{msn}, \gls{dp} aware optimizer from Tensorflow \cite{tensorflow-privacy}.
             
             \cite{Jordon2019}
             & \gls{pate-gan}
@@ -137,9 +137,9 @@
             &\\
             
             \cite{chu2019treatment}
-            & 
-            & 
-            &\\
+            & \gls{adtep}
+            & \gls{ite}, two independant \gls{ae} for patient and treatment feature sets, trained adversarially in combination, and outcome predicor 			from latent representation. 
+            & EHR data, not specified\\
             
             \cite{severo2019ward2icu}
             & 
@@ -148,9 +148,9 @@
             
             
             \cite{chincheong2020generation}
-            & 
-            & 
-            &\\
+            &  \gls{wgan-dp}
+            & Heterogeneous data, effect of differential privacy on utility. \gls{wgan} \gls{dp}
+            & Categorical, continuous,  ordinal, and binary. Dense or sparse.\\
             
             
             \cite{Jackson_2019}
@@ -160,9 +160,9 @@
             
             metrics for assessing privacy and utility of synthetic data and models
             \cite{yu2019rare}
-            & 
-            & 
-            &\\
+            & \gls{sslgan}
+            & Rare disease detection, \gls{SSL}, leveraging unlabeled \gls{EHR} data, medical code embeding network. \gls{lstm}
+            & Diagnosis and prescription codes.\\
             
             
             \cite{Yang_2019_cdss}
@@ -405,7 +405,7 @@
 
         \subsubsection{Qualitative evaluation}
 
-        The qualitative evaluation approaches found in the literature are mainly Preference Judgement, Discrimination Tasks or Clinician Evaluation and are generally carried out by medical professionals in the appropriate field (Borji 2018).
+        Viusual inspection of plotted projections of the synthetic data is a common theme, serving mostly as a basic sanity check, but occssionally presented as evidence. The more formal qualitative evaluation approaches found in the literature are mainly Preference Judgement, Discrimination Tasks or Clinician Evaluation and are generally carried out by medical professionals in the appropriate field (Borji 2018).
             \begin{itemize}
                 \item \textbf{Preference judgment} The task is choosing the most realistic of two data points in pairs of one real and one synthetic \cite{Choi2017-nt}
                 \item \textbf{Discrimination Tasks} Data points are shown one by one and must be classified as real or synthetic \cite{Beaulieu-Jones2019-ct}.
@@ -418,12 +418,13 @@
         \begin{table}[H]
         \footnotesize
             \caption{Metrics employed to validate trained models based on the comparison of distributions.\label{tab:distributions}} 
-            \begin{tabularx}{\textwidth}{@{} p{0.2\textwidth} X p{0.2\textwidth} p{0.2\textwidth} @{}}\toprule
+            \begin{tabularx}{\textwidth}{@{} p{0.2\textwidth} X  p{0.2\textwidth} @{}}\toprule
         
-                Metric & Description & Example & References\\\midrule
+                Metric & Description & References\\\midrule
                 
-                \gls{kld} & Compares the distributions of isolated features by measuring the similarity of their marginal probability mass functions (PMF). & - &
-                \cite{Goncalves2020}\\
+                \gls{kld} 
+                & Compares the distributions of isolated features by measuring the similarity of their marginal \gls{pmf}. 
+                & \cite{Goncalves2020}\\
                 
                 \gls{mmd} & 
                 Checks the dissimilarity between the real and synthetic probability distributions using samples drawn independently from each other. & - &
@@ -442,14 +443,37 @@
                 
                 Domain specific measures & Comparison of the distributions according to a domain specific measure & Quantile-Quantile (Q-Q) plot (point-processes) & \cite{Xiao2017-lh}\\
                 
-                Classifier accuracy & Accuracy of a classifier trained to discriminate real from synthetic units. & - & \cite{Fisher2019,walsh2020generating}\\\bottomrule
+                Classifier accuracy & Accuracy of a classifier trained to discriminate real from synthetic units. & - & \cite{Fisher2019,walsh2020generating}\\
+                
+                \gls{rdp} & Alternative notion of \gls{dp} measuring divergeance or entropy between distribtions. \cite{tanti2019}
+                
+                \bottomrule
         
             \end{tabularx}
         \end{table}
 
     \subsection{Statistical fidelity}
         A substitute to directly assessing the ability of the model to replicate the distribution of real data is to compare the information content or the real data against that of synthetic data. In other words, a statistical utility metric measures the value of the work that can be done with synthetic data. Primarily, authors attempt by various measures to determine if the statistical properties of the synthetic data distribution correspond to the the real distribution. These metrics are presented in Table \ref{tab:statistical}. In general, statistical metrics do not offer convincing support for the quality of the synthetic data, they are often ambiguous or can be found to be misleading upon further investigation. Given the complexity of health data, low-dimensional transformations are unlikely to paint a full picture. Authors often state that no single metric taken on its own was sufficient, and that a combination of them allowed deeper understanding of the data. 
+     
+    \begin{table}
+        \footnotesize
+        \caption{Metrics of data realism based on evaluating the statistical properties of the synthetic data distribution. \label{tab:statistical}} 
         
+        \begin{tabular}{@{} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} @{}}\toprule
+            Metric & Description & References\\ \midrule
+            Dimensions-wise distribution (DWD) & A generative model is trained on the real data to generate a dataset of the same size. The Bernoillli success probability is compared between both datasets for each feature. & \cite{Beaulieu-Jones2019-ct,choi2017generating,chin2019generation,yan2020generating,Baowaly2019,Baowaly_2019,ozyigit2020generation,tanti2019}\\
+            Interdimensional correlation & Dimenion-wise Pearson coefficient correlation matrices for both real and synthetic data are compared. & \cite{Beaulieu-Jones2019-ct, Goncalves2020}\cite{torfi2019generating,Frid_Adar_2018,Yang_2019,ozyigit2020generation}\\
+            First-order proximity metric & {} & \cite{Zhang2020-wp}\\
+            Log-cluster metric & {} & \cite{Goncalves2020}\\
+            Support coverage metric & {} & \cite{Goncalves2020}\\
+            Time-lagged correlations and covariates & {} & \cite{Fisher2019,walsh2020generating}\\
+            Latent Space Representation (LSR) & {} & \cite{yan2020generating}\\
+            Distribution of Jaccard similarity & {} & \cite{ozyigit2020generation}\\
+            \gls{pca} Distributional Wassertein distance & The Wassertein distance is calculated over k-dimensional projections of the real and synthetic data. & \cite{tanti2019}
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    
     \subsection{Data utility}
          While utility-based metrics often provide a more convincing indicator of data realism, they mostly lack the interpretability that some statistical metrics allow. Methods aimed at evaluating the work that can be done with synthetic data are presented in Table \ref{tab:aug-metrics} We divided these into two categories, those in which the task is of a more conceptual nature (Data utility metrics), and those based on tasks with real-world application (Application utility metrics). Note that this distinction is not based on a rigorous definition, but serves to facilitate understanding.
 
@@ -463,7 +487,7 @@
         
         \multicolumn{3}{c}{\textbf{Data utility metrics}}\\ \midrule
         
-        Dimension-wise prediction (DWP) & Each variable is in turn chosen as the prediction target label and the remaining as features. Two predictors are trained to predict the label, one from the synthetic data and another from a portion of the real data. Their performance is compared on the left out real data.  & \cite{Choi2017-nt,Camino2018-re,Goncalves2020,yan2020generating}\\[30pt]
+        Dimension-wise prediction (DWP) & Each variable is in turn chosen as the prediction target label and the remaining as features. Two predictors are trained to predict the label, one from the synthetic data and another from a portion of the real data. Their performance is compared on the left out real data.  & \cite{Choi2017-nt,Camino2018-re,Goncalves2020,yan2020generating, tanti2019}\\[30pt]
         
         Association Rule Mining (ARM) & ARM aims to the discovery of relationships among a large set of variables, commonly occurring variable-value pairs \cite{Agrawal1993}. The rules obtained from the real and synthetic data are compared.  & \cite{baowaly_2019_IEEE,baowaly_2019_jamia,BaeAnomiGAN2020,yan2020generating}\\[30pt]
         
