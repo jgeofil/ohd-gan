@@ -153,6 +153,24 @@
     first={Mini-batch discrimination (MDB)}
 }
 
+\newglossaryentry{t-gan}{
+    type=\acronymtype,
+    name={T-GAN}, 
+    description={Training technique to stabilise training. Allows the introduction of real sample information into the process of training the the generator. See \cite{Jolicoeur-Martineau2019, Su2018}}
+    text={T-GAN},
+    first={Turing \gls{gan}}
+}
+
+\newglossaryentry{corrnn}{
+    type=\acronymtype,
+    name={CorrNN}, 
+    description={Learns a common representation of two views, taking into account their correlation. See \cite{Jolicoeur-Martineau2019, Su2018}}
+    text={CorrNN},
+    first={Correlation \gls{nn}}
+}
+
+\newacronym{}{Grouped CorrNN}{Grouped Correlation Neural Network}
+
 % \newglossaryentry{⟨label ⟩}{type=\acronymtype,
 % name={⟨abbrv ⟩},
 % description={⟨long⟩},
@@ -207,7 +225,10 @@
 \newacronym[type=oalgo]{anomigan}{AnomiGAN}{GANs for anonymizing private medical data}
 \newacronym[type=oalgo]{wgan-gp}{WGAN-GP}{\gls{wgan} with Gradient Penality}
 \newacronym[type=oalgo]{dp-auto-gan}{DP-auto-GAN}{\gls{DP}-auto-\gls{gan}}
-
+\newacronym[type=oalgo]{ads-gan}{ADS-GAN}{Anonymization through data synthesis using \gls{gan}}
+\newacronym[type=oalgo]{gcgan}{GcGAN}{\gls{corrnn} and \gls{t-wgan}}
+\newacronym[type=oalgo]{t-wgan}{T-wGAN}{Wassertein \gls{t-gan}}
+\newacronym[type=oalgo]{conan}{CONAN}{\textit{Co}plementary patter\textbf{n A}augmentatio\textbf{n } }
 
 %\newacronym[type=oalgo]{}{}{}
 %\newacronym{}{}{}
@@ -234,6 +255,7 @@
 \newacronym{vcd}{VCD}{Variational contrastive divergence}
 \newacronym{ln}{LN}{Layer normalisation}
 \newacronym{ssl}{SSL}{Semi-supervised Learning}
+\newacronym{sn}{SN}{Spectral Normalization}
 
 
 %% Privacy

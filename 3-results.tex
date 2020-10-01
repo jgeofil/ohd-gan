@@ -32,7 +32,7 @@
             
             Approaching these ideas from above, the concept of "digital twins" represents in a way the ultimate realization of \gls{pm}. A common practice in industrial sectors is high-fidelity virtual representations of physical assets. Long-term simulations, that provide an overview and comprehensive understanding of the workings, behavior and life-cycle of their real counterparts. The state of the models is continuously updated from theoretical data, real data and streaming \gls{iot} indicators.\par
             Intently conditioned input data allows the exploration of specific events or conditions. In a position paper on the subject, Angulo et al. draw the parallels of this technique with the current needs in healthcare and the emergence of the necessary technologies for actionable models of patients. \cite{angulo2019towards,Angulo_2020}. The authors bring up the rapid adoption of wearables that are continuously monitoring people's physiological state. 
-            Wearables are one of many mobile digitally connected devices that collect patient data over a broad range of physiological characteristic and behavioral patterns \cite{coravos2019developing}. This emerging trend known as \gls{dbio} has already led to studies demonstrating predictive models with the potential for improved patient care \cite{snyder2018best}. Through continuous lifelong learning, integrating  multiple modes of personal data, generative patient models could inform diagnostics of medical professionals and also enable testing treatment options. In their proposal, \gls{gan} are an essential component of the ecosystem to ensure patient privacy and to provide bootstrap data. Notably, Fisher et al. already employ the term "digital twin" to describe their process \cite{walsh2020generating}.
+            Wearables are one of many mobile digitally connected devices that collect patient data over a broad range of physiological characteristic and behavioral patterns \cite{coravos2019developing}. This emerging trend known as \gls{dbio} has already led to studies demonstrating predictive models with the potential for improved patient care \cite{snyder2018best}. Through continuous lifelong learning, integrating  multiple modes of personal data, generative patient models could inform diagnostics of medical professionals and also enable testing treatment options. In their proposal, \gls{gan} are an essential component of the ecosystem to ensure patient privacy and to provide bootstrap data. Notably, Fisher et al. already employ the term "digital twin" to describe their process, noting that they present no privacy risk and enable simulating patient cohorts of any size and characteristics \cite{walsh2020generating}.
         
     \begin{sidewaystable}[htbp]
     \scriptsize
@@ -88,7 +88,7 @@
             & Tabular, discrete and continuous features.\\
             
             \cite{yoon2018imputation}
-            & GAIN
+            & \gls{gain}
             & Tabular data imputation. \gls{mcar} \gls{cgan}
             & Incomplete datasest of continuous variables with entries \gls{mcar}.\\
             
@@ -98,10 +98,7 @@
             & Capturing mutual influence in time-series. Coupled generator pair. Treatment recommendation task.  \gls{LSTM} \gls{cgan}
             & Continuous patient-centric data, including patient state and medication dosage data.\\
             
-            \cite{Fisher2019}
-            & Adversarially trained \gls{crmb}
-            & Simulation of patient trajectories from their baseline state, disease prediction and risk quantification, missingness. \gls{crbm}
-            &  Binary, ordinal, categorical, and continuous, recorded in intervals of 3 months.\\
+        
             
             \cite{baowaly_2019_IEEE}
             & \gls{medBGAN}
@@ -131,10 +128,6 @@
             & \gls{CNN} architecture, capturing feature correlations, evaluating realism, privacy evaluation using \gls{mia}. 1D-\gls{cae}
             & Discrete counts and occurences of medical codes.\\
             
-            \cite{Yale_2020}
-            & 
-            & 
-            &\\
             
             \cite{chu2019treatment}
             & \gls{adtep}
@@ -145,13 +138,6 @@
             & 
             & 
             &\\
-            
-            
-            \cite{chincheong2020generation}
-            &  \gls{wgan-dp}
-            & Heterogeneous data, effect of differential privacy on utility. \gls{wgan} \gls{dp}
-            & Categorical, continuous,  ordinal, and binary. Dense or sparse.\\
-            
             
             \cite{Jackson_2019}
             & \gls{medGAN}
@@ -166,21 +152,21 @@
             
             
             \cite{Yang_2019_cdss}
-            & 
-            & 
-            &\\
+            & \gls{cgan}
+            & Class imbalance, low count of minority class. Semi-supervised learning combining \gls{st} and \gls{ct} with a \gls{cgan}. \gls{iot}
+            & Twenty medical datasets from the UCI repository, types unspecified. RFID \gls{iot} data of cerebral stroke patients.\\
             
             
             \cite{Yang_2019_ehr}
-            & 
-            & 
-            &\\
+            & \todo{mention in narrative} \gls{gcgan}
+            & Capturing the correlations between different categories of medical codes and the outcome. \gls{corrnn} \gls{t-gan} \gls{t-wgan}
+            & Binary occurences of medical codes, prescriptions, adjuvants, diagnosis and outcome.\\
             
             
             \cite{Yang_2019_impute_ehr}
-            & 
-            & 
-            &\\
+            & \gls{c-gain}
+            & Improve on \gls{gain} for categorical variable using fuzzy endcoding of the features. 
+            & Categorical (multi-class and multi-label) and continuous.\\
             
             \cite{rubanova2019latent}
             & 
@@ -188,9 +174,9 @@
             &\\
             
             \cite{Beaulieu-Jones2019-ct}
-            & 
-            & 
-            &\\
+            & \gls{ac-gan} 
+            & Evaluating if differentially private GANs that is valid reanalysis while ensuring privacy. \gls{dp} \gls{cgan}
+            & Real-valued physiological time-series.\\
             
             \cite{Xu2019-ay}
             & \gls{ctgan}
@@ -198,15 +184,20 @@
             & Tabular data, mixture of continuous and categorical features.\\
             
             
-            \cite{Zhang2020}
-            & 
-            & 
-            &\\
-            
             \cite{yale2019ESANN}
             & \gls{healthgan}
             & Privacy metrics and overfitting. \gls{mi}, \gls{nnaa}, \gls{pl}, \gls{dt}
             & Categorical demographics, continuous vital signs and binary medical codes.
+            
+            \cite{Fisher2019} \cite{walsh2020generating}
+            & Adversarially trained \gls{crmb}
+            & Simulation of patient trajectories from their baseline state, disease prediction and risk quantification, missingness. \gls{crbm}
+            &  Binary, ordinal, categorical, and continuous, recorded in intervals of 3 months.\\
+            
+            
+            & 
+            & 
+            &\\
             
             \cite{Yale_2020}
             & \gls{healthgan}
@@ -217,31 +208,58 @@
             & \gls{dp-auto-gan}
             & Privacy, \gls{medgan} adaptation, evaluation metrics. \gls{dp-sgd} \gls{ae} \gls{medgan} \gls{rdp}
             
+            \cite{BaeAnomiGAN2020}
+            & \gls{anomiGAN}
+            & Probabilistic scheme that ensures indistinguishability of the \gls{sd}, than can be viewed as encrypted. \gls{dp} \gls{cnn}
+            & Binary occurences of medical codes.\\
+            
             \cite{cui2019conan}
+            & \gls{conan}
+            & Complementatry \gls{gan} in a rare deasise predictor model that generates positive samples from negatives to alleviate class imbalance.
+            & Embeding vectors representing multiple patient visits and conditions.\\
+            
+            
+            \cite{zhu_2020}
+            & \gls{bp-gan}
+            & Adversarialy trained \gls{rnn} to predict the upcoming time-step in physiological time-series conditionned on the past observations. \gls{rnn}, \gls{cnn}, \gls{gru}
+            & Time-series of bloog glucose measurments along with discrete patient submitted features.
+            
+            \cite{chen2019ganleaks}
             & 
             & 
             &\\
             
+            \cite{Zhang2020}
+            & 
+            & 
+            &\\
+            
+            \cite{Yale_2020}
+            & 
+            & 
+            &\\
             
             \cite{chincheong2020generation}
-            & 
-            & 
-            &\\
+            &  \gls{wgan-dp}
+            & Heterogeneous data, effect of differential privacy on utility. \gls{wgan} \gls{dp}
+            & Categorical, continuous,  ordinal, and binary. Dense or sparse.\\
+            
+            \cite{Zhang2020}
+            &\gls{emr-wgan}
+            & Improving training, evaluation metrics, sparsity. \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}
+            & Binary vector of occurrence over the medical codes. Low-prevalence of codes. \\
             
             \cite{yan2020generating}
-            & 
-            & 
-            &\\
+            & \gls{hgan}
+            & Improvments on \gls{emr-wgan} incorporating record-level constraints in the loss function.  \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}, \gls{mi}, \gls{pd}
+            & Binary, categorical and continuous.\\
             
             \cite{ozyigit2020generation}
-            & 
-            & 
-            &\\
+            & \gls{rsdgm}
+            & Exploring the feasibility of various methods to generate synthetic datasets. \gls{wgan}
+            & Continuous and categorical\\
             
-            \cite{walsh2020generating}
-            & 
-            & 
-            &\\
+            
             
             \cite{Rankin2020}
             & 
@@ -254,9 +272,9 @@
             &\\
             
             \cite{Yoon2020-anon}
-            & 
-            & 
-            &\\
+            & \gls{ads-gan}
+            & Idenfiability view of privacy. Generator conditioned on real samples inputs with an Indefiability loss to satisfy the idenfiability constraint. \gls{wgan} \gls{wgan-gp} \gls{dp} alternative, Identifiability
+            & Conitnuous and binary features.\\
             
             \cite{BaeAnomiGAN2020}
             & 
@@ -264,19 +282,12 @@
             &\\
             
             \cite{Goncalves2020}
-            & 
-            & 
+            & \gls{mc-medgan}
+            & Comparison of \glspl{gan} with statistical models to generate synthetic data, evaluation metrics. \gls{mi}, \gls{ad}
             &\\
             
-            \cite{chen2019ganleaks}
-            & 
-            & 
-            &\\
             
-            \cite{Zhang2020}
-            &\gls{emr-wgan}
-            & Improving training, evaluation metrics, sparsity. \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}
-            & Binary vector of occurrence over the medical codes. Low-prevalence of codes. \\
+            
             
             \bottomrule
         \end{tabularx}
@@ -401,7 +412,7 @@
         
     \subsection{Model validation and data evaluation}
 
-        To asses the solution to a generative modelling problem, it is necessary to validate the model, and concurrently to verify its output. \gls{gan} aim to approximate a data distribution $P$, using a parameterized model distribution $Q$ \cite{Borji2018-fy}. Thus, in evaluating the model, the goal is to validate that the learning process has led to a sufficiently close approximation. Approaches to evaluation can be categorized as either quantitative or qualitative.
+        To asses the solution to a generative modelling problem, it is necessary to validate the model, and concurrently to verify its output. \gls{gan} aim to approximate a data distribution $P$, using a parameterized model distribution $Q$ \cite{Borji2018-fy}. Thus, in evaluating the model, the goal is to validate that the learning process has led to a sufficiently close approximation. What this means in practice is hard to define. The concept of "realism" finds more natural application to images of text, but is more ambiguous when faced with the complexity of health data. Walsh et al. employ the term "statistical indistinguishability" and define it as the inability of a classfication algorithm to differentiate real from synthetic samples \cite{walsh2020generating}. The terms covers almost all evaluation methods employed in the publications. These can be devided into two broad categories: those aimed at evaluating the statistical properties of the data directly, and those aimed at quantifying the work that can be done with the data.  There are, nonetheless a few attempts of a qualitative nature, more in line with the concept of realism. 
 
         \subsubsection{Qualitative evaluation}
 
@@ -445,7 +456,10 @@
                 
                 Classifier accuracy & Accuracy of a classifier trained to discriminate real from synthetic units. & - & \cite{Fisher2019,walsh2020generating}\\
                 
-                \gls{rdp} & Alternative notion of \gls{dp} measuring divergeance or entropy between distribtions. \cite{tanti2019}
+                \gls{rdp} & Alternative notion of \gls{dp} measuring divergeance or entropy between distribtions.& \cite{tanti2019}\\
+                
+                Jensen-Shannon Divergeance and Wassertein distance  & To measure the distance between joint distributions of the real and synthetic data. The distance metrics are approximated using a 3-layer perceptron & \cite{Yoon2020-anon}\\
+                
                 
                 \bottomrule
         
@@ -461,15 +475,38 @@
         
         \begin{tabular}{@{} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} @{}}\toprule
             Metric & Description & References\\ \midrule
-            Dimensions-wise distribution (DWD) & A generative model is trained on the real data to generate a dataset of the same size. The Bernoillli success probability is compared between both datasets for each feature. & \cite{Beaulieu-Jones2019-ct,choi2017generating,chin2019generation,yan2020generating,Baowaly2019,Baowaly_2019,ozyigit2020generation,tanti2019}\\
-            Interdimensional correlation & Dimenion-wise Pearson coefficient correlation matrices for both real and synthetic data are compared. & \cite{Beaulieu-Jones2019-ct, Goncalves2020}\cite{torfi2019generating,Frid_Adar_2018,Yang_2019,ozyigit2020generation}\\
+            
+            Dimensions-wise distribution (DWD) & The real and synthetic data are compared feature-wise according to a variety of methods For example, the Bernoillli success probability for binary features, or the Student T-test for continuous variables, and Pearson Chi-square test for binary variables is used to determine statistical significance.& \cite{Beaulieu-Jones2019-ct,choi2017generating,chin2019generation,yan2020generating,Baowaly2019,Baowaly_2019,ozyigit2020generation,tanti2019, Yoon2020-anon}\\
+            
+            
+            Interdimensional correlation & Dimenion-wise Pearson coefficient correlation matrices for both real and synthetic data. & \cite{Beaulieu-Jones2019-ct, Goncalves2020, torfi2019generating,Frid_Adar_2018,Yang_2019,ozyigit2020generation, Yang_2019_ehr, Yoon2020-anon}\\
+           
+            Cross-type Conditional Distribution (CCD) & Correlations between categorical and continuous features, comparing the mean and standard deviation of each conditional distribution. & \cite{yan2020generating}\\
+            
             First-order proximity metric & {} & \cite{Zhang2020-wp}\\
-            Log-cluster metric & {} & \cite{Goncalves2020}\\
-            Support coverage metric & {} & \cite{Goncalves2020}\\
+            
+            Log-cluster metric & The real and synthetic data are combined and a clustering anaylis is applied to the merged data. The metric is calculated from the number of real and synthetic samples that fall in the same clusters.  & \cite{Goncalves2020}\\
+            
+            Support coverage metric & Measures how much of the variables support in the real data is covered in the synthetic data. Penalizes less frequent categories that are underrepresented. & \cite{Goncalves2020}\\
+            
             Time-lagged correlations and covariates & {} & \cite{Fisher2019,walsh2020generating}\\
-            Latent Space Representation (LSR) & {} & \cite{yan2020generating}\\
+            
+            Latent Space Representation (LSR) & A $\beta$-Variational \gls{ae} is used to project the real and synthetic data to their latent representation to compare the dimensional variances. & \cite{yan2020generating}\\
+            
             Distribution of Jaccard similarity & {} & \cite{ozyigit2020generation}\\
+            
+            Jaccard similarity score & {} & \cite{Yang_2019_ehr}\\
+            
+            F1 score & {} & \cite{Yang_2019_ehr}\\
+            
+            Hamming loss & {} & \cite{Yang_2019_ehr}\\
+            
+            Proportion of valid samples & Basic verfication for sensical samples that dont violate common sense rules. & \cite{Yang_2019_ehr}
+            
+            
+            
             \gls{pca} Distributional Wassertein distance & The Wassertein distance is calculated over k-dimensional projections of the real and synthetic data. & \cite{tanti2019}
+            
             \bottomrule
         \end{tabular}
     \end{table}
@@ -493,19 +530,24 @@
         
         Discriminating Siamese architecture & A pair of identical \gls{ffn} each receive either a real sample or a synthetic sample. Their output is passed to a third network which outputs a measure of similarity. & \cite{torfi2019generating}\\[30pt]
         
+        Predictor performance & Performance of predictors trained on the synthetic data, often in comparison with the real data or data generated with \gls{dp}. & \cite{BaeAnomiGAN2020}
+        
         Train on synthetic, test on real (TRTS) & Accuracy on real data of some form of predictor trained on synthetic data & \cite{Beaulieu-Jones2019-ct} \\ [30pt]
         
-        Train on real, test on synthetic (TSTR) & Accuracy on synthetic data of some form of predictor trained on real data &  \cite{BaeAnomiGAN2020}\\[30pt]
+        Train on real, test on synthetic (TSTR) & Accuracy on synthetic data of some form of predictor trained on real data &  \cite{BaeAnomiGAN2020, Yoon2020-anon}\\[30pt]
         
-        Model analysis & Correlation between important features (RF) and model coefficients (LR and SVM) & \cite{esteban2017real,Xu2019-ay,Yoon2020-anon,chin2019generation}\\[30pt]
+        Model analysis & Correlation between important features (RF) and model coefficients (LR and SVM) & \cite{esteban2017real,Xu2019-ay,Yoon2020-anon,chin2019generation, Beaulieu-Jones2019-ct}\\[30pt]
         
-        Forward prediction & Models trained to make forward predictions from past observations or from real data transformed with a known function can simply be evaluated for accuracy. & \cite{Xiao2018-aj,mcdermott2018semi,yoon2018imputation,Yang_2019_cdss}\\ \midrule
+        Forward prediction & Models trained to make forward predictions from past observations or from real data transformed with a known function can simply be evaluated for accuracy. For example, the RMSE on time-series. & \cite{Xiao2018-aj,mcdermott2018semi,yoon2018imputation,Yang_2019_cdss, zhu_2020}\\ \midrule
 
         \multicolumn{3}{c}{\textbf{Applied utility metrics}}\\ \midrule
         
-        Data augmentation & A predictor is trained on a combination dataset of real and synthetic data and performance is compared with the same predictor trained on real data alone. & \cite{Yoon2020-anon, Yang_2019_cdss}\\
+        Data augmentation & A predictor is trained on a combination dataset of real and synthetic data or real data with missing values imputed and performance is compared with the same predictor trained on real data alone. & \cite{Yoon2020-anon, Yang_2019_cdss, Yang_2019_ehr}\\
         
         Predictor augmentation & The trained generative model is incorporated into a predictor's activation function by generating an ensemble of proximate data points for each instance, thereby improving generalization. & \cite{Che_2017}\\
+        
+        Accuracy & \todo{put this somewhere} & -\\
+        AUROC & \todo{put this somewhere} & -\\
         
         \bottomrule
         
