@@ -169,6 +169,30 @@
     first={Correlation \gls{nn}}
 }
 
+\newglossaryentry{fullbba}{
+    type=\acronymtype,
+    name={FullBB}, 
+    description={A \gls{mi} attack setting where an attacker has now knowledge of the internal workings of the generator, but can only sample from it.}
+    text={FullBB},
+    first={Full Black-box Attack}
+}
+
+\newglossaryentry{partbba}{
+    type=\acronymtype,
+    name={PartBB}, 
+    description={Similar to to the \gls{fullBB} setting with the attacker havign the additional knowoledge about the latent input $z$.}
+    text={PartBB},
+    first={Partial Black-box Attack}
+}
+
+\newglossaryentry{wba}{
+    type=\acronymtype,
+    name={WBA},
+    description={Similar to the \gls{partbba} and \gls{fullbba} settings, but with the attacker having full knowledge of the generator internals, including gradient information.},
+    text={WBA},
+    first={White-box Attack}
+    
+}
 \newacronym{}{Grouped CorrNN}{Grouped Correlation Neural Network}
 
 % \newglossaryentry{⟨label ⟩}{type=\acronymtype,

@@ -1,51 +1,16 @@
 \section{Methods}
 
-
-\begin{table}[htb]
-  \center
-    \begin{tabular}{@{}clccl@{}} \toprule
-	    \multicolumn{2}{c}{Health data} & & \multicolumn{2}{c}{Generative adversarial models} \\ \cmidrule{1-2} \cmidrule{4-5}
-	    \multicolumn{2}{c}{Terms} & {} & \multicolumn{2}{c}{Terms} \\ \cmidrule{2-2} \cmidrule{5-5}
-	    \multirow{4}{*}{OR} & clinical & \multirow[t]{4}{*}{\quad AND\quad} & \multirow{4}{*}{OR} & generative adversarial\\
-	    {} & health & {} & {} & \gls{gan} \\ 
-	    {} & EHR & {} & {} & adversarial training \\
-	    {} & electronic health record & {} & {} & synthetic  \\
-	    {} & patient & {} & {} & {} \\
-	    \bottomrule
-    \end{tabular}
-    \caption{{Search query terms}}\label{tab:search}
-\end{table}
+\input{tables/tab:search}
 
 Publications concerning \gls{ohd-gan} were identified through searches by Google Scholar and Web of Science, with the the query formed from the terms and operators found in Table \ref{tab:themes}. We included studies reporting the development, application, performance evaluation and privacy evaluation of gls{gan} algorithms to produce gls{ohd}. Broadly, we define the scope of gls{ohd} to be considered as low-dimensional data recorded for patient care. A more detailed summary of the included and excluded data types can be found in Table \ref{tab:datatypes}. Excluded data types are already the subject of a review or would merit a review of their own \cite{Yi_2019}\cite{Nakata2019}\cite{Anwar_2018}. In each of the publications, we analyzed the aspects listed in Table \ref{tab:search}.\par
 
-\begin{table}[htb]
-\centering
-  \caption{Aspects analysed in each of the publications included in the review\label{tab:themes}}
-  \begin{tabular}{ll}\toprule
-  A) Types of healthcare data & D) Evaluation metrics\\
-  B) \gls{gan} algorithm, learning procedures, losses & E) Privacy considerations\\
-  C) Intended use of the SD & F) Interpreatability of the model\\\bottomrule
-  \end{tabular}
-\end{table}
+\input{tables/tab:themes}
 
-\begin{table}[htp]
-\center
-  \caption{Types of OHD data included or excluded from the review.}\label{tab:datatypes}
-  
-  \begin{tabularx}{\textwidth}{@{}p{0.1\textwidth}Xp{0.6\textwidth}@{}}\toprule
-  Type & Examples \\ \midrule
-  
-  \multirow{4}{*}{Included} & Observations & Demographic information, medical classification, family history \\
-  &Timestamped observations & Diagnosis, treatment and procedure codes, prescription and dosage, laboratory test results, physiologic measurements and intake events \\
-  &Encounters & Visit dates, care provider, care site \\
-  &Derived & Aggregated counts, calculated indicators \\ \midrule
+\input{tables/tab:datatypes}
 
-  \multirow{4}{*}{Excluded} &Omics & Genome, transcriptome, proteome, immunome, metabolome, microbiome \\
-  &Imaging & X-rays, computed tomography (CT), magnetic resonance imaging (MRI) \\
-  &Signal & Electrocardiogram (ECG), electroencephalogram (EEG) \\
-  &Unstructured & Narrative reports, textual \\ \bottomrule
-  \end{tabularx}%
-\end{table}
+
+
+
 
 
 
