@@ -76,14 +76,15 @@
 \newglossaryentry{mar}{name=Missing at Random, description={Given a dataset with missing entries , the missingness depends only on the observed variables \cite{yoon2018imputation}.
 }}
 
-\newglossaryentry{mcar}{name=Missing Completly at Random, description={Given a dataset with missing entries, the missingness is not depedant on any of the variables, thus occurs completly at random \cite{yoon2018imputation}.
+\newglossaryentry{mcar}{name=Missing Completely at Random, description={Given a dataset with missing entries, the missingness is not dependant on any of the variables, thus occurs completely at random \cite{yoon2018imputation}.
 }}
 
 %% Self and co-training semi-supervised training
-\newglossaryentry{co-training}{name=co-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively.}}
-
-\newglossaryentry{self-training}{name=self-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively.
+\newglossaryentry{co-training}{name=co-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively. In the words of \cite{yu2019rare}, \textit{"[...] co-training splits the features of labeled set into two sub-sets as two views, which are conditionally independent. Two classifiers are trained on two sub-sets respectively, and classify the unlabeled set with pseudo labeled. Then, the most confident unlabeled data determined by one classifier is fed into another classifier as additional pseudo labeled data for further training." \cite{yu2019rare}.}
 }}
+
+\newglossaryentry{self-training}{name=self-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively. In the words of \citeauthor{yu2019rare}, \textit{"[...] a classifier is initially trained on the small labeled set, and the trained classifier is used to classify the unlabeled set, which is assigned with pseudo labels. After that, the part of unlabeled set with the most confident pseudo labels are selected, and added into the labeled set. The classifier iteratively trains itself with the labeled data and selected unlabeled data."} \cite{yu2019rare}.}
+}
 
 %% Privacy
 \newglossaryentry{mia}{name=Membership Inference Attack, description={Broadly, an MIA attack aims to determine if a particular record was used to train a machine learning model \cite{chen2019ganleaks}. There is no canonical process by which an attack is conducted, nor specification of the data assets initially in possession of the attacker. For a comprehensive taxonomy of MIA against \gls{gan}, refer to the suitably titled publication by \citeauthor{chen2019ganleaks} in which \gls{medgan} was subjected to a number of trials.}}
@@ -191,9 +192,26 @@
     description={Similar to the \gls{partbba} and \gls{fullbba} settings, but with the attacker having full knowledge of the generator internals, including gradient information.},
     text={WBA},
     first={White-box Attack}
-    
 }
-\newacronym{}{Grouped CorrNN}{Grouped Correlation Neural Network}
+
+\newglossaryentry{bgan}{
+    type=\acronymtype,
+    name={BGAN},
+    description={Method for training GANs with discrete data that uses the estimated difference measure from the discriminator to compute importance weights for generated samples, enabling back-propagation. Tends to push the generated samples to lie on the decision boundary of the discriminator, which also improves stability of training on continuous data \cite{hjelm2017boundaryseeking}},
+    text={BGAN},
+    first={Boundary-seeking \gls{gan}}
+}
+
+\newglossaryentry{sdv}{
+    type=\acronymtype,
+    name={SDV},
+    description={Generative model for relational database based on Gaussian Copulas \cite{Patki_2016}. One of the few publications treating multi-relation tables in their original form (to out knowledge the only), and has attracted a fair readership. See \href{https://github.com/sdv-dev/SDV}{Github sdv-dev/SDV}.},
+    text={SDV},
+    first={Synthetic Data Vault}
+}
+
+
+%\newacronym{}{Grouped CorrNN}{Grouped Correlation Neural Network}
 
 % \newglossaryentry{⟨label ⟩}{type=\acronymtype,
 % name={⟨abbrv ⟩},
@@ -205,15 +223,16 @@
 % ⟨key-val list⟩}
 
 %% Algorithms
+\newacronym{ml}{ML}{Machine Learning}
 \newacronym{nn}{NN}{Neural Network}
 \newacronym{gan}{GAN}{Generative Adversarial Network}
 \newacronym{ohd-gan}{OHD-GAN}{\glspl{gan} for Observation Health Data}
 \newacronym{ffn}{FFN}{\gls{feed-forward} Network}
 \newacronym{ae}{AE}{Autoencoder}
-\newacronym{rnn}{RNN}{Reccurent \gls{nn}}
+\newacronym{rnn}{RNN}{Recurrent \gls{nn}}
 \newacronym{lstm}{LSTM}{Long Short-term Memory}
 \newacronym{cgan}{CGAN}{Conditional \gls{gan}}
-\newacronym{crmb}{CRMB}{Conditional Restricted Boltzamann Machine}
+\newacronym{crmb}{CRMB}{Conditional Restricted Boltzmann Machine}
 \newacronym{cnn}{CNN}{Convolutional \gls{nn}}
 \newacronym{wgan}{WGAN}{Wassertein \gls{gan}}
 \newacronym{beta-vae}{\ensuremath{\beta}-VAE}{\ensuremath{\beta} variational auto-encoder}
@@ -238,23 +257,27 @@
 \newacronym[type=oalgo]{ganite}{GANITE}{Generative Adversarial Nets for inference of Individualized Treatment Effects}
 \newacronym[type=oalgo]{cwr-gan}{CWR-GAN}{Cycle Wasserstein Regression \gls{gan}}
 \newacronym[type=oalgo]{gain}{GAIN}{Generative Adversarial Imputation Network}
+\newacronym[type=oalgo]{cgain}{CGAIN}{Categorical \gls{gain}}
 \newacronym[type=oalgo]{mc-medgan}{MC-medGAN}{Multi-categorical \gls{medgan}}
 \newacronym[type=oalgo]{mc-gumbelgan}{MC-GumbelGAN}{Multi-categorical Gumbel-softmax \gls{gan}}
-\newacronym[type=oalgo]{mc-wgan-gp}{MC-WGAN-GP}{Multi-categorical \gls{wgan} with Gradient Penality}
-\newacronym[type=oalgo]{medbgan}{MedBGAN}{Boundry-seeking \gls{medgan}}
+\newacronym[type=oalgo]{mc-wgan-gp}{MC-WGAN-GP}{Multi-categorical \gls{wgan} with Gradient Penalty}
+\newacronym[type=oalgo]{medbgan}{MedBGAN}{Boundary-seeking \gls{medgan}}
 \newacronym[type=oalgo]{healthgan}{HealthGAN}{}
 \newacronym[type=oalgo]{medwgan}{MedWGAN}{Wassertein \gls{medgan}}
 \newacronym[type=oalgo]{sc-gan}{SC-GAN}{Sequentially Coupled \gls{gan}}
 \newacronym[type=oalgo]{rmb}{RMB}{Restricted Boltzmann Machine}
 \newacronym[type=oalgo]{anomigan}{AnomiGAN}{GANs for anonymizing private medical data}
-\newacronym[type=oalgo]{wgan-gp}{WGAN-GP}{\gls{wgan} with Gradient Penality}
+\newacronym[type=oalgo]{wgan-gp}{WGAN-GP}{\gls{wgan} with Gradient Penalty}
 \newacronym[type=oalgo]{dp-auto-gan}{DP-auto-GAN}{\gls{DP}-auto-\gls{gan}}
 \newacronym[type=oalgo]{ads-gan}{ADS-GAN}{Anonymization through data synthesis using \gls{gan}}
 \newacronym[type=oalgo]{gcgan}{GcGAN}{\gls{corrnn} and \gls{t-wgan}}
 \newacronym[type=oalgo]{t-wgan}{T-wGAN}{Wassertein \gls{t-gan}}
-\newacronym[type=oalgo]{conan}{CONAN}{\textit{Co}plementary patter\textbf{n A}augmentatio\textbf{n } }
-
-%\newacronym[type=oalgo]{}{}{}
+\newacronym[type=oalgo]{conan}{CONAN}{\textit{Co}plementary patter\textbf{n A}augmentatio\textbf{n}}
+\newacronym[type=oalgo]{cwgan-gp}{cWGAN-GP}{Conditional \gls{wgan-gp}}
+\newacronym[type=oalgo]{pate-gan}{PATE-GAN}{Private Aggregation of Teacher Ensembles (PATE) framework applied to GANs}
+\newacronym[type=oalgo]{ac-gan}{AC-GAN}{Auxiliary Classifier \gls{gan}}
+\newacronym[typr=oalgo]{glugan}{GluGAN}{Blood Glucose \gls{gan}}
+%
 %\newacronym{}{}{}
 
 %% Terms
@@ -263,8 +286,8 @@
 \newacronym{ehr}{EHR}{Electronic Health Record}
 \newacronym{icu}{ICU}{Intensive Care Unit}
 \newacronym{pmf}{PMF}{Probability Mass Function}
-
-
+\newacronym{ssl}{SSL}{Semi-supervised learning}
+\newacronym{cqm}{CQM}{Clinical Quality Measure}
 %% Fields
 \newacronym[seealso=iteff]{ite}{ITE}{Individual Treatment Effects}
 \newacronym[seealso=iteff]{dle}{DLE}{Drug Laboratory Effects}
@@ -280,7 +303,8 @@
 \newacronym{ln}{LN}{Layer normalisation}
 \newacronym{ssl}{SSL}{Semi-supervised Learning}
 \newacronym{sn}{SN}{Spectral Normalization}
-
+\newacronym[seealso=self-training]{st}{ST}{Self-training}
+\newacronym[seealso=co-training]{ct}{CT}{Co-training}
 
 %% Privacy
 \newacronym{dp}{DP}{Differential privacy}

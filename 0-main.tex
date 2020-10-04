@@ -1,64 +1,40 @@
-\documentclass[10pt,acronym]{article}
+\documentclass[9pt,acronym]{article}
 
-\usepackage{fullpage}
-\usepackage{setspace}
-\usepackage{parskip}
-\usepackage{titlesec}
+\usepackage{fullpage, setspace, parskip, titlesec}
 \usepackage[section]{placeins}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{breakcites}
-\usepackage{lineno}
-\usepackage{hyphenat}
-\usepackage{rotating}
-\usepackage{etoolbox}
+\usepackage{breakcites, lineno, hyphenat, rotating, etoolbox}
 \usepackage[colorlinks]{hyperref}
-\usepackage{glossaries}
-\usepackage{glossaries-extra}
+\usepackage{glossaries, glossaries-extra}
 \usepackage[round]{natbib}
-\usepackage{authblk}
-\usepackage{graphicx}
+\usepackage{authblk, graphicx}
 \usepackage[space]{grffile}
-\usepackage{latexsym}
-\usepackage{textcomp}
-\usepackage{longtable}
-\usepackage{tabulary}
+\usepackage{latexsym, textcomp, longtable, tabulary, tabularx}
 \usepackage{booktabs,array,multirow}
 \usepackage{amsfonts,amsmath,amssymb}
 \usepackage[utf8]{inputenc}
 \usepackage[greek,english]{babel}
-\usepackage{xspace}
-\usepackage{caption}
-\usepackage{tabularx}
+\usepackage{xspace, caption}
 \usepackage[ampersand]{easylist}
 \usepackage{enumitem}
-\usepackage{pifont}
-\usepackage{etex}
-\usepackage{makecell}
+\usepackage{pifont, etex, makecell}
 \usepackage[]{todonotes}
 \usepackage{float}
+\usepackage{lscape}
 
 \hypersetup{
-     colorlinks = true,
-     linkcolor = blue,
-     anchorcolor = blue,
-     citecolor = teal,
-     filecolor = blue,
-     urlcolor = blue
-     }
+    colorlinks = true,
+    linkcolor = blue,
+    anchorcolor = blue,
+    citecolor = teal,
+    filecolor = blue,
+    urlcolor = blue
+}
 
 \bibliographystyle{unsrtnat}
 \renewcommand{\familydefault}{\sfdefault}
 
-
 \PassOptionsToPackage{hyphens}{url}
-\usepackage[colorlinks = true,
-      linkcolor = PineGreen,
-      urlcolor = blue,
-      citecolor = blue,
-      anchorcolor = blue]{hyperref}
-      
-
-
 
 \renewenvironment{abstract}
  {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
@@ -67,7 +43,6 @@
 \titlespacing{\section}{0pt}{*3}{*1}
 \titlespacing{\subsection}{0pt}{*2}{*0.5}
 \titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
-
 
 \providecommand\citet{\cite}
 \providecommand\citep{\cite}
@@ -82,72 +57,55 @@
 
 \newglossary[odg]{oalgo}{old}{odn}{OHD-GAN Acronyms}
 \glsxtraddallcrossrefs
-
 \makeglossaries
-
-
 
 \begin{document}
 
-\input{glossary_definitions}
+    \input{glossary_definitions}
 
-\title{Generative Adversarial Networks Applied to Observational Health Data}
-
-\author[1,2]{Jeremy Georges-Filteau}%
-\author[2]{Elisa Cirillo}%
-\affil[1]{Radboud University Nijmegen}%
-\affil[2]{The Hyve}%
-
-
-\vspace{-1em}
-
- \date{\today}
-
-\begingroup
-\let\center\flushleft
-\let\endcenter\endflushleft
-\maketitle
-\endgroup
-
-\selectlanguage{english}
+    \title{Generative Adversarial Networks Applied to Observational Health Data}
+    
+    \author[1,2]{Jeremy Georges-Filteau}%
+    \author[2]{Elisa Cirillo}%
+    \affil[1]{Radboud University Nijmegen}%
+    \affil[2]{The Hyve}%
 
 
-\begin{abstract}
-Having been collected for its primary purpose in patient care,
-\gls{ohd} can further benefit patient well-being
-by sustaining the development of health informatics.~ However, the
-potential for secondary usage of OHD continues to be hampered by the
-fiercely private nature of patient-related data. ~
+    \vspace{-1em}
 
-\gls{gan} have recently emerged as a groundbreaking approach to
-efficiently learn generative models that produce realistic \gls{sd}. However, the application of \gls{gan} to \gls{ohd} seems to have been
-lagging in comparison to other fields.
+    \date{\today}
 
-We conducted a review of \gls{gan} algorithms for OHD in the published
-literature, and report our findings here.
-\end{abstract}
+    \begingroup
+    \let\center\flushleft
+    \let\endcenter\endflushleft
+    \maketitle
+    \endgroup
 
-\input{1-introduction}
-\input{2-methods}
-\input{3-results}
-\input{4-discussion}
-\input{5-sourcecode}
-\input{6-conclusion}
+    \selectlanguage{english}
 
 
+    \begin{abstract}
+    Having been collected for its primary purpose in patient care, \gls{ohd} can further benefit patient well-being
+    by sustaining the development of health informatics.~ However, the potential for secondary usage of OHD continues to be hampered by the fiercely private nature of patient-related data. ~ gls{gan} have recently emerged as a groundbreaking approach to
+    efficiently learn generative models that produce realistic \gls{sd}. However, the application of \gls{gan} to \gls{ohd} seems to have been lagging in comparison to other fields. We conducted a review of \gls{gan} algorithms for OHD in the published literature, and report our findings here.
+    \end{abstract}
 
+    \input{1-introduction}
+    \input{2-methods}
+    \input{3-results}
+    \input{4-discussion}
+    \input{5-sourcecode}
+    \input{6-conclusion}
 
-\pagebreak
+    \pagebreak
 
-%\clearpage
-\printglossary[type=oalgo]
-\printglossary[type=\acronymtype]
+    %\clearpage
+    \printglossary[type=oalgo]
+    \printglossary[type=\acronymtype]
+    \printglossary
 
-\printglossary
+    \pagebreak
 
-\pagebreak
-
-\bibliography{biblio}
-
+    \bibliography{biblio}
 
 \end{document}
