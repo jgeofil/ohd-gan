@@ -50,8 +50,8 @@
  {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
  {\bigskip}
 
-\titlespacing{\section}{0pt}{*3}{*1}
-\titlespacing{\subsection}{0pt}{*2}{*0.5}
+\titlespacing{\section}{0pt}{\times3}{\times1}
+\titlespacing{\subsection}{0pt}{\times2}{\times0.5}
 \titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
 
 \providecommand\citet{\cite}
@@ -64,7 +64,6 @@
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}%
 
 \AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
-
 \renewcommand\labelitemi{-}
 
 \newglossary[odg]{oalgo}{old}{odn}{OHD-GAN Acronyms}
@@ -98,7 +97,8 @@
 
     \glsresetall
     \begin{abstract}
-    After being collected for patient care, \gls{ohd} can further benefit patient well-being by sustaining the development of health informatics and medical research. Vast potential is largely unexploited due to the fiercely private nature of patient-related data and regulation about its distribution. \gls{gan} have recently emerged as a groundbreaking approach to efficiently learn generative models that produce realistic \gls{sd}. They have revolutionized practices in multiple domains such as self driving cars, fraud detection, simulations in the industrial sector and marketing known as digital twins, and medical imaging. The digital twin concept could readily be applied to modelling and quantifying disease progression. In addition, \glspl{gan} posses a multitude of capabilities that are directly applicable to common problems in the healthcare: augmenting small dataset, correcting class imbalance, domain translation for rare diseases, let alone preserving privacy. Unlocking open access to privacy-preserving \gls{ohd} could be transformative for scientific research. In the midst of the COVID-19 pandemic, the healthcare system is facing unprecedented challenges, many of which of are data related and cloud be alleviated by the capabilities of \glspl{gan}. In light of these facts, publications concerning the development of  \gls{gan} applied to \gls{ohd} seemed to be severely lacking. To uncover the reasons for the slow adoption of \glspl{gan} for \gls{ohd}, we conducted a broad review of the published literature on the subject. Our findings show that the properties of \gls{ohd} and evaluating the \gls{sd} were initially challenging for the existing \gls{gan} algorithms and metrics (unlike medical imaging, for which state-of-the-art model were directly transferable). Nonetheless, since 2017 solutions to these problems are being published at an increasing rate.
+    After being collected for patient care, \gls{ohd} can further benefit patient well-being by sustaining the development of health informatics and medical research. Vast potential is largely unexploited due to the fiercely private nature of patient-related data and regulation about its distribution. \gls{gan} have recently emerged as a groundbreaking approach to efficiently learn generative models that produce realistic \gls{sd}. They have revolutionized practices in multiple domains such as 
+     cars, fraud detection, simulations in the industrial sector and marketing known as digital twins, and medical imaging. The digital twin concept could readily be applied to modelling and quantifying disease progression. In addition, \glspl{gan} posses a multitude of capabilities that are directly applicable to common problems in the healthcare: augmenting small dataset, correcting class imbalance, domain translation for rare diseases, let alone preserving privacy. Unlocking open access to privacy-preserving \gls{ohd} could be transformative for scientific research. In the midst of the COVID-19 pandemic, the healthcare system is facing unprecedented challenges, many of which of are data related and cloud be alleviated by the capabilities of \glspl{gan}. In light of these facts, publications concerning the development of  \gls{gan} applied to \gls{ohd} seemed to be severely lacking. To uncover the reasons for the slow adoption of \glspl{gan} for \gls{ohd}, we conducted a broad review of the published literature on the subject. Our findings show that the properties of \gls{ohd} and evaluating the \gls{sd} were initially challenging for the existing \gls{gan} algorithms and metrics (unlike medical imaging, for which state-of-the-art model were directly transferable). Nonetheless, since 2017 solutions to these problems are being published at an increasing rate.
     \end{abstract}
 
     \input{1-introduction}

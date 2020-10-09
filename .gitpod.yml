@@ -7,6 +7,3 @@ tasks:
         latexmk -pdf ; \
       done
   - name: Terminal
-vscode:
-  extensions:
-    - efoerster.texlab@1.10.0:/Vq+k9Ug/81LYWajjTgMpA==
