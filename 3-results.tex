@@ -34,13 +34,13 @@
             Intently conditioned input data allows the exploration of specific events or conditions. In a position paper on the subject, Angulo et al. draw the parallels of this technique with the current needs in healthcare and the emergence of the necessary technologies for actionable models of patients. \cite{angulo2019towards,Angulo_2020}. The authors bring up the rapid adoption of wearables that are continuously monitoring people's physiological state. 
             Wearables are one of many mobile digitally connected devices that collect patient data over a broad range of physiological characteristic and behavioral patterns \cite{coravos2019developing}. This emerging trend known as \gls{dbio} has already led to studies demonstrating predictive models with the potential for improved patient care \cite{snyder2018best}. Through continuous lifelong learning, integrating  multiple modes of personal data, generative patient models could inform diagnostics of medical professionals and also enable testing treatment options. In their proposal, \gls{gan} are an essential component of the ecosystem to ensure patient privacy and to provide bootstrap data. Fisher et al. already employ the term "digital twin" to describe their process, noting that they present no privacy risk and enable simulating patient cohorts of any size and characteristics \cite{walsh2020generating}.
         
-            \input{tables/tab:3:publications}
+            \input{tables/publications}
 
     \subsection{Data Types and Feature Engineering}
 
         No publications made use of \gls{ohd} in its initial form, patient records in \gls{ehr} composed of many related tables (normalized form). The complexity of a model would grow rapidly when maintaining referential integrity and statistics between multiple tables. The hierarchy by witch these would interact with each other conditionally is no less complicated \cite{Buda2015, Patki_2016, Zhang2015, Tay2013}. There are however published \gls{gan} algorithms made to consume normalized database in their original form. \todo In regards to \gls{ohd}, feature engineering was used to adapt the data to task requirements, or to a promising algorithms that fit the date characteristics. The data is transformed into one of four modalities: time series, point-processes, ordered sequences or aggregates described in Fig. \ref{tab:features}.
 
-        \input{tables/tab:3:features}
+        \input{tables/features}
 
     \subsection{Data oriented GAN development}\label{subsec:data_gan_dev}
 
@@ -126,9 +126,9 @@
                 \end{itemize}
             \end{itemize}
             
-                \input{tables/tab:3:distributions}
-                \input{tables/tab:3:statistics}
-                \input{tables/tab:3:augmentation}
+                \input{tables/distributions}
+                \input{tables/statistics}
+                \input{tables/augmentation}
 
     \subsection{Alternative evaluation}
         In their publications, \citeauthor{Yale_2020} propose refreshing approaches to evaluating the utility of \gls{sd}. For example, they organized a hack-a-thon type challenge involving the data. During the event, students were tasked with creating classifiers, while provided only with \gls{sd} \cite{Yale_2020}. They were then scored on the accuracy of their model on real data. In more rigorous initiatives, they attempted (successfully) to recreate the experiments published in medical papers based on the MIMIC dataset using only data generated from their model \gls{healthgan}. In a subsequent version of their article, the authors evaluate the performance of their model against traditional privacy preservation methods by using the trained discriminator component of \gls{healthgan} to discriminate real from synthetic samples.
