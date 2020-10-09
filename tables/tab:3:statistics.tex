@@ -1,0 +1,41 @@
+\begin{table}[]H]
+        \footnotesize
+        \setlength{\extrarowheight}{0.5em}
+        \caption{Metrics based on evaluating the statistical properties of the synthetic data distribution. \label{tab:3:statistics}}
+        \begin{tabularx}{\textwidth}{@{} p{0.3\textwidth} X @{}}\toprule
+            Metric & Description\\ \midrule
+            
+            Dimensions-wise distribution & 
+            The real and synthetic data are compared feature-wise according to a variety of methods For example, the Bernoulli success probability for binary features, or the Student T-test for continuous variables, and Pearson Chi-square test for binary variables is used to determine statistical significance \cite{Beaulieu-Jones2019-ct,Choi2017-nt,chin2019generation,yan2020generating,baowaly_2019_IEEE,baowaly_2019_jamia,ozyigit2020generation,tanti2019, Yoon2020-anon, tanti2019, Fisher2019, Che_2017, Wang_2019, yale2019ESANN, chincheong2020generation, ozyigit2020generation}.\\
+            
+            Inter-dimensional correlation & 
+            Dimension-wise Pearson coefficient correlation matrices for both real and synthetic data \cite{Beaulieu-Jones2019-ct, Goncalves2020, torfi2019generating,Frid_Adar_2018,ozyigit2020generation, Yang_2019_ehr, Yoon2020-anon, zhu_2020, Yoon2020-anon, walsh2020generating, yale2019ESANN, ozyigit2020generation, Dash, Bae2020}.\\
+           
+            Cross-type Conditional Distribution & 
+            Correlations between categorical and continuous features, comparing the mean and standard deviation of each conditional distribution \cite{yan2020generating}.\\
+            
+            Time-lagged correlations & 
+            Measures the correlation between features over time intervals.
+            \cite{Fisher2019,walsh2020generating}.\\
+            
+            Pairwise mutual information & 
+            Checks for the presence multivariate relationships pair-wise for each feature, as a measure of mutual dependence \cite{Rankin2020}. Quantifies the amount of information obtained about a feature from observing another.\\
+            
+            First-order proximity metric & 
+            Defined over graphs, captures the direct neighbor relationships of vertices. \citeauthor{Zhang2020} applied to graphs built from the co-occurrence of medical codes and compared the results between real and synthetic data \cite{Zhang2020}.\\
+            
+            Log-cluster metric & 
+            Clustering is applied to the real and synthetic data combined. The metric is calculated from the number of real and synthetic samples that fall in the same clusters \cite{Goncalves2020}.\\
+            
+            Support coverage metric & 
+            Measures how much of the variables support in the real data is covered in the synthetic data. Support is defined as the percentage of values found in the synthetic data, while coverage is the reverse operation. The metric is calculated as the average of the ratios over all features. Penalizes less frequent categories that are underrepresented \cite{Goncalves2020}.\\
+ 
+            Proportion of valid samples & 
+            Defined by \citeauthor{Yang_2019_ehr} as a requirement for records to contain both disease and medication instances. \cite{Yang_2019_ehr}.\\
+            
+            \gls{pca} Distributional Wassertein distance 
+            & The Wassertein distance is calculated over k-dimensional \gls{pca} projections of the real and synthetic data \cite{tanti2019}.\\
+            
+            \bottomrule
+        \end{tabularx}
+    \end{table}

@@ -8,7 +8,6 @@
 \usepackage{glossaries, glossaries-extra}
 \usepackage[round]{natbib}
 \usepackage{authblk, graphicx}
-\usepackage[space]{grffile}
 \usepackage{latexsym, textcomp, longtable, tabulary, tabularx}
 \usepackage{booktabs,array,multirow}
 \usepackage{amsfonts,amsmath,amssymb}
@@ -18,7 +17,7 @@
 \usepackage[ampersand]{easylist}
 \usepackage{enumitem}
 \usepackage{pifont, etex, makecell}
-\usepackage[]{todonotes}
+\usepackage[disable]{todonotes}
 \usepackage{float}
 \usepackage{lscape}
 
@@ -58,6 +57,8 @@
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}%
 
 \AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
+
+\renewcommand\labelitemi{-}
 
 \newglossary[odg]{oalgo}{old}{odn}{OHD-GAN Acronyms}
 \setabbreviationstyle[acronym]{long-short}
@@ -105,7 +106,6 @@
     %\clearpage
     \printglossary[type=oalgo]
     \printglossary[type=\acronymtype]
-    \printglossary
 
     \pagebreak
 

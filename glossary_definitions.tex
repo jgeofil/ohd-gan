@@ -1,95 +1,106 @@
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%% Algorithms
-\newglossaryentry{gumbel-gan}
-{
-        name=Gumbel-Softmax GAN,
-        description={}
-}
-
-\newglossaryentry{arae}
-{
-        name=ARAE,
-        description={Adversarially regularized autoencoders.}
-}
-
 \newglossaryentry{t-sne}{
-    name=t-SNE,
-    description={The t-Distributed Stochastic Neighbor Embedding clustering algorithm is a nonlinear dimensionality reduction technique commonly applied to high-dimensiona data. See \citet{maaten2008tsne}.}
+    type=\acronymtype,
+    name={t-SNE}, 
+    description={The t-Distributed Stochastic Neighbor Embedding clustering algorithm is a nonlinear dimensionality reduction technique commonly applied to high-dimensional data. See \citet{maaten2008tsne}.}
+    text={t-SNE},
+    first={t-Distributed Stochastic Neighbor Embedding (t-SNE)}
 }
 
-\newglossaryentry{mode-collapse}
-{
-        name=mode collapse,
-        description={The training procedure fails to converge, or converges to an undesirable local minima resulting in a lack of variety in the generated samples.}
+\newglossaryentry{mode-collapse}{
+    type=\acronymtype,
+    name={mode collapse}, 
+    description={Mode collapse occurs when the \gsl{gan} training procedure fails to converge, or converges to an undesirable local minima resulting in a lack of variety in the generated samples.}
+    text={mode collapse},
+    first={mode collapse}
 }
 
-\newglossaryentry{feed-forward}
-{
-        name=feed-forward network,
-        description={Basic Neural Network in its simplest form.}
-}
-
-\newglossaryentry{mb-avg}
-{
-        name=Mini-batch averaging,
-        description={Adaptation of mini-batch averaging to cope with mode collapse, see \cite{choi2017generating}}
+\newglossaryentry{mb-avg}{
+    type=\acronymtype,
+    name={MB-Avg}, 
+    description={Alternative to mini-batch discrimination that performs well on categorical features to cope with mode collapse, see \cite{choi2017generating}}
+    text={MB-Avg},
+    first={Mini-batch Averaging (MB-Avg)}
 }
 
 \newglossaryentry{dom-tran}{
-    name=domain translation,
-    description={Transforming data points from one domain or category to another.}
+    type=\acronymtype,
+    name={DT}, 
+    description={Applying a function to data points transforming them from one domain or category to another.}
+    text={DT},
+    first={Domain Translation (DT)}
 }
 
-\newglossaryentry{semi-sup}{name=semi-supervised, description={\todo{definition}
+
+\newglossaryentry{semi-sup}{
+    type=\acronymtype,
+    name={SSL}, 
+    description={Semi-supervised learning refers to a type of \gls{ml} algorithm training procedure. Where in supervised learning all the data points are labelled and the algorithm is trained conditionally, and in unsupervised learning the data is unlabelled leaving the algorithm to discover patterns in the data, in semi-supervised learning only a small portion of the data is labelled. There is multitude of gls{ssl} algorithms and application, which generally involve learning from the labelled data points to gather information from the unlabelled. \cite{ssl-mit} }
+    text={SSL},
+    first={Semi-supervised learning (SSL)}
+}
+\newglossaryentry{re-iden}{
+    type=\acronymtype,
+    name={reidentification attack}, 
+    description={See \gls{mi}}
+    text={reidentification attack},
+    first={reidentification attack}
+}
+\newglossaryentry{dbio}{
+    type=\acronymtype,
+    name={digital bio-markers}, 
+    description={As opposed to classical bio-markers, which are broadly defined as any chemical, physical or biological indication of a patient's state the can be measured and are reproducible \cite{biomarkers2010}. Digital bio-markers are a trend emerging from the ubiquity of personal electronics devices which are said to have great potential as equivalent indicators, described as "[...] objective, quantifiable, physiological, and behavioural measures that are collected by sensors embedded in portable, wearable, implantable, or digestible devices." \cite{digital2020}
+    text={digital bio-markers},
+    first={digital bio-markers}
 }}
 
-\newglossaryentry{re-iden}{name=reidentification attack, description={\todo{definition}
-}}
-
-\newglossaryentry{dbio}{name=digital bio-markers, description={\todo{definition}
-}}
-
-\newglossaryentry{exploding}{name=exploding gradient,
-    description={The gradients accumulate large amounts of error, destabilising or disabling the training procedure.}
+\newglossaryentry{exploding}{
+    type=\acronymtype,
+    name={exploding gradients}, 
+    description={When training a GAN, the gradients can accumulate large amounts of error, destabilising or disabling the training procedure.}
+    text={exploding gradients},
+    first={exploding gradients}
 }
 
-\newglossaryentry{vanishing}{name=vanishing gradient, description={The gradients become null and the network can no longer be updated.
-}}
-
-\newglossaryentry{a-disclosure}{name=Attribute disclosure, description={\todo{definition}}}
-
-\newglossaryentry{mem-inference}{name=Membership inference, description={\todo{definition}}}
-
-\newglossaryentry{repro-rate}{name=Reproduction rate, description={\todo{definition}}}
-
-\newglossaryentry{utility-metric}{name=utility-based metric, description={In a broad sense, any metric that measure the amount of work that can be done with the data}}
-
-\newglossaryentry{iteff}{name=Individual Treatment Effects, description={\todo{definition}
-}}
-\newglossaryentry{pmed}{name=Personalized Medicine, description={\todo{definition}
-}}
-
-\newglossaryentry{}{name=, description={
-}}
-
-%% Missingness
-\newglossaryentry{mar}{name=Missing at Random, description={Given a dataset with missing entries , the missingness depends only on the observed variables \cite{yoon2018imputation}.
-}}
-
-\newglossaryentry{mcar}{name=Missing Completely at Random, description={Given a dataset with missing entries, the missingness is not dependant on any of the variables, thus occurs completely at random \cite{yoon2018imputation}.
-}}
-
-%% Self and co-training semi-supervised training
-\newglossaryentry{co-training}{name=co-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively. In the words of \cite{yu2019rare}, \textit{"[...] co-training splits the features of labeled set into two sub-sets as two views, which are conditionally independent. Two classifiers are trained on two sub-sets respectively, and classify the unlabeled set with pseudo labeled. Then, the most confident unlabeled data determined by one classifier is fed into another classifier as additional pseudo labeled data for further training." \cite{yu2019rare}.}
-}}
-
-\newglossaryentry{self-training}{name=self-training, description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively. In the words of \citeauthor{yu2019rare}, \textit{"[...] a classifier is initially trained on the small labeled set, and the trained classifier is used to classify the unlabeled set, which is assigned with pseudo labels. After that, the part of unlabeled set with the most confident pseudo labels are selected, and added into the labeled set. The classifier iteratively trains itself with the labeled data and selected unlabeled data."} \cite{yu2019rare}.}
+\newglossaryentry{vanishing}{
+    type=\acronymtype,
+    name={vanishing gradients}, 
+    description={When training a GAN, the gradients become null and the network can no longer be updated.}
+    text={vanishing gradients},
+    first={vanishing gradients}
 }
 
-%% Privacy
-\newglossaryentry{mia}{name=Membership Inference Attack, description={Broadly, an MIA attack aims to determine if a particular record was used to train a machine learning model \cite{chen2019ganleaks}. There is no canonical process by which an attack is conducted, nor specification of the data assets initially in possession of the attacker. For a comprehensive taxonomy of MIA against \gls{gan}, refer to the suitably titled publication by \citeauthor{chen2019ganleaks} in which \gls{medgan} was subjected to a number of trials.}}
+\newglossaryentry{a-disclosure}{
+    type=\acronymtype,
+    name={AD}, 
+    description={Occures when an attacker can uncover confidential attributes of and individual from those released in an anonymized form.}
+    text={AD},
+    first={Attribute disclosure}
+}
 
-%% Training techniques
+\newglossaryentry{mar}{
+    type=\acronymtype,
+    name={MaR}, 
+    description={Given a dataset with missing entries , the missingness depends only on the observed variables \cite{yoon2018imputation}.}
+    text={MaR},
+    first={Missing at Random (MaR)}
+}
+
+\newglossaryentry{mcar}{
+    type=\acronymtype,
+    name={MCaR}, 
+    description={Missing Completely at Random, description={Given a dataset with missing entries, the missingness is not dependant on any of the variables, thus occurs completely at random \cite{yoon2018imputation}.}}
+    text={MCaR},
+    first={Missing Completly at Random (MCaR)}
+}
+
+\newglossaryentry{}{
+    type=\acronymtype,
+    name={}, 
+    description={}
+    text={},
+    first={}
+}
+
 \newglossaryentry{msn}{
  type=\acronymtype,
  name={MSN},
@@ -117,7 +128,7 @@
 \newglossaryentry{pl}{
     type=\acronymtype,
     name={PL}, 
-    description={Difference of \gls{NN-AA} on the test set and on the training set. See \cite{yale2019ESANN}.}
+    description={Difference of \gls{nnaa} on the test set and on the training set. See \cite{yale2019ESANN}.}
     text={PL},
     first={Privacy loss (PL)}
 }
@@ -125,7 +136,7 @@
 \newglossaryentry{dt}{
     type=\acronymtype,
     name={DT}, 
-    description={The discriminator is tested on batches of synthetic data produced by other methods to asses the possibility of overfitting, see \cite{yale2019ESANN}.}
+    description={The discriminator is tested on batches of synthetic data produced by other methods to asses the possibility of over-fitting, see \cite{yale2019ESANN}.}
     text={DT},
     first={Discriminator testing (DT)}
 }
@@ -141,7 +152,7 @@
 \newglossaryentry{pate}{
     type=\acronymtype,
     name={PATE}, 
-    description={Differntial privacy method: "The approach combines, in a black-box fashion, multiple models trained with disjoint datasets, such as records from different subsets of users. Because they rely directly on sensitive data, these models are not published, but instead used as "teachers" for a "student" model. The student learns to predict an output chosen by noisy voting among all of the teachers, and cannot directly access an individual teacher or the underlying data or parameters. The student's privacy properties can be understood both intuitively (since no single teacher and thus no single dataset dictates the student's training) and formally, in terms of differential privacy." \cite{Papernot2017,Papernot2018}}
+    description={Differential privacy method, best described by \citeauthor{Papernot2017}: "The approach combines, in a black-box fashion, multiple models trained with disjoint datasets, such as records from different subsets of users. Because they rely directly on sensitive data, these models are not published, but instead used as "teachers" for a "student" model. The student learns to predict an output chosen by noisy voting among all of the teachers, and cannot directly access an individual teacher or the underlying data or parameters. The student's privacy properties can be understood both intuitively (since no single teacher and thus no single dataset dictates the student's training) and formally, in terms of differential privacy." \cite{Papernot2017,Papernot2018}}
     text={PATE},
     first={Private Aggregation of Teacher Ensembles (PATE)}
 }
@@ -181,7 +192,7 @@
 \newglossaryentry{partbba}{
     type=\acronymtype,
     name={PartBB}, 
-    description={Similar to to the \gls{fullBB} setting with the attacker havign the additional knowoledge about the latent input $z$.}
+    description={Similar to to the \gls{fullbba} setting with the attacker having the additional knowledge about the latent input $z$.}
     text={PartBB},
     first={Partial Black-box Attack}
 }
@@ -210,44 +221,67 @@
     first={Synthetic Data Vault}
 }
 
+\newglossaryentry{pm}{
+    type=\acronymtype,
+    name={PM}, 
+    description={According to the NIH, Precision Medicine or "Personalized medicine is an emerging practice of medicine that uses an individual's genetic profile to guide decisions made in regard to the prevention, diagnosis, and treatment of disease. Knowledge of a patient's genetic profile can help doctors select the proper medication or therapy and administer it using the proper dose or regimen." \cite{Ackerman2009}}
+    text={PM},
+    first={Personalized Medicine}
+}
 
-%\newacronym{}{Grouped CorrNN}{Grouped Correlation Neural Network}
+\newglossaryentry{st}{
+    type=\acronymtype,
+    name={ST}, 
+    description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively. In the words of \citeauthor{yu2019rare}, \textit{"[...] a classifier is initially trained on the small labeled set, and the trained classifier is used to classify the unlabeled set, which is assigned with pseudo labels. After that, the part of unlabeled set with the most confident pseudo labels are selected, and added into the labeled set. The classifier iteratively trains itself with the labeled data and selected unlabeled data."} \cite{yu2019rare}.}
+    text={ST},
+    first={Self-training (ST)}
+}
 
-% \newglossaryentry{⟨label ⟩}{type=\acronymtype,
-% name={⟨abbrv ⟩},
-% description={⟨long⟩},
-% text={⟨abbrv ⟩},
-% first={⟨long⟩ (⟨abbrv ⟩)},
-% plural={⟨abbrv ⟩\glspluralsuffix},
-% firstplural={⟨long⟩\glspluralsuffix\space (⟨abbrv ⟩\glspluralsuffix)},
-% ⟨key-val list⟩}
+\newglossaryentry{ct}{
+    type=\acronymtype,
+    name={CT}, 
+    description={The self-training and co-training methods use classifiers first trained on the portion of labelled data to predict the labels of unlabelled instances. The newly labelled samples with the highest confidence are added to the labelled set to retrain the classifiers. The process is repeated iteratively. In the words of \cite{yu2019rare}, \textit{"[...] co-training splits the features of labeled set into two sub-sets as two views, which are conditionally independent. Two classifiers are trained on two sub-sets respectively, and classify the unlabeled set with pseudo labeled. Then, the most confident unlabeled data determined by one classifier is fed into another classifier as additional pseudo labeled data for further training." \cite{yu2019rare}.}
+    text={CT},
+    first={Co-training (CT)}
+}}
 
-%% Algorithms
-\newacronym{ml}{ML}{Machine Learning}
-\newacronym{nn}{NN}{Neural Network}
-\newacronym{gan}{GAN}{Generative Adversarial Network}
-\newacronym{ohd-gan}{OHD-GAN}{\glspl{gan} for Observation Health Data}
-\newacronym{ffn}{FFN}{\gls{feed-forward} Network}
-\newacronym{ae}{AE}{Autoencoder}
-\newacronym{rnn}{RNN}{Recurrent \gls{nn}}
-\newacronym{lstm}{LSTM}{Long Short-term Memory}
-\newacronym{cgan}{CGAN}{Conditional \gls{gan}}
-\newacronym{crmb}{CRMB}{Conditional Restricted Boltzmann Machine}
-\newacronym{cnn}{CNN}{Convolutional \gls{nn}}
-\newacronym{wgan}{WGAN}{Wassertein \gls{gan}}
-\newacronym{beta-vae}{\ensuremath{\beta}-VAE}{\ensuremath{\beta} variational auto-encoder}
-\newacronym{lr}{LR}{Logistic-regression}
-\newacronym{cycle-gan}{Cycle-GAN}{Cycle-consistent \gls{gan}}
-\newacronym{adtep}{ADTEP}{Adversarial Deep Treatment Effect Prediction}
-\newacronym{cae}{CAE}{Convolutional \gls{AE}}
-\newacronym{gru}{GRU}{Gated Recurrent Unit}
+\newglossaryentry{mi}{
+    type=\acronymtype,
+    name={MI}, 
+    description={See \gls{pd}.}
+    text={Membership Inference},
+    first={Membership Inference (MI)}
+}
 
+\newglossaryentry{pda}{
+    type=\acronymtype,
+    name={PD}, 
+    description={Broadly, a Membership Inference attack aims to determine if a particular record was used to train a machine learning model \cite{chen2019ganleaks}. There is no canonical process by which an attack is conducted, nor specification of the data assets initially in possession of the attacker. Attacks range from completely \gls{fullbba} where the attacker can only query data from the model, to \gls{wba} where the model and its parameters all fully exposed. For a comprehensive taxonomy of MIA, refer to \citeauthor{chen2019ganleaks, Jayaraman2019}.}
+    text={PD},
+    first={Presence Disclosure (PD)}
+}
+
+\newglossaryentry{dle}{
+    type=\acronymtype,
+    name={DLE}, 
+    description={Drug Laboratory Effects refer the changes that a patient's medication can induce on medical laboratory analyses such as diagnostic tests, leading to misinterpretations and errors \cite{VanBalveren2018}. Merely keeping track of the large quantity of known interactions is still problematic and the number of possible combination is immense. Moreover the effects vary according to each patient physiology. \citeauthor{yahi2017generative} made use of GANs to predict these effect on an personalized basis \cite{yahi2017generative}. See also \gls{ite}.} 
+    text={DLE},
+    first={Drug Laboratory Effects (DLE)}
+}
+
+\newglossaryentry{ite}{
+    type=\acronymtype,
+    name={ITE}, 
+    description={Given a patient and what we know about the person's medical history and state, and the probability of various possible outcomes of disease progression. The aim of Individualized Treatment effects is to estimate the consequences of administering a particular treatment and their likely-hood. The task is made particularly complex due the fact that for any given individual, the decision can only be made once. In other words, paired samples are lacking, making it impossible to compare the outcomes directly \cite{Haupt2019}.}
+    text={ITE},
+    first={Individualized Treatment effects (ITE)}
+}
 
 \newacronym[type=oalgo]{medgan}{medGAN}{medGAN}
 \newacronym[type=oalgo]{ssl-gan}{SSL-GAN}{Semi-supervised Learning with a learned ehrGAN}
 \newacronym[type=oalgo]{wgantpp}{WGANTPP}{\gls{wgan} for Temporal Point-processes}
 \newacronym[type=oalgo]{radialgan}{RadialGAN}{RadialGAN}
-\newacronym[type=oalgo]{mc-arae}{MC-ARAE}{Multi-categorical gls{arae}}
+\newacronym[type=oalgo]{mc-arae}{MC-ARAE}{Multi-categorical \gls{arae}}
 \newacronym[type=oalgo]{ctgan}{CTGAN}{Conditional Tabular \Gls{gan}}
 \newacronym[type=oalgo]{heterogan}{HGAN}{Heterogeneous GAN}
 \newacronym[type=oalgo]{emr-wgan}{EMR-WGAN}{EMR Wassertein GAN}
@@ -270,7 +304,7 @@
 \newacronym[type=oalgo]{rmb}{RMB}{Restricted Boltzmann Machine}
 \newacronym[type=oalgo]{anomigan}{AnomiGAN}{GANs for anonymizing private medical data}
 \newacronym[type=oalgo]{wgan-gp}{WGAN-GP}{\gls{wgan} with Gradient Penalty}
-\newacronym[type=oalgo]{dp-auto-gan}{DP-auto-GAN}{\gls{DP}-auto-\gls{gan}}
+\newacronym[type=oalgo]{dp-auto-gan}{DP-auto-GAN}{\gls{dp}-auto-\gls{gan}}
 \newacronym[type=oalgo]{ads-gan}{ADS-GAN}{Anonymization through data synthesis using \gls{gan}}
 \newacronym[type=oalgo]{gcgan}{GcGAN}{\gls{corrnn} and \gls{t-wgan}}
 \newacronym[type=oalgo]{t-wgan}{T-wGAN}{Wassertein \gls{t-gan}}
@@ -279,12 +313,34 @@
 \newacronym[type=oalgo]{pate-gan}{PATE-GAN}{Private Aggregation of Teacher Ensembles (PATE) framework applied to GANs}
 \newacronym[type=oalgo]{ac-gan}{AC-GAN}{Auxiliary Classifier \gls{gan}}
 \newacronym[type=oalgo]{glugan}{GluGAN}{Blood Glucose \gls{gan}}
-\newacronym[type=oalgo]{wgan-dp}{WGAN-DP}{\gls{WGAN} with \gls{dp}}
+\newacronym[type=oalgo]{wgan-dp}{WGAN-DP}{\gls{wgan} with \gls{dp}}
 \newacronym[type=oalgo]{rsdgm}{RSDGM}{Realistic Synthetic Dataset Generation Method}
 
 %\newacronym{}{}{}
+\newacronym{nn}{NN}{Neural Network}
+\newacronym{gan}{GAN}{Generative Adversarial Network}
+\newacronym{ffn}{FFN}{Feed-forward Network}
+\newacronym{ae}{AE}{Autoencoder}
+\newacronym{rnn}{RNN}{Recurrent \gls{nn}}
+\newacronym{lstm}{LSTM}{Long Short-term Memory}
+\newacronym{cgan}{CGAN}{Conditional \gls{gan}}
+\newacronym{crmb}{CRMB}{Conditional Restricted Boltzmann Machine}
+\newacronym{cnn}{CNN}{Convolutional \gls{nn}}
+\newacronym{wgan}{WGAN}{Wassertein \gls{gan}}
+\newacronym{beta-vae}{\ensuremath{\beta}-VAE}{\ensuremath{\beta} variational auto-encoder}
+\newacronym{lr}{LR}{Logistic-regression}
+\newacronym{cycle-gan}{Cycle-GAN}{Cycle-consistent \gls{gan}}
+\newacronym{adtep}{ADTEP}{Adversarial Deep Treatment Effect Prediction}
+\newacronym{cae}{CAE}{Convolutional \gls{ae}}
+\newacronym{gru}{GRU}{Gated Recurrent Unit}
+\newacronym{gumbel-gan}{Gumbel-GAN}{Gumbel-Softmax \gls{gan}}
+\newacronym{arae}{ARAE}{Adversarially regularized autoencoder}
+
+
 
 %% Terms
+\newacronym{ml}{ML}{Machine Learning}
+\newacronym{ohd-gan}{OHD-GAN}{\glspl{gan} for Observation Health Data}
 \newacronym{sd}{SD}{Synthetic Data}
 \newacronym{ohd}{OHD}{Observational Health Data}
 \newacronym{ehr}{EHR}{Electronic Health Record}
@@ -293,42 +349,41 @@
 \newacronym{ssl}{SSL}{Semi-supervised learning}
 \newacronym{cqm}{CQM}{Clinical Quality Measure}
 \newacronym{hi}{HI}{Health Informatics}
-%% Fields
-\newacronym[seealso=iteff]{ite}{ITE}{Individual Treatment Effects}
-\newacronym[seealso=iteff]{dle}{DLE}{Drug Laboratory Effects}
-\newacronym[seealso=pmed]{pm}{PM}{Personalized Medicine}
+\newacronym{pd}{PD}{Probability Distribution}
+\newacronym{ks}{KS}{Kolmogorov-Smirnov}
+
+
 \newacronym{iot}{IoT}{Internet of Things}
 
 %% Techniques
-\newacronym{mba}{MbA}{\gls{mb-avg}}
 \newacronym{bn}{BN}{batch-normalization}
 \newacronym{sc}{SC}{shortcut connections}
 \newacronym{cbt}{CBT}{Cluster-based training}
 \newacronym{vcd}{VCD}{Variational contrastive divergence}
 \newacronym{ln}{LN}{Layer normalisation}
 \newacronym{sn}{SN}{Spectral Normalization}
-\newacronym[seealso=self-training]{st}{ST}{Self-training}
-\newacronym[seealso=co-training]{ct}{CT}{Co-training}
-
+\newacronym{dsm}{DSM}{Domain Specific Measure}
+\newacronym{dwp}{DWP}{Dimension-wise prediction}
+\newacronym{arm}{ARM}{Association Rule Mining}
+\newacronym{trts}{TRTS}{Train on synthetic, test on real}
+\newacronym{tstr}{TSTR}{Train on real, test on synthetic}
 %% Privacy
 \newacronym{dp}{DP}{Differential privacy}
 \newacronym{dp-sgd}{DP-SGD}{Differential private stochastic gradient descent}
 \newacronym{ad}{AD}{Attribute Disclosure}
-\newacronym[seealso=mia]{pd}{PD}{Presence Disclosure}
 \newacronym{rr}{RR}{Reproduction rate}
-\newacronym[seealso=mia]{mi}{MI}{Membership Inference}
 
 \newacronym{anm}{ANM}{Additive noise model}
 
-
-%% Evaluation qualitative
-\newacronym{ved}{VED}{Visual Expert Discrimination}
-
-%% Evaluation statistics
-\newacronym{dwpro}{DWS}{Dimension-wise Statistics}
-\newacronym{dwpre}{DWP}{Dimension-wise Prediction}
-
-%% Evaluation quantitative
+%% Metrics
+\newacronym{fop}{F-OP}{First-order proximity}
+\newacronym{cc}{CC}{Correlation coefficient}
+\newacronym{mmd}{MMD}{Maximum Mean Discrepency}
+\newacronym{rbf}{RBF}{Radial Basis Function}
+\newacronym{mse}{MSE}{Mean Squared Error}
+\newacronym{auroc}{AUROC}{Area under ROC curve}
+\newacronym{auprc}{AUPRC}{Area under the precision-recall curve}
+\newacronym{kld}{KLD}{Kullback-Leibler divergence}
 \newacronym{fd}{FD}{Feature distributions}
 \newacronym{qq}{QQ}{Quantile-quantile plot}
 \newacronym{lsr}{LSR}{Latent space representation}
@@ -336,24 +391,14 @@
 \newacronym{pcam}{PCAM}{\gls{pca} Marginal}
 \newacronym{pca}{PCA}{Principal Component Analysis}
 \newacronym{pcawdd}{PCA-DWD}{\gls{pca} Distributinal Wassertein Distance}
-
-%% Metrics
-\newacronym{fop}{F-OP}{First-order proximity}
-\newacronym{cc}{CC}{Correlation coefficient}
-\newacronym{md-cc}{MD-CC}{\todo{Redundant?}}
-\newacronym{mmd}{MMD}{Maximum Mean Discrepency}
-\newacronym{rbf}{RBF}{Radial Basis Function}
-\newacronym{mse}{MSE}{Mean Squared Error}
-\newacronym{auroc}{AUROC}{Area under ROC curve}
-\newacronym{auprc}{AUPRC}{Area under the precision-recall curve}
-\newacronym{kld}{KLD}{Kullback-Leibler divergence}
-
-%% Evaluation augmentation
-\newacronym{tstr}{TSTR}{Train on synthetic, test on real}
-\newacronym{trts}{TRTTS}{Train on real, test on synthetic}
 \newacronym{pta}{PTA}{Prediction task accuracy}
 \newacronym{ssa}{SSA}{Semi-supervised augmentation}
-
+\newacronym{dwpro}{DWS}{Dimension-wise Statistics}
+\newacronym{dwpre}{DWP}{Dimension-wise Prediction}
+\newacronym{ved}{VED}{Visual Expert Discrimination}
+\newacronym{rf}{RF}{Random Forest}
+\newacronym{svm}{SVM}{Support Vector Machine}
+\newacronym{rmse}{RMSE}{Root Mean-Squared Rrror}
 
 
 

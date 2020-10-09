@@ -1,0 +1,32 @@
+ \begin{table}[H]         
+ \footnotesize  
+ \setlength{\extrarowheight}{0.5em}
+ \caption{Metrics employed to validate trained models based on the comparison of distributions.\label{tab:3:distributions}}              
+    \begin{tabular}{@{} p{0.2\textwidth} p{0.8\textwidth} @{}}\toprule                          
+    Metric & Description \\ \midrule                                  
+    
+    \gls{kld} 
+    & Non-symmetric measure of difference between two \glspl{pd}, related to relative entropy. Given a feature $X$, $p(x)$ and $q(x)$ the \gls{pd} of the real and synthetic data respectively, the \gls{kld} of $q(x)$ from $p(x)$ is the amount of information lost when $q(x)$ is trained to estimate $p(x)$ \cite{klb2008, Goncalves2020}. \\       
+    
+    \gls{rdp} 
+    & Alternative measure of divergence, which includes \gls{kld} as a special case. The \gls{rdp} includes a parameter $\alpha$ that gives it an extra degree of freedom, becoming equivalent to the Shannon-Jensen divergence when $\alpha \longrightarrow 1$. It showed a number of advantages when compared to the original \gls{gan} loss function, and removed the need for gradient penalty \cite{VanBalveren2018, tanti2019}\\ 
+    
+    Jaccard similarity & Measure of similarity and diversity defined on sets as the size of the intersection over the size of the union \cite{ozyigit2020generation, Yang_2019_ehr, Wikipediacontributors}.\\
+
+    2-sample test (2-ST) 
+    & Statistical test of the null hypotheses the real and \gls{sd} samples came from the same distribution. and synthetic, originate from the same distribution through the use of a statistical test such as \gls{ks} or \gls{mmd}.\cite{Fisher2019,baowaly_2019_IEEE,baowaly_2019_jamia,esteban2017real}\\     
+    
+    Distribution of Reconstruction Error 
+    & Compares the distributions of reconstruction error for the \gls{sd} and the training set versus the \gls{sd} and a held out testing set. Calculated according to the Nearest-neighbor metric or other measures of distance. A significant difference would indicate over-fitting and can evaluated with a statistical test, such as \gls{ks}. \cite{esteban2017real}\\
+    
+    Latent space projections 
+    & Real and synthetic samples are projected back into the latent space, or encoded with a \gls{beta-vae}, comparing the dimensional mean of the variance or the distance between mode peaks \cite{Zhang2020}. See Section \ref{sec:latent-space} for examples of how the latent space encoding can interpreted. \\
+    
+    \glspl{dsm} 
+    & Comparison of the \gls{pd} with \glspl{dsm}. For instance the Quantile-Quantile (Q-Q) plot for point-processes \cite{Xiao2017-lh}. See Section \ref{sec:evaluation-cqm} for a notion of how \glspl{dsm} could apply to \gls{ehr} data.\\                              
+    Classifier accuracy &  
+    Accuracy of a classifier trained to discriminate real from synthetic units. Predictor accuracy around 0.5 would indicate indistinguishability. \cite{Fisher2019,walsh2020generating}\\       
+    
+    \bottomrule                      
+    \end{tabular}         
+\end{table}

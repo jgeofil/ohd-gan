@@ -1,17 +1,17 @@
 
-\newcolumntype{R}{>{\raggedright\arraybackslash}p{0.10\linewidth}}
-\newcolumntype{M}{>{\raggedright\arraybackslash}p{0.20\linewidth}}
+\newcolumntype{R}{>{\raggedright\arraybackslash}p{0.20\textwidth}}
+\newcolumntype{M}{>{\raggedright\arraybackslash}p{0.20\textwidth}}
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
   
-\begin{landscape}
+\begin{center}
     
     \setlength\LTleft{0pt}
     \setlength\LTright{0pt}
-    \footnotesize
+    \tiny
     \setlength{\extrarowheight}{1em}
     
-    \begin{longtable}[l]{@{}p{0.10\linewidth}Rp{0.35\linewidth}Mp{0.20\linewidth}@{}} 
+    \begin{longtable}[l]{@{}p{0.08\textwidth}Rp{0.25\textwidth}Mp{0.20\textwidth}@{}} 
         \kill
         \caption{Summary of the publication included in the review.\label{tab:3:publications}}\\
         \hline
@@ -29,7 +29,7 @@
         \quad 2017 & & & \\
         \hline
         \citeauthor{Choi2017-nt} & \gls{medgan} 
-        & Incompatibility of back-propagation with discrete features. & \gls{ae}, \gls{mba}, \gls{bn}, \gls{sc}, \gls{ad}, \gls{pd}
+        & Incompatibility of back-propagation with discrete features. & \gls{ae}, \gls{mb-avg}, \gls{bn}, \gls{sc}, \gls{ad}, \gls{pda}
         & Discrete features, aggregated counts and occurrences of medical codes.\\
         
         \citeauthor{yahi2017generative} & \gls{medgan} adaptation
@@ -67,7 +67,7 @@
         & Feature, treatment and outcome vectors\\
         
         \citeauthor{Yoon2018-radial} & \gls{radialgan} 
-        & Multi-domain translation, features and distribution mismatch, cycle-consistency, augmentation. & \gls{cgan}, \gls{wgan}, \gls{md-cc}.
+        & Multi-domain translation, features and distribution mismatch, cycle-consistency, augmentation. & \gls{cgan}, \gls{wgan},
         & Tabular, discrete and continuous features.\\
         
         \citeauthor{yoon2018imputation} & \gls{gain}
@@ -103,7 +103,7 @@
         & Demographic and binary features.\\
         
         \citeauthor{torfi2019generating} & \gls{corgan}
-        & \gls{cnn} architecture, capturing feature correlations, evaluating realism, privacy evaluation using \gls{mia}.  & 1D-\gls{cae}
+        & \gls{cnn} architecture, capturing feature correlations, evaluating realism, privacy evaluation using \gls{mi}.  & 1D-\gls{cae}
         & Discrete counts and occurrences of medical codes.\\
     
         \citeauthor{chu2019treatment} & \gls{adtep}
@@ -138,7 +138,7 @@
         & Non-Gaussian multi-modal distribution of continuous columns and imbalanced discrete column in tabular data. Evaluation benchmark. & \gls{cgan} \gls{tbs} \gls{msn} \gls{wgan-gp} \gls{gumbel-gan}
         & Tabular data, mixture of continuous and categorical features.\\
         
-        \citeauthor{yale2019ESANN} & \gls{C}
+        \citeauthor{yale2019ESANN} & \gls{healthgan}
         & Privacy metrics and over-fitting. & \gls{mi}, \gls{nnaa}, \gls{pl}, \gls{dt}
         & Categorical demographics, continuous vital signs and binary medical codes.\\
         
@@ -187,7 +187,7 @@
         & Binary vector of occurrence over the medical codes. Low-prevalence of codes. \\
         
         \citeauthor{yan2020generating} & \gls{heterogan}
-        & Improvements on \gls{emr-wgan} incorporating record-level constraints in the loss function.  & \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}, \gls{mi}, \gls{pd}
+        & Improvements on \gls{emr-wgan} incorporating record-level constraints in the loss function.  & \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}, \gls{mi}, \gls{pda}
         & Binary, categorical and continuous.\\
         
         \citeauthor{ozyigit2020generation} & \gls{rsdgm}
@@ -205,4 +205,4 @@
         \hline
         
     \end{longtable}
-\end{landscape}
+\end{center}

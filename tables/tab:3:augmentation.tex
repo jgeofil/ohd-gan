@@ -1,36 +1,34 @@
 \begin{table}[H]
         \footnotesize
-        \caption{Metrics of data realism employing methods and measures based on evaluating the utility of the synthetic data on practical tasks.}\label{tab:3:augmentation}
+         \setlength{\extrarowheight}{0.5em}
+        \caption{Metrics based on evaluating the utility of the synthetic data on practical tasks.}\label{tab:3:augmentation}
         
-        \begin{tabularx}{\textwidth}{@{} p{0.25\textwidth} X p{0.2\textwidth} @{}} \toprule
-        Metric & Description & References\\ \midrule
+        \begin{tabularx}{\textwidth}{@{} p{0.2\textwidth} X @{}} \toprule
+        Metric & Description \\ \midrule
         
-        \multicolumn{3}{c}{\textbf{Data utility metrics}}\\ \midrule
+        \multicolumn{2}{c}{\textbf{Data utility metrics}}\\ \midrule
         
-        Dimension-wise prediction (DWP) & Each variable is in turn chosen as the prediction target label and the remaining as features. Two predictors are trained to predict the label, one from the synthetic data and another from a portion of the real data. Their performance is compared on the left out real data.  & \cite{Choi2017-nt,Camino2018-re,Goncalves2020,yan2020generating, tanti2019}\\[30pt]
+        \gls{dwp} & Each variable is in turn chosen as the prediction target label and the remaining as features. Two predictors are trained to predict the label, one from the synthetic data and another from a portion of the real data. Their performance is compared on the left out real data \cite{Choi2017-nt,Camino2018-re,Goncalves2020,yan2020generating, tanti2019, baowaly_2019_IEEE}.\\
         
-        Association Rule Mining (ARM) & ARM aims to the discovery of relationships among a large set of variables, commonly occurring variable-value pairs \cite{Agrawal1993}. The rules obtained from the real and synthetic data are compared.  & \cite{baowaly_2019_IEEE,baowaly_2019_jamia,BaeAnomiGAN2020,yan2020generating}\\[30pt]
+        \gls{arm} & \gls{arm} aims to the discovery of relationships among a large set of variables, commonly occurring variable-value pairs \cite{Agrawal1993}. The rules obtained from the real and synthetic data are compared \cite{baowaly_2019_IEEE,baowaly_2019_jamia,BaeAnomiGAN2020,yan2020generating}.\\
         
-        Discriminating Siamese architecture & A pair of identical \gls{ffn} each receive either a real sample or a synthetic sample. Their output is passed to a third network which outputs a measure of similarity. & \cite{torfi2019generating}\\[30pt]
+        Training utility & Performance of predictors trained on the synthetic data, often in comparison with the real data or data generated with \gls{dp} \cite{BaeAnomiGAN2020}.\\
         
-        Predictor performance & Performance of predictors trained on the synthetic data, often in comparison with the real data or data generated with \gls{dp}. & \cite{BaeAnomiGAN2020}
+        \gls{trts} & Accuracy on real data of some form of predictor trained on synthetic data \cite{Beaulieu-Jones2019-ct, Rankin2020, Yoon2020-anon}. \\ 
         
-        Train on synthetic, test on real (TRTS) & Accuracy on real data of some form of predictor trained on synthetic data & \cite{Beaulieu-Jones2019-ct, Rankin2020} \\ [30pt]
+        \gls{tstr} & Accuracy on synthetic data of some form of predictor trained on real data   \cite{BaeAnomiGAN2020, Yoon2020-anon, Jordon2019}.\\
         
-        Train on real, test on synthetic (TSTR) & Accuracy on synthetic data of some form of predictor trained on real data &  \cite{BaeAnomiGAN2020, Yoon2020-anon}\\[30pt]
+        Discriminator & A predictor is trained to discriminate synthetic from real sample. An accuracy value of 0.5 would indicate that they are indistinguishable \cite{Fisher2019, walsh2020generating, yale:hal-02160496}.\\ 
         
-        Model analysis & Correlation between important features (RF) and model coefficients (LR and SVM) & \cite{esteban2017real,Xu2019-ay,Yoon2020-anon,chin2019generation, Beaulieu-Jones2019-ct}\\[30pt]
-        
-        Forward prediction & Models trained to make forward predictions from past observations or from real data transformed with a known function can simply be evaluated for accuracy. For example, the RMSE on time-series. & \cite{Xiao2018-aj,mcdermott2018semi,yoon2018imputation,Yang_2019_cdss, zhu_2020}\\ \midrule
+        Siamese discriminator & A pair of identical \gls{ffn} each receive either a real sample or a synthetic sample. Their output is passed to a third network which outputs a measure of similarity \cite{torfi2019generating}.\\\midrule
 
-        \multicolumn{3}{c}{\textbf{Applied utility metrics}}\\ \midrule
+        \multicolumn{2}{c}{\textbf{Applied utility metrics}}\\ \midrule
         
-        Data augmentation & A predictor is trained on a combination dataset of real and synthetic data or real data with missing values imputed and performance is compared with the same predictor trained on real data alone. & \cite{Yoon2020-anon, Yang_2019_cdss, Yang_2019_ehr}\\
+        Data augmentation & A predictor is trained on a combination dataset of real and synthetic data or real data with missing values imputed and performance is compared with the same predictor trained on real data alone \cite{Yoon2020-anon, Yang_2019_cdss, Yang_2019_ehr}.\\
         
-        Predictor augmentation & The trained generative model is incorporated into a predictor's activation function by generating an ensemble of proximate data points for each instance, thereby improving generalization. & \cite{Che_2017}\\
+        Model augmentation & The trained generative model is incorporated into a predictor's activation function by generating an ensemble of proximate data points for each instance, thereby improving generalization \cite{Che_2017}.\\
         
-        Accuracy & \todo{put this somewhere} & -\\
-        AUROC & \todo{put this somewhere} & -\\
+        Accuracy & The prediction performance of the model is compared against benchmarks of the same type on real data \cite{cui2019conan, Yoon2018-ite, Che_2017, yu2019rare, zhu_2020, baowaly_2019_IEEE, Wang_2019, walsh2020generating, yoon2018imputation, mcdermott2018semi, Yang_2019_ehr, Yoon2018-radial, Xu2019-ay, Beaulieu-Jones2019-ct, BaeAnomiGAN2020}. Models trained to make forward predictions from past observations or from real data transformed with a known function can simply be evaluated for accuracy. For example, the \gls{rmse} on time-series \cite{Xiao2018-aj,mcdermott2018semi,yoon2018imputation,Yang_2019_cdss, zhu_2020}.\\
         
         \bottomrule
         
