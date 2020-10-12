@@ -1,12 +1,11 @@
-\documentclass[6pt,acronym]{article}
+\documentclass[10pt]{article}
 
 \usepackage{fullpage, setspace, parskip, titlesec}
 \usepackage[section]{placeins}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{breakcites, lineno, hyphenat, rotating, etoolbox}
 \usepackage[colorlinks]{hyperref}
-\usepackage{glossaries, glossaries-extra}
-\usepackage[round]{natbib}
+
 \usepackage{authblk, graphicx}
 \usepackage{latexsym, textcomp, longtable, tabulary, tabularx}
 \usepackage{booktabs,array,multirow}
@@ -14,9 +13,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[greek,english]{babel}
 \usepackage{xspace, caption}
+\usepackage{glossaries}
+\usepackage[automake]{glossaries-extra}
+\usepackage[round]{natbib}
+
+
 \usepackage[ampersand]{easylist}
 \usepackage{enumitem}
-\usepackage{pifont, etex, makecell}
+\usepackage{pifont, makecell}
 \usepackage[disable]{todonotes}
 \usepackage{float}
 \usepackage{lscape}
@@ -24,9 +28,6 @@
 \usepackage{titlesec}
 \usepackage[default]{opensans}
 \usepackage[T1]{fontenc}
-
-% Headings setup (sectsty)
-
 
 \definecolor{darkblue}{RGB}{0,0,130}
 \definecolor{darkgreen}{RGB}{0,80,20}
@@ -42,7 +43,6 @@
 }
 
 \bibliographystyle{unsrtnat}
-%\renewcommand{\familydefault}{\sfdefault}
 
 \PassOptionsToPackage{hyphens}{url}
 
@@ -50,18 +50,14 @@
  {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
  {\bigskip}
 
-\titlespacing{\section}{0pt}{\times3}{\times1}
-\titlespacing{\subsection}{0pt}{\times2}{\times0.5}
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*2}{*0.5}
 \titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
 
 \providecommand\citet{\cite}
 \providecommand\citep{\cite}
 \providecommand\citealt{\cite}
 \renewcommand\cite{\citep}
-
-% You can conditionalize code for latexml or normal latex using this.
-\newif\iflatexml\latexmlfalse
-\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}%
 
 \AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
 \renewcommand\labelitemi{-}
@@ -71,9 +67,11 @@
 \glsxtraddallcrossrefs
 \makeglossaries
 
+\input{glossary_definitions}
+
 \begin{document}
 
-    \input{glossary_definitions}
+    
 
     \title{Synthetic Observational Health Data with GANs: a Cambrian radiation in medical research and digital twins?}
     
@@ -110,7 +108,6 @@
 
     \pagebreak
 
-    %\clearpage
     \printglossary[type=oalgo]
     \printglossary[type=\acronymtype]
 
