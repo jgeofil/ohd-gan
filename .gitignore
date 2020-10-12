@@ -1,0 +1,15 @@
+*.aux
+*.bbl
+*.blg
+*.fdb*
+*.fls
+*.glo
+*.gls
+*.ist
+*.log
+*.odg
+*.odn
+*.old
+*.glg
+*.out
+*.gz

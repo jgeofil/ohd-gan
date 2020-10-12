@@ -1,12 +1,13 @@
-\documentclass[12pt,a4papert,acronym]{article}
+
+\documentclass[10pt,a4papert]{article}
+
 
 \usepackage{fullpage, setspace, parskip, titlesec}
 \usepackage[section]{placeins}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{breakcites, lineno, hyphenat, rotating, etoolbox}
 \usepackage[colorlinks]{hyperref}
-\usepackage{glossaries, glossaries-extra}
-\usepackage[round]{natbib}
+
 \usepackage{authblk, graphicx}
 \usepackage{latexsym, textcomp, longtable, tabulary, tabularx}
 \usepackage{booktabs,array,multirow}
@@ -14,9 +15,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[greek,english]{babel}
 \usepackage{xspace, caption}
+\usepackage{glossaries}
+\usepackage[automake]{glossaries-extra}
+\usepackage[round]{natbib}
+
+
 \usepackage[ampersand]{easylist}
 \usepackage{enumitem}
-\usepackage{pifont, etex, makecell}
+\usepackage{pifont, makecell}
 \usepackage[disable]{todonotes}
 \usepackage{float}
 \usepackage{lscape}
@@ -24,9 +30,6 @@
 \usepackage{titlesec}
 \usepackage[default]{opensans}
 \usepackage[T1]{fontenc}
-
-% Headings setup (sectsty)
-
 
 \definecolor{darkblue}{RGB}{0,0,130}
 \definecolor{darkgreen}{RGB}{0,80,20}
@@ -42,7 +45,6 @@
 }
 
 \bibliographystyle{unsrtnat}
-%\renewcommand{\familydefault}{\sfdefault}
 
 \PassOptionsToPackage{hyphens}{url}
 
@@ -59,12 +61,7 @@
 \providecommand\citealt{\cite}
 \renewcommand\cite{\citep}
 
-% You can conditionalize code for latexml or normal latex using this.
-\newif\iflatexml\latexmlfalse
-\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}%
-
 \AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
-
 \renewcommand\labelitemi{-}
 
 \newglossary[odg]{oalgo}{old}{odn}{OHD-GAN Acronyms}
@@ -72,9 +69,11 @@
 \glsxtraddallcrossrefs
 \makeglossaries
 
+\input{glossary_definitions}
+
 \begin{document}
 
-    \input{glossary_definitions}
+    
 
     \title{Synthetic Observational Health Data with GANs: a Cambrian radiation in medical research and digital twins?}
     
@@ -98,7 +97,8 @@
 
     \glsresetall
     \begin{abstract}
-    After being collected for patient care, \gls{ohd} can further benefit patient well-being by sustaining the development of health informatics and medical research. Vast potential is largely unexploited due to the fiercely private nature of patient-related data and regulation about its distribution. \gls{gan} have recently emerged as a groundbreaking approach to efficiently learn generative models that produce realistic \gls{sd}. They have revolutionized practices in multiple domains such as self driving cars, fraud detection, simulations in the industrial sector and marketing known as digital twins, and medical imaging. The digital twin concept could readily be applied to modelling and quantifying disease progression. In addition, \glspl{gan} posses a multitude of capabilities that are directly applicable to common problems in the healthcare: augmenting small dataset, correcting class imbalance, domain translation for rare diseases, let alone preserving privacy. Unlocking open access to privacy-preserving \gls{ohd} could be transformative for scientific research. In the midst of the COVID-19 pandemic, the healthcare system is facing unprecedented challenges, many of which of are data related and cloud be alleviated by the capabilities of \glspl{gan}. In light of these facts, publications concerning the development of  \gls{gan} applied to \gls{ohd} seemed to be severely lacking. To uncover the reasons for the slow adoption of \glspl{gan} for \gls{ohd}, we conducted a broad review of the published literature on the subject. Our findings show that the properties of \gls{ohd} and evaluating the \gls{sd} were initially challenging for the existing \gls{gan} algorithms and metrics (unlike medical imaging, for which state-of-the-art model were directly transferable). Nonetheless, since 2017 solutions to these problems are being published at an increasing rate.
+    After being collected for patient care, \gls{ohd} can further benefit patient well-being by sustaining the development of health informatics and medical research. Vast potential is largely unexploited due to the fiercely private nature of patient-related data and regulation about its distribution. \gls{gan} have recently emerged as a groundbreaking approach to efficiently learn generative models that produce realistic \gls{sd}. They have revolutionized practices in multiple domains such as 
+     cars, fraud detection, simulations in the industrial sector and marketing known as digital twins, and medical imaging. The digital twin concept could readily be applied to modelling and quantifying disease progression. In addition, \glspl{gan} posses a multitude of capabilities that are directly applicable to common problems in the healthcare: augmenting small dataset, correcting class imbalance, domain translation for rare diseases, let alone preserving privacy. Unlocking open access to privacy-preserving \gls{ohd} could be transformative for scientific research. In the midst of the COVID-19 pandemic, the healthcare system is facing unprecedented challenges, many of which of are data related and cloud be alleviated by the capabilities of \glspl{gan}. In light of these facts, publications concerning the development of  \gls{gan} applied to \gls{ohd} seemed to be severely lacking. To uncover the reasons for the slow adoption of \glspl{gan} for \gls{ohd}, we conducted a broad review of the published literature on the subject. Our findings show that the properties of \gls{ohd} and evaluating the \gls{sd} were initially challenging for the existing \gls{gan} algorithms and metrics (unlike medical imaging, for which state-of-the-art model were directly transferable). Nonetheless, since 2017 solutions to these problems are being published at an increasing rate.
     \end{abstract}
 
     \input{1-introduction}
@@ -110,7 +110,6 @@
 
     \pagebreak
 
-    %\clearpage
     \printglossary[type=oalgo]
     \printglossary[type=\acronymtype]
 
