@@ -1,6 +1,14 @@
 
 \documentclass[10pt]{article}
-
+\renewcommand{\sfdefault}{lmss}
+\usepackage{helvet} % PSNFSS Font, in every TeX distribution 
+%\usepackage{avant}  % PSNFSS Font, in every TeX distribution 
+%  %  % Extended \ssfamily (Sans) fonts; load extraFonts option from TeX    
+%\usepackage[scaled=0.88]{berasans}% package has a handy scaling option
+%\usepackage{libris}   % a nice, almost handwritten calligraphic look
+%\usepackage{biolinum} % included with the {Libertine} font package
+%\usepackage{iwona}
+\usepackage{paratype} 
 \usepackage{amsmath}
 \usepackage{textcase}
 \usepackage{fullpage, setspace, parskip, titlesec}
@@ -28,8 +36,8 @@
 \usepackage{lscape}
 \usepackage{tcolorbox}
 \usepackage{titlesec}
-\usepackage[default]{opensans}
-\usepackage[T1]{fontenc}
+
+%\fontfamily{fvs}
 
 \definecolor{darkblue}{RGB}{0,0,130}
 \definecolor{darkgreen}{RGB}{0,80,20}
