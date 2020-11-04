@@ -15,8 +15,8 @@
 \usepackage[section]{placeins}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{breakcites, lineno, hyphenat, rotating, etoolbox}
-\usepackage[colorlinks]{hyperref}
-\usepackage{authblk, graphicx}
+
+\usepackage{ graphicx}
 \usepackage{latexsym, textcomp, longtable, tabulary, tabularx}
 \usepackage{booktabs,array,multirow}
 \usepackage{amsfonts,amsmath,amssymb}
@@ -38,14 +38,14 @@
 \usepackage{titlesec}
 \usepackage{latexcolors}
 \tcbuselibrary{most}
-%\fontfamily{fvs}
 \usepackage{epigraph}
+\usepackage{svg}
+
+\usepackage[colorlinks]{hyperref}
 
 \definecolor{darkblue}{RGB}{0,0,130}
 \definecolor{darkgreen}{RGB}{0,80,20}
 \DeclareRobustCommand{\mL}{\mathcal{L}}
-
-\includeonly{scope_eval, data_leads, architecture}
 
 \hypersetup{
     colorlinks = true,
@@ -55,7 +55,7 @@
     filecolor = blue,
     urlcolor = blue
 }
-
+\newcommand{\orcid}[1]{\href{https://orcid.org/#1}{}}
 \bibliographystyle{unsrtnat}
 
 \PassOptionsToPackage{hyphens}{url}
@@ -68,12 +68,13 @@
 \titlespacing{\subsection}{0pt}{*2}{*0.5}
 \titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
 
+
 \providecommand\citet{\cite}
 \providecommand\citep{\cite}
 \providecommand\citealt{\cite}
 \renewcommand\cite{\citep}
 
-\AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
+\AtBeginDocument{\DeclareGraphicsExtensions{.svg,.SVG,.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
 \renewcommand\labelitemi{-}
 
 \newglossary[odg]{oalgo}{old}{odn}{OHD-GAN Acronyms}
@@ -83,21 +84,22 @@
 
 \input{glossary_definitions}
 
+\title{ Synthetic Observational Health Data with GANs: from slow adoption to a boom in medical research and ultimately digital twins?}
+
+\author{
+  Georges-Filteau, Jeremy \href{https://orcid.org/0000-0002-0352-6468}{\includesvg[width=10pt]{orcid.svg}}\\[0.2cm]
+  \small \textit{Radboud University, The Hyve}\\
+  \small\texttt{jeremy@thehyve.nl}
+  \and
+  Cirrilo, Elisa \href{https://orcid.org/0000-0002-0352-6468}{\includesvg[width=10pt]{orcid.svg}}\\[0.2cm]
+  \small \textit{The Hyve}\\
+  \small\texttt{elisa@thehyve.nl}
+}
+
 \begin{document}
 
-    
-
-    \title{Synthetic Observational Health Data with GANs: a Cambrian radiation in medical research and digital twins}
-    
-    \author[1,2]{Jeremy Georges-Filteau}%
-    \author[2]{Elisa Cirillo}%
-    \affil[1]{Radboud University Nijmegen}%
-    \affil[2]{The Hyve}%
-
-
+    \maketitle
     \vspace{-1em}
-
-    \date{\today}
 
     \begingroup
     \let\center\flushleft

@@ -10,11 +10,131 @@
   year = {2017},
 }
 
+@ARTICLE{Bambauer2014-yh,
+   title    = "Fool's gold: an illustrated critique of differential privacy",
+   author   = "Bambauer, Jane and Muralidhar, Krishnamurty and Sarathy,
+               Rathindra",
+   journal  = "Vanderbilt Journal of Entertainment and Technology Law",
+   volume   =  16,
+   pages    = "701+",
+   year     =  2014,
+   url      = "https://go.gale.com/ps/anonymous?id=GALE%7CA374695855&sid=googleScholar&v=2.1&it=r&linkaccess=abs&issn=1942678X&p=AONE&sw=w",
+   keywords = "Data integrity; Personal information; Right of privacy;
+               Statistics (Data); United States",
+   issn     = "1942-678X"
+ }
+ 
+ @ARTICLE{De_Cristofaro2020-tl,
+   title         = "An Overview of Privacy in Machine Learning",
+   author        = "De Cristofaro, Emiliano",
+   abstract      = "Over the past few years, providers such as Google,
+                    Microsoft, and Amazon have started to provide customers with
+                    access to software interfaces allowing them to easily embed
+                    machine learning tasks into their applications. Overall,
+                    organizations can now use Machine Learning as a Service
+                    (MLaaS) engines to outsource complex tasks, e.g., training
+                    classifiers, performing predictions, clustering, etc. They
+                    can also let others query models trained on their data.
+                    Naturally, this approach can also be used (and is often
+                    advocated) in other contexts, including government
+                    collaborations, citizen science projects, and
+                    business-to-business partnerships. However, if malicious
+                    users were able to recover data used to train these models,
+                    the resulting information leakage would create serious
+                    issues. Likewise, if the inner parameters of the model are
+                    considered proprietary information, then access to the model
+                    should not allow an adversary to learn such parameters. In
+                    this document, we set to review privacy challenges in this
+                    space, providing a systematic review of the relevant
+                    research literature, also exploring possible
+                    countermeasures. More specifically, we provide ample
+                    background information on relevant concepts around machine
+                    learning and privacy. Then, we discuss possible adversarial
+                    models and settings, cover a wide range of attacks that
+                    relate to private and/or sensitive information leakage, and
+                    review recent results attempting to defend against such
+                    attacks. Finally, we conclude with a list of open problems
+                    that require more work, including the need for better
+                    evaluations, more targeted defenses, and the study of the
+                    relation to policy and data protection efforts.",
+   month         =  "18~" # may,
+   year          =  2020,
+   url           = "http://arxiv.org/abs/2005.08679",
+   archivePrefix = "arXiv",
+   eprint        = "2005.08679",
+   primaryClass  = "cs.LG",
+   arxivid       = "2005.08679"
+ }
+ 
+ @ARTICLE{Cheu2019-vh,
+   title         = "Manipulation Attacks in Local Differential Privacy",
+   author        = "Cheu, Albert and Smith, Adam and Ullman, Jonathan",
+   abstract      = "Local differential privacy is a widely studied restriction
+                    on distributed algorithms that collect aggregates about
+                    sensitive user data, and is now deployed in several large
+                    systems. We initiate a systematic study of a fundamental
+                    limitation of locally differentially private protocols: they
+                    are highly vulnerable to adversarial manipulation. While any
+                    algorithm can be manipulated by adversaries who lie about
+                    their inputs, we show that any non-interactive locally
+                    differentially private protocol can be manipulated to a much
+                    greater extent. Namely, when the privacy level is high or
+                    the input domain is large, an attacker who controls a small
+                    fraction of the users in the protocol can completely obscure
+                    the distribution of the users' inputs. We also show that
+                    existing protocols differ greatly in their resistance to
+                    manipulation, even when they offer the same accuracy
+                    guarantee with honest execution. Our results suggest caution
+                    when deploying local differential privacy and reinforce the
+                    importance of efficient cryptographic techniques for
+                    emulating mechanisms from central differential privacy in
+                    distributed settings.",
+   month         =  "20~" # sep,
+   year          =  2019,
+   url           = "http://arxiv.org/abs/1909.09630",
+   archivePrefix = "arXiv",
+   eprint        = "1909.09630",
+   primaryClass  = "cs.DS",
+   arxivid       = "1909.09630"
+ }
+ 
+ @INPROCEEDINGS{Dankar2012-bd,
+   title     = "The application of differential privacy to health data",
+   booktitle = "Proceedings of the 2012 Joint {EDBT/ICDT} Workshops",
+   author    = "Dankar, Fida Kamal and El Emam, Khaled",
+   abstract  = "Differential privacy has gained a lot of attention in recent
+                years as a general model for the protection of personal
+                information when used and disclosed for secondary purposes. It
+                has also been proposed as an appropriate model for health data.
+                In this paper we review the current literature on differential
+                privacy and highlight important general limitations to the model
+                and the proposed mechanisms. We then examine some practical
+                challenges to the application of differential privacy to health
+                data. The review concludes by identifying areas that researchers
+                and practitioners in this area need to address to increase the
+                adoption of differential privacy for health data.",
+   publisher = "Association for Computing Machinery",
+   pages     = "158--166",
+   series    = "EDBT-ICDT '12",
+   month     =  "30~" # mar,
+   year      =  2012,
+   url       = "https://doi.org/10.1145/2320765.2320816",
+   address   = "New York, NY, USA",
+   keywords  = "de-identification, randomization, anonymity, microdata,
+                differential privacy",
+   location  = "Berlin, Germany",
+   isbn      = "9781450311434",
+   doi       = "10.1145/2320765.2320816"
+ }
+ 
+
 
 @book{Ohdsi2020-vf,
   title = {{The Book of {OHDSI}}},
-  author = {{OHDSI}},
-  abstract = {A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software.},
+  author = {Abedtash, Hamed and Ascha, Mustafa and Beno, Mark and Blacketer, Clair and Blatt, David and Christian, Brian and Cloft, Gino and DeFalco, Frank and Dempster, Sara and Duke, Jon and Eslava, Sergio and Evans, Clark and Falconer, Thomas and Hripcsak, George and Huser, Vojtech and Khayter, Mark and Klebanov, Greg and Kostka, Kristin and Lanese, Bob and Lattimore, Wanda and Li, Chun and Madigan, David and Malay, Sindhoosha and Menegay, Harry and Nishimura, Akihiko and Palmer, Ellen and Patil, Nirav and Posada, Jose and Pratt, Nicole and Prieto-Alhambra, Dani and Reich, Christian and Reps, Jenna and Rijnbeek, Peter and Ryan, Patrick and Sachson, Craig and Saridakis, Izzy and Saroufim, Paola and Schuemie, Martijn and Seager, Sarah and Sena, Anthony and Song, Sunah and Spotnitz, Matt and Suchard, Marc and Swerdel, Joel and Tian, Devin and Torok, Don and van Bochove, Kees and Van Zandt, Mui and Voss, Erica and Waite, Kristin and Warfe, Mike and Weaver, Jamie and Wiggins, James and Williams, Andrew and Chan You, Seng and  and  and },
+  editor = {Observational Health Data Sciences and Informatics},
+  publisher = {{Travis CI}},
+  abstract = "{A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software.}",
   month = {12~ \# feb},
   year = {2020},
   url = {https://ohdsi.github.io/TheBookOfOhdsi/},
@@ -35,6 +155,24 @@
   journal = {{SIMULATION}},
 }
 
+
+@inproceedings{Dankar2012
+author = {Dankar, Fida Kamal and El Emam, Khaled},
+title = {The Application of Differential Privacy to Health Data},
+year = {2012},
+isbn = {9781450311434},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2320765.2320816},
+doi = {10.1145/2320765.2320816},
+abstract = {Differential privacy has gained a lot of attention in recent years as a general model for the protection of personal information when used and disclosed for secondary purposes. It has also been proposed as an appropriate model for health data. In this paper we review the current literature on differential privacy and highlight important general limitations to the model and the proposed mechanisms. We then examine some practical challenges to the application of differential privacy to health data. The review concludes by identifying areas that researchers and practitioners in this area need to address to increase the adoption of differential privacy for health data.},
+booktitle = {Proceedings of the 2012 Joint EDBT/ICDT Workshops},
+pages = {158–166},
+numpages = {9},
+keywords = {de-identification, microdata, anonymity, randomization, differential privacy},
+location = {Berlin, Germany},
+series = {EDBT-ICDT '12}
+}
 
 @article{Walonoski_2017,
   doi = {10.1093/jamia/ocx079},
@@ -1517,6 +1655,21 @@ year = {2016}
 }
 
 
+@MISC{Haupt2019,
+  title        = "Causal Machine Learning: Individualized Treatment Effects and
+                  Uplift Modeling",
+  booktitle    = "remerge.io",
+  author       = "Haupt, Johannes",
+  abstract     = "A comprehensive collection of state-of-the-art methods from
+                  causal machine learning or uplift modeling to estimate
+                  individualized treatment effects.",
+  year         =  2019,
+  url          = "https://johaupt.github.io/causal%20machine%20learning/Uplift_ITE_summary.html",
+  howpublished = "\url{https://johaupt.github.io/causal%20machine%20learning/Uplift_ITE_summary.html}",
+  note         = "Accessed: 2020-11-4"
+}
+ 
+ 
 @article{Johnson_2016,
   doi = {10.1038/sdata.2016.35},
   url = {https://doi.org/10.1038%2Fsdata.2016.35},
@@ -2068,15 +2221,6 @@ title = {{Impact of interactions between drugs and laboratory test results on di
 url = {http://orcid.org/0000-0001-5451-3010},
 volume = {56},
 year = {2018}
-}
-
-@webpage{Haupt2019,
-   author = {Johannes Haupt},
-   journal = {Personal blog},
-   month = {9},
-   title = {Causal Machine Learning: Individualized Treatment Effects and Uplift Modeling |},
-   url = {https://johaupt.github.io/causal%20machine%20learning/Uplift_ITE_summary.html},
-   year = {2019},
 }
 
 @inproceedings{Jayaraman2019,
@@ -2703,19 +2847,6 @@ Publisher: Nature Publishing Group; http://web.archive.org/web/20201013123648/ht
   pmc         = "PMC5769760"
 }
 
-
-@article{Ye2019,
-  author = {Ye, F. and Zhu, F. and Fu, Y. and Shen, B.},
-  title = {ECG Generation With Sequence Generative Adversarial Nets Optimized by Policy Gradient},
-  journal = {IEEE Access},
-  publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
-  year = {2019},
-  volume = {7},
-  pages = {159369--159378},
-  note = {ZSCC: 0000004},
-  doi = {https://doi.org/10.1109/ACCESS.2019.2950383}
-}
-
 @Article{Wang2019d,
   author    = {Wang, Pu and Hou, Borui and Shao, Siyu and Yan, Ruqiang},
   journal   = {IEEE access : practical innovations, open solutions},
@@ -2740,22 +2871,6 @@ Publisher: Nature Publishing Group; http://web.archive.org/web/20201013123648/ht
   keywords  = {\#nosource, unsorted},
   timestamp = {2020-10-23},
   url       = {http://dx.doi.org/10.1109/TCBB.2020.2976981 https://www.ncbi.nlm.nih.gov/pubmed/32142452 https://doi.ieeecomputersociety.org/10.1109/TCBB.2020.2976981 https://dx.doi.org/10.1109/TCBB.2020.2976981},
-}
-
-@Article{Golany2019,
-  author    = {Golany, Tomer and Radinsky, Kira},
-  journal   = {Proceedings of the {AAAI} Conference on Artificial Intelligence},
-  title     = {{PGANs}: {Personalized} {Generative} {Adversarial} {Networks} for {ECG} {Synthesis} to {Improve} {Patient}-{Specific} {Deep} {ECG} {Classification}},
-  year      = {2019},
-  doi       = {10.1609/aaai.v33i01.3301557},
-  month     = jul,
-  note      = {ZSCC: 0000013 Publisher: kiraradinsky.com},
-  pages     = {557--564},
-  volume    = {33},
-  abstract  = {The Electrocardiogram (ECG) is performed routinely by medical personnel to identify structural, functional and electrical cardiac events. Many attempts were made to automate this task using machine learning algorithms including classic supervised learning algorithms {\textbackslash}ldots},
-  publisher = {Association for the Advancement of Artificial Intelligence ({AAAI})},
-  timestamp = {2020-10-23},
-  url       = {http://www.kiraradinsky.com/files/pgans-personalized-generative.pdf All Papers/G/Golany and Radinsky 2019 - PGANs - Personalized Generative Adversarial N ... for ECG Synthesis to Improve Patient-Specific Deep ECG Classification.pdf},
 }
 
 @Article{Delaney2019,
@@ -2847,11 +2962,10 @@ Publisher: Nature Publishing Group; http://web.archive.org/web/20201013123648/ht
 
 
 @MISC{nielsend,
-  title        = "10 Heuristics for User Interface Design: Article by Jakob
-                  Nielsen",
-    author = "Nielse, Jakob"
-  abstract     = "Jakob Nielsen's 10 general principles for interaction design.
-                  They are called ``heuristics'' because they are broad rules
+    title       = "10 Heuristics for User Interface Design: Article by Jakob Nielsen",
+    author      = "Nielse, Jakob",
+    abstract    = "Jakob Nielsen's 10 general principles for interaction design.
+                  They are called 'heuristics' because they are broad rules
                   of thumb and not specific usability guidelines.",
   url          = "https://www.nngroup.com/articles/ten-usability-heuristics/",
   howpublished = "\url{https://www.nngroup.com/articles/ten-usability-heuristics/}",
@@ -3101,5 +3215,47 @@ Publisher: Nature Publishing Group; http://web.archive.org/web/20201013123648/ht
   keywords  = "cd gan review, \#nosource",
   issn      = "1934-5747",
   doi       = "10.1080/19345747.2019.1631421"
+}
+
+
+@UNPUBLISHED{Laderas2018-lk,
+  title    = "Teaching data science fundamentals through realistic synthetic
+              clinical cardiovascular data",
+  author   = "Laderas, Ted and Vasilevsky, Nicole and Pederson, Bjorn and
+              Haendel, Melissa and McWeeney, Shannon and Dorr, David A",
+  abstract = "ABSTRACT Objective Our goal was to create a synthetic dataset and
+              curricular materials to assist in teaching fundamentals of
+              translational data science.Materials and Methods A literature
+              review was conducted to extract current cardiovascular risk score
+              logic, data elements, and population characteristics. Then,
+              clinical data elements in the models were pulled from clinical
+              data and transformed to the Observational Medical Outcomes
+              Partnership (OMOP) common data model; genetic data elements were
+              added based on population rates. A hybrid Bayesian network was
+              used to create synthetic data from the logical elements of the
+              risk scores and the underlying population frequencies of the
+              clinical data.Results A synthetic dataset of 446,000 patients was
+              created. A two-day curriculum was created based on this synthetic
+              data with exploratory data analysis and machine learning
+              components. The curriculum was offered on two separate occasions;
+              the two groups of learners were given the curriculum and data,
+              and results were tallied, summarized, and compared. Students'
+              ability to complete the challenge was mixed; more experienced
+              students achieved a range of 70\%-85\% in balanced accuracy, but
+              many others did not perform better than the baseline
+              model.Discussion Overall, students enjoyed the course and
+              dataset, but some struggled to consistently apply machine
+              learning techniques. The curriculum, data set, techniques for
+              generation, and results are available for others to use for their
+              own training.Conclusion A realistic synthetic data with clinical
+              and genetic components helps students learn issues in
+              cardiovascular risk scoring, practice data science skills, and
+              compete in a challenge to improve identification of risk.",
+  month    =  "21~" # apr,
+  year     =  2018,
+  url      = "https://www.biorxiv.org/content/10.1101/232611v2",
+  annote   = "Publication Title: bioRxiv",
+  keywords = "\#nosource",
+  language = "en"
 }
 
