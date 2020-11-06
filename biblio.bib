@@ -65,6 +65,287 @@
    primaryClass  = "cs.LG",
    arxivid       = "2005.08679"
  }
+
+
+@ARTICLE{Luo2020-gq,
+  title         = "Feature Inference Attack on Model Predictions in Vertical
+                   Federated Learning",
+  author        = "Luo, Xinjian and Wu, Yuncheng and Xiao, Xiaokui and Ooi,
+                   Beng Chin",
+  abstract      = "Federated learning (FL) is an emerging paradigm for
+                   facilitating multiple organizations' data collaboration
+                   without revealing their private data to each other.
+                   Recently, vertical FL, where the participating organizations
+                   hold the same set of samples but with disjoint features and
+                   only one organization owns the labels, has received
+                   increased attention. This paper presents several feature
+                   inference attack methods to investigate the potential
+                   privacy leakages in the model prediction stage of vertical
+                   FL. The attack methods consider the most stringent setting
+                   that the adversary controls only the trained vertical FL
+                   model and the model predictions, relying on no background
+                   information. We first propose two specific attacks on the
+                   logistic regression (LR) and decision tree (DT) models,
+                   according to individual prediction output. We further design
+                   a general attack method based on multiple prediction outputs
+                   accumulated by the adversary to handle complex models, such
+                   as neural networks (NN) and random forest (RF) models.
+                   Experimental evaluations demonstrate the effectiveness of
+                   the proposed attacks and highlight the need for designing
+                   private mechanisms to protect the prediction outputs in
+                   vertical FL.",
+  month         =  "20~" # oct,
+  year          =  2020,
+  url           = "http://arxiv.org/abs/2010.10152",
+  archivePrefix = "arXiv",
+  eprint        = "2010.10152",
+  primaryClass  = "cs.LG",
+  arxivid       = "2010.10152"
+}
+
+@ARTICLE{Lyu2020-sv,
+  title         = "Threats to Federated Learning: A Survey",
+  author        = "Lyu, Lingjuan and Yu, Han and Yang, Qiang",
+  abstract      = "With the emergence of data silos and popular privacy
+                   awareness, the traditional centralized approach of training
+                   artificial intelligence (AI) models is facing strong
+                   challenges. Federated learning (FL) has recently emerged as
+                   a promising solution under this new reality. Existing FL
+                   protocol design has been shown to exhibit vulnerabilities
+                   which can be exploited by adversaries both within and
+                   without the system to compromise data privacy. It is thus of
+                   paramount importance to make FL system designers to be aware
+                   of the implications of future FL algorithm design on
+                   privacy-preservation. Currently, there is no survey on this
+                   topic. In this paper, we bridge this important gap in FL
+                   literature. By providing a concise introduction to the
+                   concept of FL, and a unique taxonomy covering threat models
+                   and two major attacks on FL: 1) poisoning attacks and 2)
+                   inference attacks, this paper provides an accessible review
+                   of this important topic. We highlight the intuitions, key
+                   techniques as well as fundamental assumptions adopted by
+                   various attacks, and discuss promising future research
+                   directions towards more robust privacy preservation in FL.",
+  month         =  "4~" # mar,
+  year          =  2020,
+  url           = "http://arxiv.org/abs/2003.02133",
+  archivePrefix = "arXiv",
+  eprint        = "2003.02133",
+  primaryClass  = "cs.CR",
+  arxivid       = "2003.02133"
+}
+
+
+@ARTICLE{Chen2019-mh,
+  title         = "Distributed generation of privacy preserving data with user
+                   customization",
+  author        = "Chen, Xiao and Navidi, Thomas and Ermon, Stefano and
+                   Rajagopal, Ram",
+  abstract      = "Distributed devices such as mobile phones can produce and
+                   store large amounts of data that can enhance machine
+                   learning models; however, this data may contain private
+                   information specific to the data owner that prevents the
+                   release of the data. We wish to reduce the correlation
+                   between user-specific private information and data while
+                   maintaining the useful information. Rather than learning a
+                   large model to achieve privatization from end to end, we
+                   introduce a decoupling of the creation of a latent
+                   representation and the privatization of data that allows
+                   user-specific privatization to occur in a distributed
+                   setting with limited computation and minimal disturbance on
+                   the utility of the data. We leverage a Variational
+                   Autoencoder (VAE) to create a compact latent representation
+                   of the data; however, the VAE remains fixed for all devices
+                   and all possible private labels. We then train a small
+                   generative filter to perturb the latent representation based
+                   on individual preferences regarding the private and utility
+                   information. The small filter is trained by utilizing a
+                   GAN-type robust optimization that can take place on a
+                   distributed device. We conduct experiments on three popular
+                   datasets: MNIST, UCI-Adult, and CelebA, and give a thorough
+                   evaluation including visualizing the geometry of the latent
+                   embeddings and estimating the empirical mutual information
+                   to show the effectiveness of our approach.",
+  month         =  "20~" # apr,
+  year          =  2019,
+  url           = "http://arxiv.org/abs/1904.09415",
+  archivePrefix = "arXiv",
+  eprint        = "1904.09415",
+  primaryClass  = "cs.LG",
+  arxivid       = "1904.09415"
+}
+
+
+@ARTICLE{Zhu2020-oj,
+  title    = "More Than Privacy: Applying Differential Privacy in Key Areas of
+              Artificial Intelligence",
+  author   = "Zhu, Tianqing and Ye, Dayong and Wang, Wei and Zhou, Wanlei and
+              Yu, Philip",
+  abstract = "Artificial Intelligence (AI) has attracted a great deal of
+              attention in recent years. However, alongside all its
+              advancements, problems have also emerged, such as privacy
+              violations, security issues and model fairness. Differential
+              privacy, as a promising mathematical model, has several
+              attractive properties that can help solve these problems, making
+              it quite a valuable tool. For this reason, differential privacy
+              has been broadly applied in AI but to date, no study has
+              documented which differential privacy mechanisms can or have been
+              leveraged to overcome its issues or the properties that make this
+              possible. In this paper, we show that differential privacy can do
+              more than just privacy preservation. It can also be used to
+              improve security, stabilize learning, build fair models, and
+              impose composition in selected areas of AI. With a focus on
+              regular machine learning, distributed machine learning, deep
+              learning, and multi-agent systems, the purpose of this article is
+              to deliver a new view on many possibilities for improving AI
+              performance with differential privacy techniques.",
+  journal  = "IEEE Trans. Knowl. Data Eng.",
+  pages    = "1--1",
+  year     =  2020,
+  url      = "https://ieeexplore.ieee.org/document/9158374/",
+  issn     = "1041-4347, 1558-2191",
+  arxivid  = "2008.01916",
+  doi      = "10.1109/TKDE.2020.3014246"
+}
+
+
+@ARTICLE{Qayyum2020-ir,
+  title         = "Secure and Robust Machine Learning for Healthcare: A Survey",
+  author        = "Qayyum, Adnan and Qadir, Junaid and Bilal, Muhammad and
+                   Al-Fuqaha, Ala",
+  abstract      = "Recent years have witnessed widespread adoption of machine
+                   learning (ML)/deep learning (DL) techniques due to their
+                   superior performance for a variety of healthcare
+                   applications ranging from the prediction of cardiac arrest
+                   from one-dimensional heart signals to computer-aided
+                   diagnosis (CADx) using multi-dimensional medical images.
+                   Notwithstanding the impressive performance of ML/DL, there
+                   are still lingering doubts regarding the robustness of ML/DL
+                   in healthcare settings (which is traditionally considered
+                   quite challenging due to the myriad security and privacy
+                   issues involved), especially in light of recent results that
+                   have shown that ML/DL are vulnerable to adversarial attacks.
+                   In this paper, we present an overview of various application
+                   areas in healthcare that leverage such techniques from
+                   security and privacy point of view and present associated
+                   challenges. In addition, we present potential methods to
+                   ensure secure and privacy-preserving ML for healthcare
+                   applications. Finally, we provide insight into the current
+                   research challenges and promising directions for future
+                   research.",
+  journal       = "IEEE Rev. Biomed. Eng.",
+  volume        = "PP",
+  month         =  "31~" # jul,
+  year          =  2020,
+  url           = "http://dx.doi.org/10.1109/RBME.2020.3013489",
+  language      = "en",
+  archivePrefix = "arXiv",
+  eprint        = "2001.08103",
+  primaryClass  = "cs.LG",
+  issn          = "1937-3333, 1941-1189",
+  pmid          = "32746371",
+  arxivid       = "2001.08103",
+  doi           = "10.1109/RBME.2020.3013489"
+}
+
+
+@ARTICLE{Latif2020-ol,
+  title    = "Leveraging Data Science To Combat {COVID-19}: A Comprehensive
+              Review",
+  author   = "Latif, S and Usman, M and Manzoor, S and Iqbal, W and Qadir, J
+              and Tyson, G and Castro, I and Razi, A and Kamel Boulos, M N and
+              Weller, A and Crowcroft, J",
+  abstract = "COVID-19, an infectious disease caused by the SARS-CoV-2 virus,
+              was declared a pandemic by the World Health Organisation (WHO) in
+              March 2020. By mid-August 2020, more than 21 million people have
+              tested positive worldwide. Infections have been growing
+              \%exponentially rapidly and tremendous efforts are being made to
+              fight the disease. In this paper, we attempt to systematise the
+              various COVID-19 research activities leveraging data science,
+              where we define data science broadly to encompass the various
+              methods and tools---including those from artificial intelligence
+              (AI), machine learning (ML), statistics, modeling, simulation,
+              data visualization---that can be used to store, process, and
+              extract insights from data. As well as reviewing the rapidly
+              growing body of recent research, we survey public datasets and
+              repositories that can be used for further work to track COVID-19
+              spread and mitigation strategies. As part of this, we present a
+              bibliometric analysis of the papers produced in this short span
+              of time. Finally, building on these insights, we highlight common
+              challenges and pitfalls observed across the surveyed works. We
+              also created a live resource
+              repository\textbackslashfootnotehttps://github.com/Data-Science-and-COVID-19/Leveraging-Data-Science-To-Combat-COVID-19-A-Comprehensive-Review
+              that we intend to keep updated with the latest resources
+              including new papers and datasets.",
+  journal  = "IEEE Transactions on Artificial Intelligence",
+  pages    = "1--1",
+  year     =  2020,
+  url      = "http://dx.doi.org/10.1109/TAI.2020.3020521",
+  keywords = "Data science;Bibliometrics;Artificial intelligence;Data
+              models;Bioinformatics;Twitter;COVID-19;SARS-CoV-2;data
+              science;machine learning;medical image analysis;text
+              mining;speech analysis;bibliometric analysis",
+  issn     = "2691-4581",
+  doi      = "10.1109/TAI.2020.3020521"
+}
+
+ 
+@PHDTHESIS{Raisaro2018-gv,
+  title     = "{Privacy-Enhancing} Technologies for Medical and Genomic Data: From Theory to Practice",
+  author    = "Raisaro, Jean Louis",
+  editor    = "Amalio, Hubaux, Jean-Pierre Telenti,",
+  publisher = "Lausanne, EPFL",
+  year      =  2018,
+  url       = "http://dx.doi.org/10.5075/EPFL-THESIS-8307",
+  school    = "Lausanne, EPFL",
+  doi       = "10.5075/EPFL-THESIS-8307"
+}
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{Li2010-qq,
+  title    = "Closeness: A New Privacy Measure for Data Publishing",
+  author   = "Li, N and Li, T and Venkatasubramanian, S",
+  abstract = "The k-anonymity privacy requirement for publishing microdata
+              requires that each equivalence class (i.e., a set of records that
+              are indistinguishable from each other with respect to certain
+              ``identifying'' attributes) contains at least k records.
+              Recently, several authors have recognized that k-anonymity cannot
+              prevent attribute disclosure. The notion of ℓ-diversity has been
+              proposed to address this; ℓ-diversity requires that each
+              equivalence class has at least ℓ well-represented (in Section 2)
+              values for each sensitive attribute. In this paper, we show that
+              ℓ-diversity has a number of limitations. In particular, it is
+              neither necessary nor sufficient to prevent attribute disclosure.
+              Motivated by these limitations, we propose a new notion of
+              privacy called ``closeness.'' We first present the base model
+              t-closeness, which requires that the distribution of a sensitive
+              attribute in any equivalence class is close to the distribution
+              of the attribute in the overall table (i.e., the distance between
+              the two distributions should be no more than a threshold t). We
+              then propose a more flexible privacy model called (n,t)-closeness
+              that offers higher utility. We describe our desiderata for
+              designing a distance measure between two probability
+              distributions and present two distance measures. We discuss the
+              rationale for using closeness as a privacy measure and illustrate
+              its advantages through examples and experiments.",
+  journal  = "IEEE Trans. Knowl. Data Eng.",
+  volume   =  22,
+  number   =  7,
+  pages    = "943--956",
+  month    =  jul,
+  year     =  2010,
+  url      = "http://dx.doi.org/10.1109/TKDE.2009.139",
+  keywords = "data privacy;publishing;closeness;data publishing;k-anonymity
+              privacy requirement;probability distributions;privacy
+              measure;microdata;Data privacy;Publishing;Data
+              security;Probability distribution;Information
+              security;Diseases;Remuneration;Databases;Privacy
+              preservation;data anonymization;data publishing;data security.",
+  issn     = "1041-4347",
+  doi      = "10.1109/TKDE.2009.139"
+}
+
  
  @ARTICLE{Cheu2019-vh,
    title         = "Manipulation Attacks in Local Differential Privacy",
