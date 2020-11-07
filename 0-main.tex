@@ -43,6 +43,11 @@
 \usepackage{multicol}
 \usepackage[colorlinks]{hyperref}
 
+\newcounter{panel}[section]
+\newenvironment{panel}[1][]{\refstepcounter{panel}\par\medskip
+   \textbf{Panel~\thepanel. #1} \rmfamily}{\medskip}
+\def\panelautorefname{Panel}
+
 \definecolor{darkblue}{RGB}{0,0,130}
 \definecolor{darkgreen}{RGB}{0,80,20}
 \DeclareRobustCommand{\mL}{\mathcal{L}}

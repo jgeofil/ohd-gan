@@ -1,0 +1,28 @@
+
+\begin{figure}
+    \footnotesize
+\noindent
+\tcbsetforeverylayer{autoparskip}
+\tcbset{enhanced, nobeforeafter, width=1\linewidth}
+\begin{tcolorbox}[arc=0.5mm, 
+    colback=MidnightBlue!10!white, 
+    coltext=MidnightBlue!90!black,  
+    colframe=MidnightBlue!90!black,
+    colbacktitle=MidnightBlue!80,
+    leftrule=0mm,
+    rightrule=0mm, 
+    toprule=0mm, 
+    bottomrule=0mm,
+    box align=top,
+    title={\begin{panel}Wasserstein's distance \label{pan:wasserstein}\end{panel}}]
+
+In brief, the Wasserstein distance is a measure between two \glspl{pd} that has the property of always providing a smooth gradient. As the loss function of the discriminator, this property improves training stability and mitigates mode collapse. To make the equation tractable a 1-Lipschitz constraint must be introduced, creating another problem. In the words of the author: \begin{quote}
+    "Weight clipping is a clearly terrible way to enforce a Lipschitz constraint. If the clipping parameter is large, then it can take a long time for any weights to reach their limit, [...] If the clipping is small, this can easily lead to vanishing gradients [...] However, we do leave the topic of enforcing Lipschitz constraints in a neural network setting for further investigation, and we actively encourage interested researchers to improve on this method." \cite{arjovsky2017wasserstein}
+\end{quote} 
+Sometimes this prevented the network from modelling the optimal function, but Gradient penalty, a less restrictive regularization replaced the clipping. \cite{Petzka2018}.
+
+\end{tcolorbox}
+\normalsize
+
+\end{figure}
+
