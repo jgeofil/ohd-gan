@@ -15,7 +15,6 @@
 \usepackage[section]{placeins}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{breakcites, lineno, hyphenat, rotating, etoolbox}
-
 \usepackage{ graphicx}
 \usepackage{latexsym, textcomp, longtable, tabulary, tabularx}
 \usepackage{booktabs,array,multirow}
@@ -41,30 +40,34 @@
 \usepackage{epigraph}
 \usepackage{svg}
 \usepackage{multicol}
+\PassOptionsToPackage{hyphens}{url}
 \usepackage[colorlinks]{hyperref}
+\usepackage{url}
 
-\newcounter{panel}[section]
+% Counter for information panels
+\newcounter{panel}
 \newenvironment{panel}[1][]{\refstepcounter{panel}\par\medskip
    \textbf{Panel~\thepanel. #1} \rmfamily}{\medskip}
 \def\panelautorefname{Panel}
 
+% Colors for references and links
 \definecolor{darkblue}{RGB}{0,0,130}
 \definecolor{darkgreen}{RGB}{0,80,20}
+\hypersetup{colorlinks = true, linkcolor = darkblue, citecolor = darkgreen, urlcolor=	RedViolet}
+
+%Enable using math mode with the package acronym
 \DeclareRobustCommand{\mL}{\mathcal{L}}
-
-\hypersetup{
-    colorlinks = true,
-    linkcolor = darkblue,
-    anchorcolor = blue,
-    citecolor = darkgreen,
-    filecolor = blue,
-    urlcolor = blue
-}
+\glsenablehyper
+% Orcid logo and links for authors
 \newcommand{\orcid}[1]{\href{https://orcid.org/#1}{}}
-\bibliographystyle{unsrtnat}
 
-%\PassOptionsToPackage{hyphens}{url}
+% Use a dash in bullet points, not an ugly dot
+\renewcommand\labelitemi{-}
 
+% Graphics extensions
+\AtBeginDocument{\DeclareGraphicsExtensions{.png,.PNG,.jpg,.JPG,.jpeg,.JPEG}}
+
+% Document style changes
 \renewenvironment{abstract}
  {{\noindent\bfseries{\abstractname}\par\nobreak}\footnotesize}
  {\bigskip}
@@ -74,23 +77,24 @@
 \titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
 \setlength\parindent{24pt}
 
+%Bibliography and glossary
+\bibliographystyle{unsrtnat}
+
 \providecommand\citet{\cite}
 \providecommand\citep{\cite}
 \providecommand\citealt{\cite}
 \renewcommand\cite{\citep}
 
-\AtBeginDocument{\DeclareGraphicsExtensions{.svg,.SVG,.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
-\renewcommand\labelitemi{-}
+\newcommand{\com}[1]{\textcolor{red}{\\ \footnotesize\textbf{$\longrightarrow$ #1}\\}}
 
 \newglossary[odg]{oalgo}{old}{odn}{OHD-GAN Acronyms}
 \setabbreviationstyle[acronym]{long-short}
 \glsxtraddallcrossrefs
 \makeglossaries
-
 \input{glossary_definitions}
 
+% Document header
 \title{ Synthetic Observational Health Data with GANs: from slow adoption to a boom in medical research and ultimately digital twins?}
-
 \author{
   Georges-Filteau, Jeremy \href{https://orcid.org/0000-0002-0352-6468}{\includesvg[width=10pt]{assets/orcid.svg}}\\[0.2cm]
   \small \textit{Radboud University, The Hyve}\\
@@ -119,7 +123,7 @@
     After being collected for patient care, \gls{ohd} can further benefit patient well-being by sustaining the development of health informatics and medical research. Vast potential is unexploited because of the fiercely private nature of patient-related data and regulation about its distribution. 
     \glspl{gan} have recently emerged as a groundbreaking approach to learn generative models efficiently that produce realistic \gls{sd}. They have revolutionized practices in multiple domains such as self-driving cars, fraud detection, simulations in the and marketing industrial sectors known as digital twins, and medical imaging. The digital twin concept could readily apply to modelling and quantifying disease progression. In addition, \glspl{gan} posses a multitude of capabilities relevant to common problems in the healthcare: augmenting small dataset, correcting class imbalance, domain translation for rare diseases, let alone preserving privacy. Unlocking open access to privacy-preserving \gls{ohd} could be transformative for scientific research. In the COVID-19's midst, the healthcare system is facing unprecedented challenges, many of which of are data related and could be alleviated by the capabilities of \glspl{gan}.
    Considering these facts, publications concerning the development of  \gls{gan} applied to \gls{ohd} seemed to be severely lacking. To uncover the reasons for the slow adoption of \glspl{gan} for \gls{ohd}, we broadly reviewed the published literature on the subject. Our findings show that the properties of \gls{ohd} and evaluating the \gls{sd} were initially challenging for the existing \gls{gan} algorithms (unlike medical imaging, for which state-of-the-art model were directly transferable) and the choice of metrics ambiguous. We find many publications on the subject, starting slowly in 2017 and since then being published at an increasing rate. The difficulties of \gls{ohd} remain, and we discuss issues relating to evaluation, consistency, benchmarking, data modeling, and reproducibility.
-    \end{abstract}
+    \end{abstract} 
 
     \input{1-introduction}
     \input{2-methods}

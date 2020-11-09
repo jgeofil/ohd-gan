@@ -29,48 +29,49 @@
         
         \quad 2017 & & & \\
         \hline
+        %1
         \citeauthor{Choi2017-nt} & \gls{medgan} 
         & Incompatibility of back-propagation with discrete features. \gls{ae}, \gls{mb-avg}, \gls{bn}, \gls{sc}, \gls{ad}, \gls{pda}.
         & Binary occurences or counts of medical codes.\\
-        
+        %2
         \citeauthor{yahi2017generative} & \gls{medgan} adaptation
         & \Gls{dle} on continuous time-series, multi-modality. \gls{t-sne}.
         & Paired pre/post treatment exposure time-series\\
-        
+        %3
         \citeauthor{esteban2017real} & \gls{rgan}, \gls{rcgan} 
         &  Adversarial training of (conditional) \glspl{rnn} on time-series, evaluation, privacy. \gls{lstm}, \gls{cgan}, \gls{dp-sgd}.
         & Regularly observed \gls{rvts}\\
-        
+        %4
         \citeauthor{Xiao2017-lh} & \gls{wgantpp} 
         & Temporal Point Processes. \gls{lstm}, \gls{wgan}, Poisson process.
         & Sporadic occurrences, hospital visits.\\
-        
+        %5
         \citeauthor{Che_2017} & \gls{ehrgan}, \gls{ssl-gan} 
         & Semi-supervised augmentation, transitional distribution. 1D-CNN, Word2vec, \gls{vcd}.
         & \Gls{dts}, sequences of medical codes. \\
-        
+        %6
         \citeauthor{dash2019synthetic} & \gls{healthgan} & Sleep patterns, stratification by covariates. & Binary over multiple visits.\\
         
         \hline
         \quad 2018 & & & \\
         \hline
-        
+        %7
         \citeauthor{Camino2018-re} & \raggedright \gls{mc-arae}, \gls{mc-medgan}, \gls{mc-gumbelgan}, \gls{mc-wgan-gp}
         & Improving training process. \gls{medgan}, \gls{wgan-gp}, \gls{gumbel-gan}, \gls{arae}.
         & Multiple categorical variables. \\
-        
+        %8
         \citeauthor{mcdermott2018semi} & \gls{cwr-gan}
         & Cycle-consistent semi-supervised regression learning, unpaired data, class imbalance. \gls{wgan} \gls{cycle-gan} \gls{ite}
         & ICU \gls{rvts}, lack of paired samples, \gls{sd}. \\
-        
+        %9
         \citeauthor{Yoon2018-ite} & \gls{ganite} 
         & \gls{ite}, unobserved counterfactual, multi-label classification, uncertainty. \gls{cgan} pair.
         & Feature, treatment and outcome vectors.\\
-        
+        %10
         \citeauthor{Yoon2018-radial} & \gls{radialgan} 
         & Multi-domain translation, features and distribution mismatch, cycle-consistency, augmentation. \gls{cgan}, \gls{wgan}.
         & Tabular, discrete and continuous.\\
-        
+        %11
         \citeauthor{yoon2018imputation} & \gls{gain}
         & Tabular data imputation. \gls{mcar}, \gls{cgan}.
         & Real-valued, tabular with entries \gls{mcar}.\\
@@ -78,74 +79,74 @@
         \hline
         \quad 2019 & & & \\
         \hline
-        
+        %12
         \citeauthor{Wang_2019} & \gls{sc-gan}
         & Capturing mutual influence in time-series. Coupled generator pair. Treatment recommendation task. \gls{lstm}, \gls{cgan}.
         & \Gls{rvts} of patient state and medication dosage data.\\
-        
+        %13
         \citeauthor{baowaly_2019_IEEE} & \gls{medbgan}
         & Improving training process. \gls{medgan}, \gls{bgan}.
         & Binary occurences or counts of medical codes.\\
-        
+        %14
         \citeauthor{baowaly_2019_jamia} & \gls{medbgan}, \gls{medwgan}
         & Improving training process. \gls{medgan}, \gls{bgan}, \gls{wgan}.
         & Binary occurences or counts of medical codes.\\
-        
+        %15
         \citeauthor{severo2019ward2icu} & \gls{cwgan-gp} 
         & Generation and public release of dataset. Protecting commercial sensitive information. Class imbalance. \gls{cwgan-gp}, \gls{cgan}.
         & Physiological \gls{rvts}.\\
-        
+        %16
         \citeauthor{chin2019generation} & \gls{wgan}
         & Heterogeneous mixture of dense and sparse features. Privacy and evaluating the introduction of bias. \gls{wgan}, \gls{wgan-gp}, \gls{msn}, \gls{dp} aware optimizer from Tensor-flow. \citeauthor{tensorflow-privacy}.
         & Binary, real-valued and categorical.\\
-        
+        %17
         \citeauthor{Jordon2019} & \gls{pate-gan}
         & Alternative differential privacy, adaptation of the  \gls{pate} framework.
         & Demographic and binary.\\
-        
+        %18
         \citeauthor{torfi2019generating} & \gls{corgan}
         & \gls{cnn} architecture, capturing feature correlations, evaluating realism, privacy evaluation using \gls{mi}. 1D-\gls{cae}.
         & Binary occurences or counts of medical codes.\\
-    
+        %19
         \citeauthor{chu2019treatment} & \gls{adtep}
         & \gls{ite}, two independent \gls{ae} for patient and treatment feature sets, trained adversarially in combination, and outcome predictor from latent representation. &
          \Gls{ehr} data, not specified.\\
-        
+        %20
         \citeauthor{Jackson_2019} & \gls{medgan}
         & Evaluating medgan with the addition of demographics features.
         & Demographic features and binary occurences or counts of medical codes. \\
-        
+        %21
         \citeauthor{yu2019rare} & \gls{ssl-gan}
         & Rare disease detection, \gls{ssl}, leveraging unlabeled \gls{ehr} data, medical code embedding network.  \gls{lstm}.
         & Diagnosis and prescription codes.\\
-        
+        %22
         \citeauthor{Yang_2019_cdss} & \gls{cgan}
         & Class imbalance, low count of minority class. Semi-supervised learning combining \gls{st} and \gls{ct} with a \gls{cgan} for a \gls{iot} application.
         & Twenty medical datasets from the UCI repository, types unspecified.\\
-        
+        %23
         \citeauthor{Yang_2019_ehr} & \gls{gcgan}
         & Capturing the correlations between different categories of medical codes and the outcome.  \gls{corrnn}, \gls{t-gan}, \gls{t-wgan}.
         & Binary occurences or counts of medical codes.\\
-        
+        %24
         \citeauthor{Yang_2019_impute_ehr} & \gls{cgain}
         & Improve on \gls{gain} for categorical variable using fuzzy encoding of the features. 
         & Categorical (multi-class and multi-label) real-valued.\\
-        
+        %25
         \citeauthor{Camino2019} & \gls{gain}, \gls{gain}+\gls{vs}, \gls{vae}, \gls{vae}+\gls{it}, \gls{vae}+\gls{bp},  \gls{vae}+\gls{vs},  \gls{vae}+\gls{vs}+\gls{it}, \gls{vae}+\gls{vs}+\gls{bp}
         & Benchmark and improve on generative imputation with \gls{gain} and \gls{vae}. & Categorical and real-valued. Mostly not \gls{ohd}\\
-        
+        %26
         \citeauthor{Beaulieu-Jones2019-ct} & \gls{ac-gan} 
         & Evaluating if differentially private GANs that is valid reanalysis while ensuring privacy.  \gls{dp}, \gls{cgan}.
         & Physiological \gls{rvts}.\\
-        
+        %27
         \citeauthor{Xu2019-ay} & \gls{ctgan}
         & Non-Gaussian multi-modal distribution of continuous columns and imbalanced discrete column in tabular data. Evaluation benchmark.  \gls{cgan} \gls{tbs} \gls{msn} \gls{wgan-gp} \gls{gumbel-gan}
         & Tabular real-valued and categorical.\\
-        
+        %28
         \citeauthor{yale2019ESANN} & \gls{healthgan}
         & Privacy metrics and over-fitting.  \gls{mi}, \gls{nnaa}, \gls{pl}, \gls{dt}
         & Categorical demographics, real-valued and binary medical codes.\\
-        
+        %29
         \citeauthor{Fisher2019} & Adversarially trained \gls{crmb}
         & Simulation of patient trajectories from their baseline state, disease prediction and risk quantification, missingness.\gls{crmb}.
         &  Binary, ordinal, categorical, and continuous, 3 months intervals.\\
@@ -153,57 +154,57 @@
         \hline
         \quad 2020 & & & \\
         \hline
-        
+        %30
         \citeauthor{walsh2020generating} & Adversarially trained \gls{crmb}
         & Digital twins, disease prediction and risk quantification, missingness.   \gls{crmb}.
         & Binary, ordinal, categorical, and continuous, 3 months intervals.\\
-        
+        %31
         \citeauthor{Yale_2020} & \gls{healthgan}
         & Metrics to capture a synthetic dataset’s resemblance, privacy, utility and footprint. Evaluating applications. Application case studies, Reproducibility of studies with \gls{sd}.  \gls{nnaa}, \gls{pl}, \gls{do}, \gls{medgan}, \gls{wgan-gp}, \gls{sdv}, 
         & Real-valued and categorical. Demographics, vital signs, diagnoses, and procedures.\\
-        
+        %32
         \citeauthor{tanti2019} & \gls{dp-auto-gan}
         & Privacy, \gls{medgan} adaptation, evaluation metrics.  \gls{dp-sgd} \gls{ae} \gls{medgan} \gls{rdp}
         & Medical data: binary. Non-health data: categorical and real-valued.\\
-        
+        %33
         \citeauthor{BaeAnomiGAN2020} & \gls{anomigan}
         & Probabilistic scheme that ensures \textit{indistinguishability} of the \gls{sd} can be viewed as encrypted.  \gls{dp} \gls{cnn}
         & Binary occurences of medical codes.\\
-        
+        %34
         \citeauthor{cui2019conan} & \gls{conan}
         & Complementary \gls{gan} in a rare disease predictor model that generates positive samples from negatives to alleviate class imbalance.
         & Embedding vectors representing multiple patient visits and conditions.\\
-        
+        %35
         \citeauthor{zhu_2020} & \gls{glugan}
         & Adversarialy trained \gls{rnn} to predict the upcoming time-step in physiological time-series conditioned on the past observations.  \gls{rnn}, \gls{cnn}, \gls{gru}.
         & \Gls{rvts} of blood glucose measurements, discrete patient submitted features.\\
-        
+        %36
         \citeauthor{chen2019ganleaks} & \gls{medgan}, \gls{wgan-gp}, DC-GAN
         & Privacy analysis of generative models.   \gls{mi}, \gls{fullbba}, \gls{partbba}, \gls{wba}, \gls{dp-sgd}.
         & Binary vector of medical codes.\\
-        
+        %37
         \citeauthor{chincheong2020generation} & \gls{wgan-dp}
         & Heterogeneous data, effect of differential privacy on utility.   \gls{wgan} \gls{dp}
         & Categorical, continuous,  ordinal, and binary. Dense or sparse.\\
-        
+        %38
         \citeauthor{Camino2020bench} & - & Initially a comparison \glspl{gan} and \glspl{vae}, but they choose instead to bring attention to the problem of benchmarking. Analysis of problematic,  requirements and suggestions. \gls{gain}, \gls{hexagan} \cite{hwang2019exagan}, \gls{miwae} \cite{mattei2019miwae}, \gls{hi-vae}\cite{nazabal2020handling}, \gls{mida} \cite{Gondara2017} & Real-valued and categorical.\\
-        
+        %39
         \citeauthor{Zhang2020} & \gls{emr-wgan}
         & Improving training, evaluation metrics, sparsity.  \gls{wgan},\gls{bn},\gls{ln}, \gls{cgan}.
         & Binary occurences of medical codes. Low-prevalence of codes. \\
-        
+        %40
         \citeauthor{yan2020generating} & \gls{heterogan}
         & Improvements on \gls{emr-wgan} incorporating record-level constraints in the loss function.   \gls{wgan}, \gls{bn}, \gls{ln}, \gls{cgan}, \gls{mi}, \gls{pda}.
         & Binary, categorical and real-valued.\\
-        
+        %41
         \citeauthor{ozyigit2020generation} & \gls{rsdgm}
         & Exploring the feasibility of various methods to generate synthetic datasets.   \gls{wgan}
         & Real-valued and categorical.\\
-        
+        %42
         \citeauthor{Yoon2020-anon} & \gls{ads-gan}
         & Identifiability view of privacy. Generator conditioned on real samples inputs with an identifiability loss to satisfy the identifiability constraint.   \gls{wgan} \gls{wgan-gp} \gls{dp} alternative.
         & Real-valued and binary.\\
-        
+        %43
         \citeauthor{Goncalves2020} & \gls{mc-medgan}
         & Comparison of \glspl{gan} with statistical models to generate synthetic data, evaluation metrics.   \gls{mi}, \gls{ad}.
         & Categorical and real-valued.\\
