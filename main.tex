@@ -85,22 +85,31 @@
 \providecommand\citealt{\cite}
 \renewcommand\cite{\citep}
 
-\newglossary[odg]{oalgo}{old}{odn}{OHD-GAN Acronyms}
+\newglossary[odg]{oalgo}{old}{odn}{\gls{ohd}-GAN Acronyms}
 \setabbreviationstyle[acronym]{long-short}
 \glsxtraddallcrossrefs
 \makeglossaries
-\input{glossary_definitions}
+\include{glossary_definitions}
 
 % Document header
 \title{ Synthetic Observational Health Data with GANs: from slow adoption to a boom in medical research and ultimately digital twins?}
 \author{
-  Georges-Filteau, Jeremy \href{https://orcid.org/0000-0002-0352-6468}{\includegraphics[width=10pt]{assets/orcid.png}}\\[0.2cm]
-  \small \textit{Radboud University, The Hyve}\\
-  \small\texttt{jeremy@thehyve.nl}
+    Georges-Filteau, Jeremy \href{https://orcid.org/0000-0002-0352-6468}{\includegraphics[width=10pt]{assets/orcid.png}}\\[0.2cm]
+    \small \textit{Radboud University, The Hyve}\\
+    \small\texttt{jeremy@thehyve.nl}
+\and
+    Leonard Wee \href{https://orcid.org/0000-0003-1612-9055}{\includegraphics[width=10pt]{assets/orcid.png}}\\[0.2cm]
+    \small \textit{Maastricht Universitair Medisch Centrum}\\
+    \small\texttt{leonard.wee@maastro.nl}
+ \and
+    Dekker, Andre \href{https://http://orcid.org/0000-0002-0422-7996}{\includegraphics[width=10pt]{assets/orcid.png}}\\[0.2cm]
+    \small \textit{Maastricht Universitair Medisch Centrum,}\\
+    \small \textit{ Maastricht University, MAASTRO Clinic}\\
+    \small \texttt{andre.dekker@maastro.nl}
   \and
-  Cirillo, Elisa \href{https://orcid.org/0000-0002-0241-7833}{\includegraphics[width=10pt]{assets/orcid.png}}\\[0.2cm]
-  \small \textit{The Hyve}\\
-  \small\texttt{elisa@thehyve.nl}
+    Cirillo, Elisa \href{https://orcid.org/0000-0002-0241-7833}{\includegraphics[width=10pt]{assets/orcid.png}}\\[0.2cm]
+    \small \textit{The Hyve}\\
+    \small \texttt{elisa@thehyve.nl}
 }
 
 \begin{document}
@@ -118,17 +127,19 @@
 
     \glsresetall
     \begin{abstract}
-    After being collected for patient care, \gls{ohd} can further benefit patient well-being by sustaining the development of health informatics and medical research. Vast potential is unexploited because of the fiercely private nature of patient-related data and regulation about its distribution. 
-    \glspl{gan} have recently emerged as a groundbreaking approach to learn generative models efficiently that produce realistic \gls{sd}. They have revolutionized practices in multiple domains such as self-driving cars, fraud detection, simulations in the and marketing industrial sectors known as digital twins, and medical imaging. The digital twin concept could readily apply to modelling and quantifying disease progression. In addition, \glspl{gan} posses a multitude of capabilities relevant to common problems in the healthcare: augmenting small dataset, correcting class imbalance, domain translation for rare diseases, let alone preserving privacy. Unlocking open access to privacy-preserving \gls{ohd} could be transformative for scientific research. In the COVID-19's midst, the healthcare system is facing unprecedented challenges, many of which of are data related and could be alleviated by the capabilities of \glspl{gan}.
-   Considering these facts, publications concerning the development of  \gls{gan} applied to \gls{ohd} seemed to be severely lacking. To uncover the reasons for the slow adoption of \glspl{gan} for \gls{ohd}, we broadly reviewed the published literature on the subject. Our findings show that the properties of \gls{ohd} and evaluating the \gls{sd} were initially challenging for the existing \gls{gan} algorithms (unlike medical imaging, for which state-of-the-art model were directly transferable) and the choice of metrics ambiguous. We find many publications on the subject, starting slowly in 2017 and since then being published at an increasing rate. The difficulties of \gls{ohd} remain, and we discuss issues relating to evaluation, consistency, benchmarking, data modeling, and reproducibility.
+    After being collected for patient care, \gls{ohd} can further benefit patient well-being by sustaining the development of \gls{hi} and medical research.A vast potential is unexploited because of the private nature of patient-related data and regulations to protect it.\\
+    \glspl{gan} have recently emerged as a groundbreaking way to train generative models that produce realistic synthetic data. They have revolutionized practices in multiple domains such as self-driving cars, fraud detection, digital twin simulations in industrial sectors, and in medical imaging.\\
+    The digital twin concept could readily apply to modelling and quantifying disease progression. In addition, \glspl{gan} poses many capabilities relevant to common problems in healthcare: lack of data, class imbalance, rare diseases, and preserving privacy. Unlocking open access to privacy-preserving \gls{ohd} could be transformative for scientific research. In the midst of COVID-19, the healthcare system is facing unprecedented challenges, many of which of are data related for the reasons stated above.\\
+    Considering these facts, publications concerning GAN applied to \gls{ohd} seemed to be severely lacking. To uncover the reasons for this slow adoption, we broadly reviewed the published literature on the subject. Our findings show that the properties of \gls{ohd} were initially challenging for the existing \gls{gan} algorithms (unlike medical imaging, for which state-of-the-art model were directly transferable) and the evaluation synthetic data lacked clear metrics.\\
+    We find more publications on the subject than expected, starting slowly in 2017, and since then at an increasing rate. The difficulties of \gls{ohd} remain, and we discuss issues relating to evaluation, consistency, benchmarking, data modelling, and reproducibility. 
     \end{abstract} 
 
-    \input{1-introduction}
-    \input{2-methods}
-    \input{3-results}
-    \input{4-discussion}
-    \input{5-sourcecode}
-    \input{6-conclusion}
+    \include{1-introduction}
+    \include{2-methods}
+    \include{3-results}
+    \include{4-discussion}
+    \include{5-sourcecode}
+    \include{6-conclusion}
 
     \pagebreak
 
@@ -140,3 +151,6 @@
     \bibliography{biblio}
 
 \end{document}
+
+
+
